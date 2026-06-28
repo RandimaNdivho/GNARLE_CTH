@@ -1,0 +1,103 @@
+/* --- THE DROP OUTPOST / CHECKOUT TERMINAL --- */
+
+.checkout {
+  max-width: 600px;
+  margin: 6rem auto;
+  color: #ffffff;
+  padding: 0 2rem;
+}
+
+.checkout h1 {
+  text-align: left; /* Kept left-aligned to lock with the lookbook aesthetic */
+  font-family: 'Syncopate', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 3rem;
+  text-shadow: none;
+}
+
+/* Strategic category header */
+.checkout h1::before {
+  content: "SHIPPING & DISPATCH / DATA-ENTRY";
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #d4af37; /* Gold priority flag */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Increased spacing to give text fields breathing room */
+}
+
+/* Luxury Streetwear Form Inputs */
+#checkout-form input {
+  padding: 1.25rem 1.5rem;
+  background: #0b0b0b; /* Deep dark void gray */
+  border: 1px solid #1a1a1a; /* Clean muted border default */
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border-radius: 0px; /* Absolutely zero rounding */
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* The Interactive Glow Shift */
+#checkout-form input:hover {
+  border-color: #ff0000; /* High-voltage Red frame on hover */
+}
+
+#checkout-form input:focus {
+  border-color: #00bfff; /* Loud Sky Blue takes over when typing */
+  background: #000000;
+  outline: none; /* Kills browser default blue border ring */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.15); /* Sleek digital overlay shadow */
+}
+
+/* Styling for HTML placeholders inside the fields */
+#checkout-form input::placeholder {
+  color: #444444;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+}
+
+/* High-Impact Complete Order Action Button */
+#checkout-form .btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ffffff; /* Contrast white base button */
+  color: #000000;
+  padding: 1.25rem;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+  cursor: pointer;
+  box-shadow: none;
+  margin-top: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#checkout-form .btn:hover {
+  background: #ff0000; /* Turns high-voltage Red when confirming purchase */
+  color: #ffffff;
+  border-color: #ff0000;
+  transform: translateY(-3px);
+}
+
+#checkout-form .btn:active {
+  transform: translateY(-1px);
+}
+
+.hidden {
+  display: none !important;
+}

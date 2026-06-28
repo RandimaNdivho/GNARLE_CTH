@@ -1,0 +1,104 @@
+/* --- TACTICAL OVERLAY MOBILE MENU --- */
+
+/* Hamburger icon button */
+#hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem; /* Marginally scaled down for sharp proportion */
+  letter-spacing: 1px;
+  color: #ff0000; /* High-voltage Red */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#hamburger:hover {
+  color: #00bfff; /* Loud Sky Blue on interactive touch/hover */
+}
+
+/* Mobile responsive breakpoints */
+@media (max-width: 768px) {
+  
+  /* Precision alignment on mobile header bounds */
+  #hamburger {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 2000; /* Keeps button accessible over screen masks */
+  }
+
+  /* Full Screen Dropdown Manifest Overlay */
+  #mainNav ul {
+    display: none;
+    flex-direction: column;
+    justify-content: center; /* Vertically center links like a premium lookbook app */
+    background-color: #000000; /* Deep absolute luxury black */
+    
+    /* Subtle industrial blueprint lines on mobile screens */
+    background-image: 
+      linear-gradient(rgba(26, 26, 26, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 26, 26, 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+
+    position: fixed; /* Fixed viewport overlay prevents background layout scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 3rem;
+    box-sizing: border-box;
+    
+    border-bottom: 4px solid #ff0000; /* Loud structural bottom line anchor */
+    z-index: 1999;
+    animation: menuFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Structural slide / pop animation */
+  @keyframes menuFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Script activation trigger class */
+  #mainNav ul.hamreveal {
+    display: flex;
+  }
+
+  /* Mobile Dropdown List Spacing */
+  #mainNav ul li {
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Expanded Asymmetric Navigation Links */
+  #mainNav ul li a {
+    display: inline-block;
+    color: #ffffff; /* Default clean luxury white */
+    background-color: transparent; /* Ditched muddy black brick wraps */
+    font-family: 'Syncopate', sans-serif; /* Loud, expansive typeface layout */
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    width: auto;
+    transition: all 0.2s ease;
+  }
+
+  /* Interaction feedback for mobile touch taps */
+  #mainNav ul li a:hover,
+  #mainNav ul li a:active {
+    color: #00bfff; /* Pops sky blue upon interaction selection */
+    text-shadow: 3px 3px 0px #ff0000; /* Brutalist sharp offset graphic drop shadow */
+  }
+
+  /* Retain gold indicator tag for active page visibility inside mobile panel */
+  #mainNav ul li a.active {
+    color: #d4af37; /* Metallic Gold priority marker */
+  }
+}

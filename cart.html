@@ -1,0 +1,63 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - GNARLIE S1</title>
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/cart.css">
+</head>
+<body>
+  <header>
+    <div class="logo">GNARLIE S1</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html" class="active">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart">
+    <h1>Your Cart</h1>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Items injected by JS -->
+      </tbody>
+    </table>
+    <div class="cart-summary">
+      <h2>Cart Total: <span id="cart-total">R0</span></h2>
+      <button class="btn checkout">Checkout</button>
+    </div>
+  </section>
+
+  <!-- WhatsApp Integration -->
+  <div class="whatsapp-chat">
+    <a href="https://wa.me/0660460301" target="_blank">
+      <img src="assets/GNARLIE S1 LOGO.jpg" alt="Chat on WhatsApp">
+      Chat with us
+    </a>
+  </div>
+
+<footer class="footer-deco">
+     <h3>More to Explore</h3>
+      <ul>
+        <li><a href="season2.html">Season 2</a></li>
+        <li><a href="about.html">About</a></li>
+    <p>&copy; 2026 GNARLIE. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

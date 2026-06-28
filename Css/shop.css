@@ -1,0 +1,78 @@
+/* --- PRODUCT GRID & LUXURY STREETWEAR POSTCARDS --- */
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem; /* Slightly wider gap for breathing room/expensive feel */
+  margin: 5rem auto;
+  padding: 0 2rem;
+  max-width: 1400px;
+}
+
+.postcard {
+  background: #0b0b0b; /* Ultra-dark charcoal instead of muddy #111 */
+  border: 1px solid #1a1a1a; /* Sharp, subtle border instead of thick red */
+  padding: 1.5rem;
+  width: 300px; /* Marginally wider for better image framing */
+  text-align: left; /* Left-aligned text screams high-fashion editorial */
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Luxury Interaction Effect */
+.postcard:hover {
+  transform: translateY(-8px); /* Classy lift instead of standard scale */
+  border-color: #ff0000; /* High-voltage Red hits on hover */
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1); /* Subtle, premium red floor underglow */
+}
+
+.postcard img {
+  width: 100%;
+  height: auto;
+  background: #111111;
+  border-bottom: 1px solid #1a1a1a;
+  margin-bottom: 1.5rem;
+  filter: grayscale(10%) contrast(105%); /* Gives product photos a moody style */
+  transition: filter 0.3s ease;
+}
+
+.postcard:hover img {
+  filter: grayscale(0%) contrast(100%); /* Pops full color on hover */
+}
+
+/* Premium Detail: Gold tag injected right above the product title */
+.postcard .info::before {
+  content: "LIMITED DROP";
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #d4af37; /* Metallic Gold accent */
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.info h3 {
+  font-family: 'Syncopate', sans-serif; /* Loud, wide streetwear font */
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  text-shadow: none; /* Stripped the blurry glow for crisp luxury clarity */
+  line-height: 1.2;
+}
+
+.info .price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00bfff; /* Loud Sky Blue for the price anchor */
+  margin-top: 1rem;
+  margin-bottom: 0;
+  text-shadow: none; /* Kept clean and high-contrast */
+}
+
+/* Optional: Add an "In Stock" or "Sold Out" absolute element if you want later */

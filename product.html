@@ -1,0 +1,75 @@
+<!-- product.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNARLIE Products</title>
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/product.css">
+</head>
+<body>
+  <header>
+    <div class="logo">GNARLIE S1</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Product 1 -->
+  <section class="product-detail">
+    <div class="product-image">
+      <img src="assets/GNARLIE GRAPHIC TEE S1.jpg" alt="GNARLIE Signature Tee">
+    </div>
+    <div class="info">
+      <h1>GNARLIE Signature Tee</h1>
+      <p>Heavy graffiti textures. Ceremony front & aggression back.</p>
+      <p class="price">R350</p>
+      <label for="size1">Choose Size:</label>
+      <select id="size1">
+        <option>S</option><option>M</option><option>L</option>
+      </select>
+      <button class="btn add-to-cart" data-product="GNARLIE Signature Tee" data-price="350" data-size="size1">Add to Cart</button>
+      <a href="cart.html" class="view-cart-link hidden">View Cart</a>
+    </div>
+  </section>
+
+  <!-- Product 2 -->
+  <section class="product-detail">
+    <div class="product-image">
+      <img src="assets/GNARLIE CROPPED TEE S1.jpg" alt="GNARLIE Cropped Tee">
+    </div>
+    <div class="info">
+      <h1>GNARLIE Cropped Tee</h1>
+      <p>Bold cropped fit. Ceremony front & aggression back.</p>
+      <p class="price">R300</p>
+      <label for="size2">Choose Size:</label>
+      <select id="size2">
+        <option>S</option><option>M</option>
+      </select>
+      <button class="btn add-to-cart" data-product="GNARLIE Cropped Tee" data-price="300" data-size="size2">Add to Cart</button>
+      <a href="cart.html" class="view-cart-link hidden">View Cart</a>
+    </div>
+  </section>
+
+  <!-- WhatsApp Integration -->
+  <div class="whatsapp-chat">
+    <a href="https://wa.me/0660460301" target="_blank">
+      <img src="assets/GNARLIE S1 LOGO.jpg" alt="Chat on WhatsApp">
+      Chat with us
+    </a>
+  </div>
+
+  <footer class="footer-deco">
+     <h3>More to Explore</h3>
+      <ul>
+        <li><a href="season2.html">Season 2</a></li>
+        <li><a href="about.html">About</a></li>
+    <p>&copy; 2026 GNARLIE. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

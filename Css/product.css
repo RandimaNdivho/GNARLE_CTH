@@ -1,0 +1,200 @@
+/* --- PRODUCT DETAIL: THE EXCLUSIVE DROP LAYOUT --- */
+
+.product-detail {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem; /* Massive structural gap for a lookbook feel */
+  margin: 6rem auto;
+  max-width: 1200px;
+  color: #ffffff;
+  padding: 0 2rem 4rem 2rem;
+  border-bottom: 1px dashed #1a1a1a; /* Clean industrial line instead of bright red */
+}
+
+/* Product Image Frame */
+.product-image img {
+  width: 450px; /* Made the focal point much bigger and bolder */
+  height: auto;
+  border: 1px solid #1a1a1a;
+  background: #0b0b0b;
+  padding: 1rem;
+  transition: border-color 0.4s ease;
+}
+
+.product-detail:hover .product-image img {
+  border-color: #ff0000; /* Subtle high-voltage red border when interacting with page */
+}
+
+/* Typography Overhaul */
+.info h1 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-shadow: none;
+}
+
+/* Premium indicator above title */
+.info h1::before {
+  content: "DROP OVERVIEW / SPEC-01";
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: #d4af37; /* Metallic gold classification */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.info .price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 1.5rem 0;
+  text-shadow: none;
+}
+
+/* Industrial Select/Size Dropdown */
+select {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff; /* Sharp white border */
+  border-radius: 0px; /* Absolutely squared off */
+  cursor: pointer;
+  appearance: none; /* Strips browser default styling */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  transition: all 0.2s ease;
+}
+
+select:hover, select:focus {
+  border-color: #00bfff; /* Loud Sky Blue on focus */
+  outline: none;
+}
+
+/* Heavy Tactical Action Buttons */
+.add-to-cart {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 1.25rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ff0000; /* Striking Red primary action */
+  color: #ffffff;
+  border: 1px solid #ff0000;
+  border-radius: 0px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.add-to-cart:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-3px); /* Sophisticated upward push */
+}
+
+.add-to-cart:active {
+  transform: translateY(-1px);
+}
+
+.view-cart-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #00bfff; /* Loud Sky Blue secondary link */
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.view-cart-link:hover {
+  border-color: #00bfff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- THE FLOATING TACTICAL MINI-CART --- */
+
+.mini-cart {
+  position: absolute;
+  top: 80px;
+  right: 3rem;
+  background: #0b0b0b;
+  border: 1px solid #1a1a1a;
+  padding: 2rem;
+  width: 280px;
+  border-radius: 0px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  color: #ffffff;
+  z-index: 1000;
+}
+
+/* Gold identification subheader inside cart */
+.mini-cart::before {
+  content: "SECURE CHECKOUT TERMINAL";
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #d4af37;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mini-cart p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  margin: 0 0 1.5rem 0;
+  color: #888888;
+}
+
+/* Redesigned Mini-Cart Button to match lookbook style */
+.mini-cart .btn {
+  display: block;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: #ffffff;
+  color: #000000;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+.mini-cart .btn:hover {
+  background: #ff0000;
+  color: #ffffff;
+}

@@ -1,0 +1,334 @@
+/* css/style.css */
+
+/* Import a heavy, high-end streetwear font */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+
+  /* 
+    STREETWEAR BACKGROUND OVERLAY: 
+  */
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.98)), 
+    url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: #000000;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.logo {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* Sky Blue accent on the last letter or custom span for that "loud" pop */
+.logo ::selection {
+  background: #00bfff; 
+  color: #000;
+}
+
+/* Navigation links */
+nav a {
+  margin: 0 1.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #00bfff; /* Loud Sky Blue */
+}
+
+/* Active/selected link - Premium Gold touch */
+nav a.active {
+  color: #d4af37; /* Metallic Gold */
+}
+
+/* Clean, razor-sharp underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background: #ff0000; /* High-voltage Red */
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Premium Streetwear Button */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  background: #ffffff; /* Stark white button */
+  border: 1px solid #ffffff;
+  border-radius: 0px; /* Sharp corners = more expensive look */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #00bfff; /* Sky Blue hover border */
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 10rem 2rem; 
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center/cover;
+  color: #ffffff;
+  border-bottom: 4px solid #ff0000; /* Heavy red border line */
+}
+
+.hero h1 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  /* Dropped the blurry glow for a crisp, high-end editorial shadow */
+  text-shadow: 4px 4px 0px #ff0000; 
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #00bfff; /* Loud Sky blue subtext */
+  margin-bottom: 2.5rem;
+}
+
+.hero .btn {
+  background: #ff0000; /* Red loud button for the hero */
+  color: #ffffff;
+  border: 1px solid #ff0000;
+}
+
+.hero .btn:hover {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+/* CTA Card - Made it look like a limited drop box */
+.cta-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111111;
+  padding: 3rem;
+  margin: 4rem auto;
+  max-width: 900px;
+  border: 1px solid #d4af37; /* Clean Gold Border */
+  position: relative;
+}
+
+.cta-card img {
+  width: 220px;
+  filter: grayscale(20%);
+  border: 1px solid #222;
+}
+
+.cta-info {
+  max-width: 400px;
+  margin-left: 3rem;
+}
+
+.cta-info h2 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-info .price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00bfff; /* Sky blue pricing stands out heavy */
+  margin: 1rem 0;
+}
+
+/* Product Section */
+.product-postcards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.postcard {
+  background: #0b0b0b;
+  border: 1px solid #222;
+  padding: 1.5rem;
+  width: 300px;
+  text-align: left; /* Left-aligned text feels more high-fashion */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.postcard:hover {
+  border-color: #ff0000;
+  transform: translateY(-5px);
+}
+
+.postcard img {
+  width: 100%;
+  background: #111;
+  margin-bottom: 1.5rem;
+}
+
+.info h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.info .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Luxury Detail: Gold tag on items */
+.postcard .info::before {
+  content: "LIMITED DROP";
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: #d4af37;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* WhatsApp Floating Action */
+.whatsapp-chat {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 0px; /* Squared off */
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-chat:hover {
+  transform: scale(1.05);
+  background: #00bfff;
+  border-color: #00bfff;
+}
+
+.whatsapp-chat:hover a {
+  color: #ffffff;
+}
+
+.whatsapp-chat img {
+  width: 20px;
+  margin-right: 10px;
+  filter: invert(1); /* Inverts icon to match luxury monochrome look */
+}
+
+.whatsapp-chat a {
+  color: #000000;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Footer Decor */
+.footer-deco {
+  background: #000000;
+  color: #666666;
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-top: 1px solid #1a1a1a;
+}
+
+/* Animated subtle luxury top border */
+.footer-deco::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff0000, #00bfff, #d4af37);
+  animation: glowline 6s linear infinite;
+}
+
+@keyframes glowline {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.footer-deco a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.footer-deco a:hover {
+  color: #00bfff;
+}
+
+/* Utility Lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #888888;
+}
