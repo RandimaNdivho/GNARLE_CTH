@@ -4,65 +4,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GNARLIE S1 Shop</title>
+  <title>GNARLIE.CTH -  YOUR SHOP CATALOG</title>
   <link rel="stylesheet" href="Css/style.css">
   <link rel="stylesheet" href="Css/shop.css">
+  <link rel="stylesheet" href="Css/responsive.css">
 </head>
 <body>
-  <header>
-    <div class="logo">GNARLIE S1</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="cart.html">Cart</a>
+
+  <!-- TOP SHORTCUT DROP BAR (Persistent experience anchor mirroring image_09415d.jpg) -->
+  <div class="drop-shortcut-bar">
+    <div class="shortcut-label">CATALOG_INDEX //</div>
+    <div class="shortcut-scroll-container">
+      <a href="#item-01" class="shortcut-item"><span>S1_TEE_01</span></a>
+      <a href="#item-02" class="shortcut-item"><span>S1_CROP_02</span></a>
+      <a href="#item-03" class="shortcut-item"><span>S2_MEN_03</span></a>
+      <a href="#item-04" class="shortcut-item"><span>S2_FEM_04</span></a>
+      <a href="#item-05" class="shortcut-item"><span>S1_HD_05</span></a>
+      <a href="#item-06" class="shortcut-item"><span>S1_HD_06</span></a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="hub-header">
+    <div class="logo">GNARLIE.CTH</div>
+    <nav id="mainNav">
+      <a href="index.html">/ Home</a>
+      <a href="shop.html" class="active">/ Shop</a>
+      <a href="cart.html">/ Cart</a>
     </nav>
   </header>
 
-  <!-- Banner -->
-  <section class="hero">
-  <h1>GNARLIE S1 DROP</h1>
-  <p>Raw. Bold. Graffiti-inspired streetwear.</p>
-  <a href="shop.html" class="btn">Shop Now</a>
-</section>
-
-<!-- Product Postcards -->
-<section class="product-postcards">
-  <div class="postcard">
-    <img src="assets/GNARLIE GRAPHIC TEE S1.jpg" alt="GNARLIE Graphic Tee">
-    <div class="info">
-      <h3>GNARLIE Signature Tee</h3>
-      <p>Ceremony Front / Aggression Back</p>
-      <p class="price">R...</p>
-      <a href="product.html" class="btn">Add to Cart</a>
+  <!-- BANNER ARCHIVE TERMINAL -->
+  <section class="shop-hero-banner">
+    <div class="banner-overlay">
+      <span class="status-indicator">SYSTEM: OPEN ALLOCATION</span>
+      <h1>S1_ACQUISITION</h1>
+      <p>Raw structural canvases. Heavy graphic posture.</p>
     </div>
-  </div>
+  </section>
 
-  <div class="postcard">
-    <img src="assets/GNARLIE CROPPED TEE S1.jpg" alt="GNARLIE Cropped Tee">
-    <div class="info">
-      <h3>GNARLIE Cropped Tee</h3>
-      <p>Graffiti textures. Heavy statement.</p>
-      <p class="price">R...</p>
-      <a href="product.html" class="btn">Add to Cart</a>
-    </div>
-  </div>
-</section>
+  <!-- THE FULL PRODUCT DISTRIBUTION GRID -->
+  <main class="shop-container">
+    <section class="product-postcards">
+      
+      <!-- ITEM-01 -->
+      <div class="postcard" id="item-01" data-serial="GN-S1-01">
+        <div class="img-container">
+          <img src="assets/GNARLIE GRAPHIC TEE S1.jpg" alt="GNARLIE Graphic Tee">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Signature Tee</h3>
+          <p class="description">Ceremony Front / Aggression Back</p>
+          <p class="price">R350</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
 
+      <!-- ITEM-02 -->
+      <div class="postcard" id="item-02" data-serial="GN-S1-02">
+        <div class="img-container">
+          <img src="assets/GNARLIE CROPPED TEE S1.jpg" alt="GNARLIE Cropped Tee">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Cropped Tee</h3>
+          <p class="description">Graffiti textures. Heavy statement.</p>
+          <p class="price">R300</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
 
-  <!-- WhatsApp Integration -->
+      <!-- ITEM-03 -->
+      <div class="postcard" id="item-03" data-serial="GN-S1-03">
+        <div class="img-container">
+          <img src="assets/Men TEE S2.png" alt="MEN Cropped Tee">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Men Tee S2</h3>
+          <p class="description">Graffiti textures. Heavy statement.</p>
+          <p class="price">R350</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- ITEM-04 -->
+      <div class="postcard" id="item-04" data-serial="GN-S1-04">
+        <div class="img-container">
+          <img src="assets/Female Cropped Tee S2.png" alt="FEMALE Cropped Tee">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Female Crop</h3>
+          <p class="description">Graffiti textures. Heavy statement.</p>
+          <p class="price">R300</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- ITEM-05 -->
+      <div class="postcard" id="item-05" data-serial="GN-S1-05">
+        <div class="img-container">
+          <img src="assets/Men Cropped Hoodie.png" alt="Men Cropped Hoodie">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Cropped Hoodie</h3>
+          <p class="description">Graffiti textures. Heavy statement.</p>
+          <p class="price">R1300</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+      <!-- ITEM-06 -->
+      <div class="postcard" id="item-06" data-serial="GN-S1-06">
+        <div class="img-container">
+          <img src="assets/WOMEN RIBBON HOODIE.jpg" alt="Women Cropped Hoodie">
+        </div>
+        <div class="info">
+          <h3>GNARLIE Heavy Hoodie</h3>
+          <p class="description">Graffiti textures. Heavy statement.</p>
+          <p class="price">R1300</p>
+          <a href="product.html" class="btn">Add to Cart</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- THE "MORE" EXTENSION GRID SECTION (Clean Dashboard Utility Elements) -->
+    <section class="more-extension-hub">
+      <div class="more-grid-tab">
+        <h4>[01] SYSTEM_SPECS</h4>
+        <p>All items cut from raw, dense premium custom blanks. Preshrunk to retain brutal asymmetry across excessive street use.</p>
+      </div>
+      <div class="more-grid-tab">
+        <h4>[02] LOGISTICS</h4>
+        <p>Regional South African drops dispatch via express courier networks within 48 business hours of receipt confirmation parameters.</p>
+      </div>
+      <div class="more-grid-tab">
+        <h4>[03] ENCRYPTED_RETURNS</h4>
+        <p>Defective assets or allocation size mismatches can be flagged through the secure comms uplink within 7 days of shipment validation.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING SYSTEM COMMS HUB -->
   <div class="whatsapp-chat">
-    <a href="https://wa.me/0660460301" target="_blank">
-      <img src="assets/GNARLIE S1 LOGO.jpg" alt="Chat on WhatsApp">
-      Chat with us
+    <a href="https://wa.me/0660460301" target="_blank" rel="noopener">
+      <img src="assets/GNARLIE S1 LOGO.jpg" alt="Secure Comms Link">
+      <span>Chat with us</span>
     </a>
   </div>
 
+  <!-- INDUSTRIAL FOOTER -->
   <footer class="footer-deco">
-     <h3>More to Explore</h3>
-      <ul>
-        <li><a href="season2.html">Season 2</a></li>
-        <li><a href="about.html">About</a></li>
-    <p>&copy; 2026 GNARLIE. All rights reserved.</p>
+    <h3>More to Explore</h3>
+    <ul>
+      <li><a href="season2.html">Season 2 Drop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
   </footer>
 
 </body>

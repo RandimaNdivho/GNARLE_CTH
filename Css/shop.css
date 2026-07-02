@@ -1,78 +1,173 @@
-/* --- PRODUCT GRID & LUXURY STREETWEAR POSTCARDS --- */
 
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem; /* Slightly wider gap for breathing room/expensive feel */
-  margin: 5rem auto;
-  padding: 0 2rem;
+.product-postcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem; /* Persistent expensive-feeling breathing room */
+  margin: 4rem auto;
+  padding: 0 3rem;
   max-width: 1400px;
 }
 
 .postcard {
-  background: #0b0b0b; /* Ultra-dark charcoal instead of muddy #111 */
-  border: 1px solid #1a1a1a; /* Sharp, subtle border instead of thick red */
+  background: #0b0b0b; /* Ultra-dark charcoal matrix */
+  border: 1px solid #1a1a1a; /* Sharp, clean structural perimeter */
   padding: 1.5rem;
-  width: 300px; /* Marginally wider for better image framing */
-  text-align: left; /* Left-aligned text screams high-fashion editorial */
+  text-align: left; /* Left-aligned high-fashion editorial layout */
   position: relative;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Luxury Interaction Effect */
+/* Luxury Interaction Mechanics */
 .postcard:hover {
-  transform: translateY(-8px); /* Classy lift instead of standard scale */
-  border-color: #ff0000; /* High-voltage Red hits on hover */
-  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1); /* Subtle, premium red floor underglow */
+  transform: translateY(-8px); /* Classy vertical lift anchor */
+  border-color: #ff0000; /* High-voltage Red perimeter activation */
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1); /* Red baseline floor underglow */
+}
+
+/* Anchor points for smooth page scrolling from the top bar links */
+.postcard[id] {
+  scroll-margin-top: 120px;
+}
+
+/* Image containment box ensuring perfect grid alignment even with mixed image dimensions */
+.postcard .img-container {
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  background: #111111;
+  border-bottom: 1px solid #1a1a1a;
+  margin-bottom: 1.5rem;
 }
 
 .postcard img {
   width: 100%;
-  height: auto;
-  background: #111111;
-  border-bottom: 1px solid #1a1a1a;
-  margin-bottom: 1.5rem;
-  filter: grayscale(10%) contrast(105%); /* Gives product photos a moody style */
-  transition: filter 0.3s ease;
+  height: 100%;
+  object-fit: cover; /* Cropped perfectly across all aspect ratios */
+  filter: grayscale(10%) contrast(105%); /* Dark, moody editorial overlay */
+  transition: filter 0.3s ease, transform 0.4s ease;
 }
 
 .postcard:hover img {
-  filter: grayscale(0%) contrast(100%); /* Pops full color on hover */
+  filter: grayscale(0%) contrast(100%); /* Full physical presentation on hover */
+  transform: scale(1.02);
 }
 
-/* Premium Detail: Gold tag injected right above the product title */
+/* Dynamic attribute label injection via CSS */
+.postcard::before {
+  content: attr(data-serial);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #555555;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Premium Detail: Metallic Gold tag badge drop */
 .postcard .info::before {
   content: "LIMITED DROP";
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #d4af37; /* Metallic Gold accent */
+  color: #d4af37; 
   display: block;
   margin-bottom: 0.5rem;
 }
 
 .info h3 {
-  font-family: 'Syncopate', sans-serif; /* Loud, wide streetwear font */
+  font-family: 'Syncopate', sans-serif; /* Loud expansive streetwear typeface */
   font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.5px;
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.5rem 0;
   color: #ffffff;
-  text-shadow: none; /* Stripped the blurry glow for crisp luxury clarity */
   line-height: 1.2;
+}
+
+.info .description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #777777;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
 }
 
 .info .price {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #00bfff; /* Loud Sky Blue for the price anchor */
-  margin-top: 1rem;
-  margin-bottom: 0;
-  text-shadow: none; /* Kept clean and high-contrast */
+  color: #00bfff; /* Loud Sky Blue billing identifier */
+  margin: 1rem 0;
 }
 
-/* Optional: Add an "In Stock" or "Sold Out" absolute element if you want later */
+/* Call To Action layout alignment inside post cards */
+.postcard .btn {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* --- THE "MORE" EXTENSION GRID SECTION --- */
+.more-extension-hub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 6rem auto 2rem auto;
+  padding: 0 3rem;
+  max-width: 1400px;
+}
+
+.more-grid-tab {
+  background: #050505;
+  border-top: 2px solid #222222;
+  padding: 2rem;
+  transition: border-color 0.2s ease;
+}
+
+.more-grid-tab:hover {
+  border-top-color: #00bfff; /* Glow Sky Blue on tab focus */
+}
+
+.more-grid-tab h4 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.more-grid-tab p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- VIEWPORT RESPONSIVITY RULES --- */
+@media (max-width: 1024px) {
+  .more-extension-hub {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-postcards {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+    gap: 1.5rem;
+  }
+  .postcard .img-container {
+    height: 380px; /* Expands visual frame nicely on true layout columns */
+  }
+  .more-extension-hub {
+    padding: 0 1.5rem;
+  }
+}
