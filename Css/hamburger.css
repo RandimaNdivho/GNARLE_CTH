@@ -1,3 +1,5 @@
+/* css/mobile-menu.css */
+
 /* --- TACTICAL OVERLAY MOBILE MENU --- */
 
 /* Hamburger icon button */
@@ -9,13 +11,13 @@
   font-weight: 700;
   font-size: 1.5rem; /* Marginally scaled down for sharp proportion */
   letter-spacing: 1px;
-  color: #ff0000; /* High-voltage Red */
+  color: #d30000; /* High-voltage Red */
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 #hamburger:hover {
-  color: #00bfff; /* Loud Sky Blue on interactive touch/hover */
+  color: #0088cc; /* High-contrast Sky Blue on interactive touch/hover */
 }
 
 /* Mobile responsive breakpoints */
@@ -35,12 +37,12 @@
     display: none;
     flex-direction: column;
     justify-content: center; /* Vertically center links like a premium lookbook app */
-    background-color: #000000; /* Deep absolute luxury black */
+    background-color: #ffffff; /* Stark, clean luxury white */
     
-    /* Subtle industrial blueprint lines on mobile screens */
+    /* Subtle industrial blueprint lines on light screens */
     background-image: 
-      linear-gradient(rgba(26, 26, 26, 0.4) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(26, 26, 26, 0.4) 1px, transparent 1px);
+      linear-gradient(rgba(229, 229, 229, 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(229, 229, 229, 0.6) 1px, transparent 1px);
     background-size: 40px 40px;
 
     position: fixed; /* Fixed viewport overlay prevents background layout scrolling */
@@ -51,7 +53,7 @@
     padding: 3rem;
     box-sizing: border-box;
     
-    border-bottom: 4px solid #ff0000; /* Loud structural bottom line anchor */
+    border-bottom: 4px solid #d30000; /* Loud structural bottom line anchor */
     z-index: 1999;
     animation: menuFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
@@ -77,8 +79,8 @@
   /* Expanded Asymmetric Navigation Links */
   #mainNav ul li a {
     display: inline-block;
-    color: #ffffff; /* Default clean luxury white */
-    background-color: transparent; /* Ditched muddy black brick wraps */
+    color: #111111; /* Dark luxury gray/black for high readability */
+    background-color: transparent;
     font-family: 'Syncopate', sans-serif; /* Loud, expansive typeface layout */
     font-size: 1.8rem;
     font-weight: 700;
@@ -93,12 +95,12 @@
   /* Interaction feedback for mobile touch taps */
   #mainNav ul li a:hover,
   #mainNav ul li a:active {
-    color: #00bfff; /* Pops sky blue upon interaction selection */
-    text-shadow: 3px 3px 0px #ff0000; /* Brutalist sharp offset graphic drop shadow */
+    color: #0088cc; /* Pops sky blue upon interaction selection */
+    text-shadow: 3px 3px 0px rgba(211, 0, 0, 0.25); /* Sharp red offset graphic drop shadow tuned for light mode */
   }
 
   /* Retain gold indicator tag for active page visibility inside mobile panel */
   #mainNav ul li a.active {
-    color: #d4af37; /* Metallic Gold priority marker */
+    color: #b38f24; /* Metallic Gold priority marker */
   }
 }
