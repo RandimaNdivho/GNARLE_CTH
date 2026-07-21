@@ -96,7 +96,7 @@ img, video, iframe {
   .hub-header, header {
     padding: 1.25rem 1.5rem !important;
     position: relative !important;
-    background: #000000 !important;
+    background: #ffffff !important;
   }
 
   .logo {
@@ -124,7 +124,7 @@ img, video, iframe {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    background-color: #000000 !important;
+    background-color: #ffffff!important;
     
     position: fixed !important;
     top: 0 !important;
