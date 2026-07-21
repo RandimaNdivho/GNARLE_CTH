@@ -1,9 +1,11 @@
+/* css/checkout.css */
+
 /* --- THE DROP OUTPOST / CHECKOUT TERMINAL --- */
 
 .checkout {
   max-width: 600px;
   margin: 6rem auto;
-  color: #ffffff;
+  color: #111111;
   padding: 0 2rem;
 }
 
@@ -16,6 +18,7 @@
   letter-spacing: -2px;
   line-height: 1;
   margin-bottom: 3rem;
+  color: #111111;
   text-shadow: none;
 }
 
@@ -25,7 +28,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 3px;
-  color: #d4af37; /* Gold priority flag */
+  color: #b38f24; /* Metallic Gold priority flag tuned for light BG */
   display: block;
   margin-bottom: 1rem;
 }
@@ -39,9 +42,9 @@
 /* Luxury Streetwear Form Inputs */
 #checkout-form input {
   padding: 1.25rem 1.5rem;
-  background: #0b0b0b; /* Deep dark void gray */
-  border: 1px solid #1a1a1a; /* Clean muted border default */
-  color: #ffffff;
+  background: #f9f9f9; /* Soft light neutral base */
+  border: 1px solid #e5e5e5; /* Clean muted border default */
+  color: #111111;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
@@ -51,19 +54,20 @@
 
 /* The Interactive Glow Shift */
 #checkout-form input:hover {
-  border-color: #ff0000; /* High-voltage Red frame on hover */
+  border-color: #d30000; /* High-voltage Red frame on hover */
 }
 
 #checkout-form input:focus {
-  border-color: #00bfff; /* Loud Sky Blue takes over when typing */
-  background: #000000;
+  border-color: #0088cc; /* High-contrast Sky Blue takes over when typing */
+  background: #ffffff;
+  color: #111111;
   outline: none; /* Kills browser default blue border ring */
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.15); /* Sleek digital overlay shadow */
+  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.15); /* Sleek digital overlay shadow */
 }
 
 /* Styling for HTML placeholders inside the fields */
 #checkout-form input::placeholder {
-  color: #444444;
+  color: #777777; /* High-contrast readable placeholder gray */
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
@@ -76,22 +80,23 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #ffffff; /* Contrast white base button */
-  color: #000000;
+  background: #111111; /* Solid black base button for light background */
+  color: #ffffff;
   padding: 1.25rem;
-  border: 1px solid #ffffff;
+  border: 1px solid #111111;
   border-radius: 0px;
   cursor: pointer;
-  box-shadow: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-top: 1rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #checkout-form .btn:hover {
-  background: #ff0000; /* Turns high-voltage Red when confirming purchase */
+  background: #d30000; /* Turns high-voltage Red when confirming purchase */
   color: #ffffff;
-  border-color: #ff0000;
+  border-color: #d30000;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(211, 0, 0, 0.2);
 }
 
 #checkout-form .btn:active {

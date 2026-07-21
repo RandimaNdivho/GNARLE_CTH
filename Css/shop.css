@@ -1,3 +1,4 @@
+/* css/product-postcards.css */
 
 .product-postcards {
   display: grid;
@@ -9,11 +10,12 @@
 }
 
 .postcard {
-  background: #0b0b0b; /* Ultra-dark charcoal matrix */
-  border: 1px solid #1a1a1a; /* Sharp, clean structural perimeter */
+  background: #ffffff; /* Crisp white backdrop */
+  border: 1px solid #e5e5e5; /* Sharp, clean structural perimeter */
   padding: 1.5rem;
   text-align: left; /* Left-aligned high-fashion editorial layout */
   position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
@@ -23,8 +25,8 @@
 /* Luxury Interaction Mechanics */
 .postcard:hover {
   transform: translateY(-8px); /* Classy vertical lift anchor */
-  border-color: #ff0000; /* High-voltage Red perimeter activation */
-  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1); /* Red baseline floor underglow */
+  border-color: #d30000; /* High-voltage Red perimeter activation */
+  box-shadow: 0 15px 30px rgba(211, 0, 0, 0.12); /* Soft red floor underglow */
 }
 
 /* Anchor points for smooth page scrolling from the top bar links */
@@ -37,8 +39,8 @@
   width: 100%;
   height: 340px;
   overflow: hidden;
-  background: #111111;
-  border-bottom: 1px solid #1a1a1a;
+  background: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 1.5rem;
 }
 
@@ -46,7 +48,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* Cropped perfectly across all aspect ratios */
-  filter: grayscale(10%) contrast(105%); /* Dark, moody editorial overlay */
+  filter: grayscale(10%) contrast(102%); /* Crisp editorial overlay */
   transition: filter 0.3s ease, transform 0.4s ease;
 }
 
@@ -61,7 +63,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
-  color: #555555;
+  color: #888888;
   letter-spacing: 1px;
   display: block;
   margin-bottom: 0.5rem;
@@ -74,7 +76,7 @@
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #d4af37; 
+  color: #b38f24; /* Deeper gold for light BG contrast */
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -86,14 +88,14 @@
   text-transform: uppercase;
   letter-spacing: -0.5px;
   margin: 0 0 0.5rem 0;
-  color: #ffffff;
+  color: #111111;
   line-height: 1.2;
 }
 
 .info .description {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
-  color: #777777;
+  color: #555555;
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
@@ -102,7 +104,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #00bfff; /* Loud Sky Blue billing identifier */
+  color: #0088cc; /* High-contrast Sky Blue billing identifier */
   margin: 1rem 0;
 }
 
@@ -124,28 +126,29 @@
 }
 
 .more-grid-tab {
-  background: #050505;
-  border-top: 2px solid #222222;
+  background: #f9f9f9;
+  border-top: 2px solid #e0e0e0;
   padding: 2rem;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .more-grid-tab:hover {
-  border-top-color: #00bfff; /* Glow Sky Blue on tab focus */
+  border-top-color: #0088cc; /* Glow Sky Blue on tab focus */
+  background: #ffffff;
 }
 
 .more-grid-tab h4 {
   font-family: 'Syncopate', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: #111111;
   margin: 0 0 1rem 0;
 }
 
 .more-grid-tab p {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
-  color: #666666;
+  color: #555555;
   line-height: 1.6;
   margin: 0;
 }

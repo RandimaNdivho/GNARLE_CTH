@@ -1,9 +1,11 @@
+/* css/cart.css */
+
 /* --- THE INVOICE MANIFEST / MAIN CART --- */
 
 .cart {
   margin: 6rem auto;
   max-width: 1000px; /* Slightly wider for an expansive luxury layout */
-  color: #ffffff;
+  color: #111111;
   padding: 0 2rem;
 }
 
@@ -16,6 +18,7 @@
   letter-spacing: -3px;
   line-height: 1;
   margin-bottom: 3rem;
+  color: #111111;
   text-shadow: none;
 }
 
@@ -25,7 +28,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 3px;
-  color: #d4af37; /* Metallic Gold classification */
+  color: #b38f24; /* Metallic Gold classification tuned for light BG */
   display: block;
   margin-bottom: 1rem;
 }
@@ -39,15 +42,16 @@
 /* Clean horizontal data architecture instead of heavy boxes */
 #cart-table th, #cart-table td {
   border: none;
-  border-bottom: 1px solid #1a1a1a; /* Minimalist dark dividing line */
+  border-bottom: 1px solid #e5e5e5; /* Minimalist light dividing line */
   padding: 1.5rem 1rem;
   text-align: left; /* Left-aligned for asymmetric fashion layout */
   font-family: 'Space Grotesk', sans-serif;
+  color: #111111;
 }
 
 #cart-table th {
-  background: transparent; /* Dropped muddy background */
-  color: #666666; /* Subdued gray headers make your active cart text pop */
+  background: transparent;
+  color: #555555; /* Subdued gray headers make active cart text pop */
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -55,13 +59,17 @@
   padding-bottom: 1rem;
 }
 
-/* Make product names hit with that high-voltage Red on row hover */
+/* Make product row hover feel interactive and rich */
 #cart-table tr {
   transition: background-color 0.2s ease;
 }
 
+#cart-table tr:hover {
+  background-color: #f9f9f9;
+}
+
 #cart-table tr:hover td {
-  color: #ffffff;
+  color: #d30000; /* Row text shifts to high-voltage Red on hover */
 }
 
 /* Specific styling for prices/quantities within the table cells */
@@ -79,7 +87,7 @@
   text-align: right;
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px dashed #ff0000; /* Industrial red line separates totals */
+  border-top: 1px dashed #d30000; /* Industrial red line separates totals */
 }
 
 /* Give the final price calculation the Sky Blue pop */
@@ -88,12 +96,12 @@
   font-size: 1.1rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #888888;
+  color: #555555;
 }
 
 .cart-summary p strong {
   font-size: 1.8rem;
-  color: #00bfff; /* Loud Sky Blue final price highlight */
+  color: #0088cc; /* High-contrast Sky Blue final price highlight */
   margin-left: 1rem;
 }
 
@@ -106,21 +114,22 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #ffffff; /* Contrast switch: white button on dark bg screams premium */
-  color: #000000;
-  border: 1px solid #ffffff;
+  background: #111111; /* Solid black button on white background */
+  color: #ffffff;
+  border: 1px solid #111111;
   border-radius: 0px; /* Absolutely square corners */
   cursor: pointer;
-  box-shadow: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-top: 1.5rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .checkout:hover {
-  background: #ff0000; /* High-voltage Red takes over on hover interaction */
+  background: #d30000; /* High-voltage Red takes over on hover */
   color: #ffffff;
-  border-color: #ff0000;
+  border-color: #d30000;
   transform: translateY(-4px); /* Clean floating vector shift */
+  box-shadow: 0 8px 20px rgba(211, 0, 0, 0.2);
 }
 
 .checkout:active {

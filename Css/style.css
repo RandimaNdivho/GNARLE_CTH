@@ -6,20 +6,21 @@
 body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
-  color: #ffffff;
+  color: #111111; /* Changed to dark grey/black for high readability */
   overflow-x: hidden;
   background: 
-    linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.97)), 
+    linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.95)), 
     url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center center fixed;
   background-size: cover;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
-  background: #000000;
-  border-bottom: 1px solid #1a1a1a;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .logo {
@@ -27,20 +28,20 @@ header {
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: -1px;
-  color: #ffffff;
+  color: #111111;
   text-transform: uppercase;
 }
 
-/* Sky Blue accent on the last letter or custom span for that "loud" pop */
+/* Sky Blue accent selection */
 .logo ::selection {
-  background: #00bfff; 
-  color: #000;
+  background: #0088cc; 
+  color: #ffffff;
 }
 
 /* Navigation links */
 nav a {
   margin: 0 1.5rem;
-  color: #ffffff;
+  color: #111111;
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
@@ -51,12 +52,12 @@ nav a {
 }
 
 nav a:hover {
-  color: #00bfff; /* Loud Sky Blue */
+  color: #0088cc; /* High-contrast Sky Blue on white */
 }
 
 /* Active/selected link - Premium Gold touch */
 nav a.active {
-  color: #d4af37; /* Metallic Gold */
+  color: #b38f24; /* Deeper Metallic Gold for light bg legibility */
 }
 
 /* Clean, razor-sharp underline animation */
@@ -67,7 +68,7 @@ nav a::after {
   bottom: -8px;
   width: 0%;
   height: 2px;
-  background: #ff0000; /* High-voltage Red */
+  background: #d30000; /* High-contrast Red */
   transition: width 0.2s ease;
 }
 
@@ -84,19 +85,19 @@ nav a:hover::after {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #000000;
-  background: #ffffff; /* Stark white button */
-  border: 1px solid #ffffff;
-  border-radius: 0px; /* Sharp corners = more expensive look */
+  color: #ffffff;
+  background: #111111; /* Stark black button on white background */
+  border: 1px solid #111111;
+  border-radius: 0px; /* Sharp corners */
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn:hover {
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #00bfff; /* Sky Blue hover border */
-  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+  color: #111111;
+  border: 1px solid #0088cc; /* Sky Blue hover border */
+  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.25);
 }
 
 .btn:active {
@@ -107,9 +108,9 @@ nav a:hover::after {
 .hero {
   text-align: center;
   padding: 10rem 2rem; 
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center/cover;
-  color: #ffffff;
-  border-bottom: 4px solid #ff0000; /* Heavy red border line */
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center/cover;
+  color: #111111;
+  border-bottom: 4px solid #d30000; /* Heavy red border line */
 }
 
 .hero h1 {
@@ -120,29 +121,30 @@ nav a:hover::after {
   letter-spacing: -2px;
   line-height: 0.9;
   margin-bottom: 1.5rem;
-  color: #ffffff;
-  /* Dropped the blurry glow for a crisp, high-end editorial shadow */
-  text-shadow: 4px 4px 0px #ff0000; 
+  color: #111111;
+  /* High-end editorial shadow updated for light mode */
+  text-shadow: 3px 3px 0px rgba(211, 0, 0, 0.3); 
 }
 
 .hero p {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #00bfff; /* Loud Sky blue subtext */
+  color: #0088cc; /* High-contrast Sky blue subtext */
   margin-bottom: 2.5rem;
+  font-weight: 700;
 }
 
 .hero .btn {
-  background: #ff0000; /* Red loud button for the hero */
+  background: #d30000; /* Red loud button for the hero */
   color: #ffffff;
-  border: 1px solid #ff0000;
+  border: 1px solid #d30000;
 }
 
 .hero .btn:hover {
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
+  color: #d30000;
+  border: 1px solid #d30000;
   box-shadow: none;
 }
 
@@ -151,18 +153,19 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #111111;
+  background: #f9f9f9;
   padding: 3rem;
   margin: 4rem auto;
   max-width: 900px;
-  border: 1px solid #d4af37; /* Clean Gold Border */
+  border: 1px solid #b38f24; /* Clean Gold Border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .cta-card img {
   width: 220px;
   filter: grayscale(20%);
-  border: 1px solid #222;
+  border: 1px solid #e0e0e0;
 }
 
 .cta-info {
@@ -174,22 +177,23 @@ nav a:hover::after {
   font-family: 'Syncopate', sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #111111;
 }
 
 .cta-info .price {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #00bfff; /* Sky blue pricing stands out heavy */
+  color: #0088cc; /* Sky blue pricing stands out */
   margin: 1rem 0;
 }
 
-/* --- TOP SHORTCUT DROP BAR  --- */
+/* --- TOP SHORTCUT DROP BAR --- */
 .drop-shortcut-bar {
   display: flex;
   align-items: center;
-  background: #050505;
+  background: #f4f4f4;
   padding: 0.75rem 3rem;
-  border-bottom: 1px solid #141414;
+  border-bottom: 1px solid #e5e5e5;
   gap: 1.5rem;
 }
 
@@ -197,7 +201,7 @@ nav a:hover::after {
   font-family: 'Syncopate', sans-serif;
   font-size: 0.7rem;
   letter-spacing: 1px;
-  color: #666666;
+  color: #555555;
   white-space: nowrap;
 }
 
@@ -217,14 +221,14 @@ nav a:hover::after {
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #888888;
+  color: #333333;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 0.25rem 0.75rem;
-  background: #0b0b0b;
-  border: 1px solid #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
   transition: all 0.2s ease;
 }
 
@@ -232,13 +236,13 @@ nav a:hover::after {
   width: 20px;
   height: 20px;
   object-fit: cover;
-  border: 1px solid #222;
+  border: 1px solid #ddd;
 }
 
 .shortcut-item:hover {
-  color: #00bfff; /* Loud Sky Blue text pop */
-  border-color: #00bfff;
-  background: #000000;
+  color: #0088cc; /* Loud Sky Blue text pop */
+  border-color: #0088cc;
+  background: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -251,32 +255,11 @@ nav a:hover::after {
   background: transparent;
 }
 
-.logo {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-nav a {
-  margin-left: 2rem;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
 nav a:hover, nav a.active {
-  color: #00bfff;
+  color: #0088cc;
 }
 
-/* --- THE DASHBOARD BENTO GRID (The 6 Big Tabs from image_09415d.jpg) --- */
+/* --- THE DASHBOARD BENTO GRID --- */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -289,21 +272,23 @@ nav a:hover, nav a.active {
 
 /* Base Card Styling */
 .dash-card {
-  background: #0b0b0b;
-  border: 1px solid #ff0000;
+  background: #ffffff;
+  border: 1px solid #d30000;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-decoration: none;
-  color: #ffffff;
+  color: #111111;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .dash-card:hover {
-  border-color:  #d4af37; /* High-voltage gold active edge */
+  border-color: #b38f24; /* Gold active edge */
   transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .card-content {
@@ -315,7 +300,7 @@ nav a:hover, nav a.active {
 /* Asymmetric Grid Configurations */
 .card-big {
   grid-column: span 2;
-  grid-row: span 2; /* Large master feature slot */
+  grid-row: span 2;
 }
 
 .card-medium {
@@ -342,7 +327,7 @@ nav a:hover, nav a.active {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: grayscale(40%) contrast(110%);
+  filter: grayscale(20%) contrast(105%);
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
@@ -351,7 +336,7 @@ nav a:hover, nav a.active {
   filter: grayscale(0%) contrast(100%);
 }
 
-/* Mask over image elements for readability text safety */
+/* Gradient overlay lightened & inverted for white background readability */
 .card-big::after, .image-focus::after {
   content: '';
   position: absolute;
@@ -359,7 +344,7 @@ nav a:hover, nav a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to top, rgba(255,255,255,0.95) 25%, rgba(255,255,255,0.3) 100%);
   z-index: 1;
 }
 
@@ -386,6 +371,7 @@ nav a:hover, nav a.active {
   line-height: 1.1;
   margin: 0.5rem 0;
   letter-spacing: -1px;
+  color: #111111;
 }
 
 .card-big h2 {
@@ -396,11 +382,12 @@ nav a:hover, nav a.active {
   font-family: 'Syncopate', sans-serif;
   font-size: 1.1rem;
   margin: 0.5rem 0 0 0;
+  color: #111111;
 }
 
 .dash-card p {
   font-size: 0.9rem;
-  color: #888888;
+  color: #555555;
   line-height: 1.5;
   margin: 0;
 }
@@ -413,13 +400,13 @@ nav a:hover, nav a.active {
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
-  background: #111;
+  background: #f0f0f0;
   margin-bottom: 0.5rem;
 }
 
-.card-tag.gold { color: #d4af37; border-left: 2px solid #d4af37; }
-.card-tag.red { color: #ff0000; border-left: 2px solid #ff0000; }
-.card-tag.sky-blue { color: #00bfff; border-left: 2px solid #00bfff; }
+.card-tag.gold { color: #b38f24; border-left: 2px solid #b38f24; }
+.card-tag.red { color: #d30000; border-left: 2px solid #d30000; }
+.card-tag.sky-blue { color: #0088cc; border-left: 2px solid #0088cc; }
 
 /* --- RESPONSIVE MOBILE FALLBACK MATRIX --- */
 @media (max-width: 1024px) {
@@ -452,20 +439,21 @@ nav a:hover, nav a.active {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 0px; /* Squared off */
+  background: #111111;
+  border: 1px solid #111111;
+  border-radius: 0px;
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   z-index: 100;
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .whatsapp-chat:hover {
   transform: scale(1.05);
-  background: #00bfff;
-  border-color: #00bfff;
+  background: #0088cc;
+  border-color: #0088cc;
 }
 
 .whatsapp-chat:hover a {
@@ -475,11 +463,11 @@ nav a:hover, nav a.active {
 .whatsapp-chat img {
   width: 20px;
   margin-right: 10px;
-  filter: invert(1); /* Inverts icon to match luxury monochrome look */
+  filter: invert(0); /* Reverted to work on black button background */
 }
 
 .whatsapp-chat a {
-  color: #000000;
+  color: #ffffff;
   font-weight: 700;
   text-decoration: none;
   font-size: 0.8rem;
@@ -489,14 +477,15 @@ nav a:hover, nav a.active {
 
 /* Footer Decor */
 .footer-deco {
-  background: #000000;
-  color: #666666;
+  position: relative;
+  background: #ffffff;
+  color: #555555;
   text-align: center;
   padding: 4rem 1rem;
   font-size: 0.8rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid #e5e5e5;
 }
 
 /* Animated subtle luxury top border */
@@ -507,7 +496,7 @@ nav a:hover, nav a.active {
   left: 0;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, #ff0000, #00bfff, #d4af37);
+  background: linear-gradient(90deg, #d30000, #0088cc, #b38f24);
   animation: glowline 6s linear infinite;
 }
 
@@ -517,13 +506,13 @@ nav a:hover, nav a.active {
 }
 
 .footer-deco a {
-  color: #ffffff;
+  color: #111111;
   text-decoration: underline;
   font-weight: 700;
 }
 
 .footer-deco a:hover {
-  color: #00bfff;
+  color: #0088cc;
 }
 
 /* Utility Lists */
@@ -536,5 +525,5 @@ ul {
 ul li {
   margin-bottom: 12px;
   font-size: 1rem;
-  color: #888888;
+  color: #555555;
 }

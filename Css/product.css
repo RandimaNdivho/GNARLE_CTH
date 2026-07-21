@@ -1,3 +1,5 @@
+/* css/product-detail.css */
+
 /* --- PRODUCT DETAIL: THE EXCLUSIVE DROP LAYOUT --- */
 
 .product-detail {
@@ -7,23 +9,25 @@
   gap: 5rem; /* Massive structural gap for a lookbook feel */
   margin: 6rem auto;
   max-width: 1200px;
-  color: #ffffff;
+  color: #111111;
   padding: 0 2rem 4rem 2rem;
-  border-bottom: 1px dashed #1a1a1a; /* Clean industrial line instead of bright red */
+  border-bottom: 1px dashed #e5e5e5; /* Clean industrial line on light background */
 }
 
 /* Product Image Frame */
 .product-image img {
   width: 450px; /* Made the focal point much bigger and bolder */
   height: auto;
-  border: 1px solid #1a1a1a;
-  background: #0b0b0b;
+  border: 1px solid #e5e5e5;
+  background: #f9f9f9;
   padding: 1rem;
-  transition: border-color 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .product-detail:hover .product-image img {
-  border-color: #ff0000; /* Subtle high-voltage red border when interacting with page */
+  border-color: #d30000; /* Subtle high-voltage red border when interacting with page */
+  box-shadow: 0 10px 25px rgba(211, 0, 0, 0.1);
 }
 
 /* Typography Overhaul */
@@ -36,6 +40,7 @@
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0.5rem;
+  color: #111111;
   text-shadow: none;
 }
 
@@ -45,7 +50,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   letter-spacing: 3px;
-  color: #d4af37; /* Metallic gold classification */
+  color: #b38f24; /* Metallic gold classification tuned for light BG */
   display: block;
   margin-bottom: 1rem;
 }
@@ -54,7 +59,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111111;
   margin: 1.5rem 0;
   text-shadow: none;
 }
@@ -71,20 +76,21 @@ select {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.85rem;
-  background: #000000;
-  color: #ffffff;
-  border: 1px solid #ffffff; /* Sharp white border */
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #111111; /* Sharp black border on white */
   border-radius: 0px; /* Absolutely squared off */
   cursor: pointer;
   appearance: none; /* Strips browser default styling */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,5'/></svg>");
+  /* Updated SVG arrow fill to black for light mode visibility */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23111111'><polygon points='0,0 10,0 5,5'/></svg>");
   background-repeat: no-repeat;
   background-position: right 1.5rem center;
   transition: all 0.2s ease;
 }
 
 select:hover, select:focus {
-  border-color: #00bfff; /* Loud Sky Blue on focus */
+  border-color: #0088cc; /* High-contrast Sky Blue on focus */
   outline: none;
 }
 
@@ -99,20 +105,21 @@ select:hover, select:focus {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #ff0000; /* Striking Red primary action */
+  background: #d30000; /* Striking Red primary action */
   color: #ffffff;
-  border: 1px solid #ff0000;
+  border: 1px solid #d30000;
   border-radius: 0px;
   cursor: pointer;
-  box-shadow: none;
+  box-shadow: 0 4px 15px rgba(211, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .add-to-cart:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
   transform: translateY(-3px); /* Sophisticated upward push */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .add-to-cart:active {
@@ -127,14 +134,14 @@ select:hover, select:focus {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
-  color: #00bfff; /* Loud Sky Blue secondary link */
+  color: #0088cc; /* High-contrast Sky Blue secondary link */
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease;
 }
 
 .view-cart-link:hover {
-  border-color: #00bfff;
+  border-color: #0088cc;
 }
 
 .hidden {
@@ -147,13 +154,13 @@ select:hover, select:focus {
   position: absolute;
   top: 80px;
   right: 3rem;
-  background: #0b0b0b;
-  border: 1px solid #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #111111;
   padding: 2rem;
   width: 280px;
   border-radius: 0px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-  color: #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  color: #111111;
   z-index: 1000;
 }
 
@@ -164,7 +171,7 @@ select:hover, select:focus {
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #d4af37;
+  color: #b38f24;
   display: block;
   margin-bottom: 1rem;
 }
@@ -174,7 +181,7 @@ select:hover, select:focus {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   margin: 0 0 1.5rem 0;
-  color: #888888;
+  color: #555555;
 }
 
 /* Redesigned Mini-Cart Button to match lookbook style */
@@ -185,16 +192,18 @@ select:hover, select:focus {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: #ffffff;
-  color: #000000;
+  background: #111111;
+  color: #ffffff;
   padding: 1rem;
   text-decoration: none;
   font-weight: 700;
+  border: 1px solid #111111;
   box-shadow: none;
   transition: all 0.2s ease;
 }
 
 .mini-cart .btn:hover {
-  background: #ff0000;
+  background: #d30000;
   color: #ffffff;
+  border-color: #d30000;
 }
