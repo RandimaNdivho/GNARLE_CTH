@@ -1,16 +1,15 @@
 /* ==========================================================================
-   GNARLIE CORE STREETWEAR PLATFORM // UNIFIED MASTER RESPONSIVE MANIFEST (responsive.css)
+   GNARLIE CORE STREETWEAR PLATFORM // DESKTOP-ON-MOBILE MANIFEST (responsive.css)
    ========================================================================== */
 
-/* --- 00. GLOBAL ANTI-BLEED & LIQUID MEDIA CONTROLS --- */
+/* --- 00. GLOBAL ANTI-BLEED & OVERFLOW PROTECTION --- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  position: relative;
+  min-width: 1100px; /* Force minimum desktop canvas width */
+  overflow-x: auto;   /* Allow clean horizontal panning if needed */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -20,218 +19,98 @@ img, video, iframe {
   display: block;
 }
 
-/* --- 01. LARGE TABLET & MEDIUM DESKTOP COMPRESSION (Max-Width: 1200px) --- */
-@media (max-width: 1200px) {
-  .dashboard-grid, 
-  .shop-container, 
-  .product-postcards,
-  .cart,
-  .checkout {
-    max-width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+/* --- 01. NAVIGATION HEADER LOCKDOWN --- */
+.hub-header, header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1.25rem 2rem !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-/* --- 02. MEDIUM COMPACT TABLET VIEWPORTS (Max-Width: 1024px) --- */
-@media (max-width: 1024px) {
-  /* Abloh Bento Dashboard Grid System */
-  .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(260px, auto);
-    gap: 1.25rem;
-  }
-  
-  .card-big, .card-wide {
-    grid-column: span 2;
-  }
-
-  .card-small {
-    grid-column: span 1;
-  }
-
-  /* Postcard Grid Adjustments */
-  .product-postcards {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .postcard .img-container {
-    height: 300px;
-  }
+nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem !important;
 }
 
-/* --- 03. MOBILES & HANDHELD VIEWPORTS (Max-Width: 768px) --- */
-@media (max-width: 768px) {
-  
-  /* Persistent Top Drop Runner Bar Layout */
-  .drop-shortcut-bar {
-    padding: 0.6rem 1rem;
-    gap: 1rem;
-  }
-
-  .shortcut-label {
-    font-size: 0.65rem;
-    margin-right: 0.75rem;
-  }
-
-  /* Global Navigation Header */
-  .hub-header, header {
-    padding: 1rem 1.25rem;
-    position: relative;
-    background: #ffffff;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .logo {
-    font-size: 1.4rem;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  nav a {
-    margin: 0 0.5rem;
-    font-size: 0.75rem;
-  }
-
-  /* Hero Section Scaling */
-  .hero {
-    padding: 5rem 1.25rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 8vw, 3rem);
-    letter-spacing: -1px;
-    text-shadow: 2px 2px 0px rgba(211, 0, 0, 0.2);
-  }
-
-  .hero p {
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-  }
-
-  /* Bento Stream Flattening (Abloh Layout) */
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: minmax(240px, auto);
-    gap: 1.25rem;
-    padding: 0 1.25rem;
-  }
-
-  .card-big, .card-medium, .card-small, .card-wide {
-    grid-column: span 1;
-    grid-row: auto;
-  }
-
-  .card-big h2 {
-    font-size: 1.5rem;
-  }
-
-  /* Shop Postcards Flow Override */
-  .product-postcards {
-    grid-template-columns: 1fr;
-    padding: 0 1.25rem;
-    gap: 2rem;
-  }
-
-  .postcard .img-container {
-    height: 320px;
-  }
-
-  .postcard select,
-  .postcard .btn {
-    max-width: 100%;
-  }
-
-  /* Mini Cart & Floating WhatsApp Bar Adjustments */
-  .whatsapp-chat {
-    bottom: 1.25rem;
-    right: 1.25rem;
-  }
-
-  /* Mobile Cart Table Transformation */
-  #cart-table, 
-  #cart-table thead, 
-  #cart-table tbody, 
-  #cart-table th, 
-  #cart-table td, 
-  #cart-table tr { 
-    display: block; 
-  }
-
-  #cart-table thead tr { 
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  #cart-table tr {
-    border-bottom: 2px solid #111111;
-    padding: 1rem 0;
-  }
-
-  #cart-table td { 
-    border: none;
-    padding: 0.5rem 0;
-    text-align: left;
-  }
-
-  #cart-table td:last-child {
-    text-align: left;
-    color: #0088cc;
-  }
-
-  .cart-summary {
-    text-align: center;
-  }
-
-  .cart-summary p strong {
-    display: block;
-    margin-left: 0;
-    margin-top: 0.5rem;
-  }
-
-  .cart .checkout {
-    width: 100%;
-    text-align: center;
-  }
+nav a {
+  display: inline-block !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 1.5px !important;
 }
 
-/* --- 04. SMARTPHONE AND MICRO PORTRAITS (Max-Width: 480px) --- */
-@media (max-width: 480px) {
-  .hero {
-    padding: 4rem 1rem;
-  }
+/* Hide hamburger menu toggle if it exists */
+#hamburger {
+  display: none !important;
+}
 
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .postcard .img-container {
-    height: 260px;
-  }
+/* --- 02. SECTION CATEGORY TAB BAR --- */
+.category-bar, .shortcut-scroll-container {
+  display: flex !important;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  background: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
+}
 
-  .cart h1 {
-    font-size: 1.8rem;
-  }
+/* --- 03. LOCKED 3-COLUMN PRODUCT GRID --- */
+.product-postcards {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Force 3 columns across all devices */
+  gap: 1.5rem !important;
+  max-width: 1200px !important;
+  margin: 2rem auto !important;
+  padding: 0 1.5rem !important;
+}
 
-  /* Hide chat text on tiny mobile screens to prevent overlap */
-  .whatsapp-chat span {
-    display: none;
-  }
+.postcard {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .whatsapp-chat a {
-    padding: 0.6rem;
-    border-radius: 50%;
-  }
+.postcard .img-container {
+  width: 100%;
+  height: 280px;
+  background: #f8f8f8;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
 
-  .whatsapp-chat img {
-    width: 24px;
-    height: 24px;
-  }
+.postcard .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- 04. BENTO DASHBOARD GRID (FOR INDEX PAGE) --- */
+.dashboard-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* Retain full 4-column bento desktop view */
+  gap: 1.25rem !important;
+  max-width: 1200px !important;
+  margin: 2rem auto !important;
+}
+
+.card-big    { grid-column: span 2 !important; grid-row: span 2 !important; }
+.card-medium { grid-column: span 2 !important; grid-row: span 1 !important; }
+.card-small  { grid-column: span 1 !important; grid-row: span 1 !important; }
+
+/* --- 05. FLOATING WHATSAPP BUTTON --- */
+.whatsapp-chat {
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  z-index: 9999;
+}
+
+.whatsapp-chat span {
+  display: inline-block !important; /* Keeps "CHAT WITH US" text label visible */
 }
