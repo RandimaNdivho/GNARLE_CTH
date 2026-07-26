@@ -1,176 +1,434 @@
-/* css/product-postcards.css */
+/* ==========================================================================
+   GNARLIE.CTH - SHOP HUB STYLESHEET (shop.css)
+   ========================================================================== */
 
+/* --- 1. TOP SHORTCUT DROP BAR --- */
+.drop-shortcut-bar {
+  background: #0a0a0a;
+  color: #888888;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222222;
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 101;
+}
+
+.shortcut-label {
+  color: #d30000; /* High-voltage red highlight */
+  font-weight: 700;
+  margin-right: 1.5rem;
+  white-space: nowrap;
+}
+
+.shortcut-scroll-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.shortcut-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.shortcut-item {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.shortcut-item:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* --- 2. NAVIGATION HEADER OVERRIDES --- */
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.hub-header .logo {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #111111;
+}
+
+.hub-header nav a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666666;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.hub-header nav a:hover,
+.hub-header nav a.active {
+  color: #d30000;
+}
+
+/* --- 3. CATEGORY QUICK FILTER BAR --- */
+.category-nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 67px; /* Sits directly beneath header */
+  z-index: 99;
+}
+
+.category-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #333333;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* --- 4. CATALOG SECTION ARCHITECTURE --- */
+.shop-container {
+  padding-top: 1rem;
+}
+
+.catalog-section {
+  max-width: 1400px;
+  margin: 3rem auto 0 auto;
+}
+
+/* Section Header Bar */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  padding: 0 3rem 1rem 3rem;
+  border-bottom: 2px solid #111111;
+  margin-bottom: 2rem;
+}
+
+.section-tag {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #d30000;
+  margin-right: 1rem;
+}
+
+.section-header h2 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111111;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.section-header .item-count {
+  margin-left: auto;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+/* --- 5. PRODUCT POSTCARDS GRID & IMAGE FIX --- */
 .product-postcards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem; /* Persistent expensive-feeling breathing room */
-  margin: 4rem auto;
-  padding: 0 3rem;
-  max-width: 1400px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 3rem 3rem 3rem;
 }
 
 .postcard {
-  background: #ffffff; /* Crisp white backdrop */
-  border: 1px solid #e5e5e5; /* Sharp, clean structural perimeter */
-  padding: 1.5rem;
-  text-align: left; /* Left-aligned high-fashion editorial layout */
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Luxury Interaction Mechanics */
 .postcard:hover {
-  transform: translateY(-8px); /* Classy vertical lift anchor */
-  border-color: #d30000; /* High-voltage Red perimeter activation */
-  box-shadow: 0 15px 30px rgba(211, 0, 0, 0.12); /* Soft red floor underglow */
+  transform: translateY(-4px);
+  border-color: #d30000;
+  box-shadow: 0 10px 25px rgba(211, 0, 0, 0.1);
 }
 
-/* Anchor points for smooth page scrolling from the top bar links */
-.postcard[id] {
-  scroll-margin-top: 120px;
-}
-
-/* Image containment box ensuring perfect grid alignment even with mixed image dimensions */
+/* Image Container Frame Fix */
 .postcard .img-container {
   width: 100%;
-  height: 340px;
+  height: 320px; /* Constrains vertical height */
+  background: #f8f8f8;
   overflow: hidden;
-  background: #f4f4f4;
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eeeeee;
 }
 
-.postcard img {
+/* Scaling Image Inside Container */
+.postcard .img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cropped perfectly across all aspect ratios */
-  filter: grayscale(10%) contrast(102%); /* Crisp editorial overlay */
-  transition: filter 0.3s ease, transform 0.4s ease;
+  object-fit: contain; /* Shrinks shirt gracefully inside 320px frame */
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.postcard:hover img {
-  filter: grayscale(0%) contrast(100%); /* Full physical presentation on hover */
-  transform: scale(1.02);
+.postcard:hover .img-container img {
+  transform: scale(1.05);
 }
 
-/* Dynamic attribute label injection via CSS */
-.postcard::before {
-  content: attr(data-serial);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #888888;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 0.5rem;
+/* Postcard Information Box */
+.postcard .info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-/* Premium Detail: Metallic Gold tag badge drop */
-.postcard .info::before {
-  content: "LIMITED DROP";
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #b38f24; /* Deeper gold for light BG contrast */
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.info h3 {
-  font-family: 'Syncopate', sans-serif; /* Loud expansive streetwear typeface */
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
+.postcard .info h3 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.95rem;
   margin: 0 0 0.5rem 0;
   color: #111111;
-  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-.info .description {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  color: #555555;
+.postcard .info .description {
+  font-size: 0.78rem;
+  color: #666666;
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
 
-.info .price {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.4rem;
+.postcard .info .price {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #0088cc; /* High-contrast Sky Blue billing identifier */
-  margin: 1rem 0;
+  color: #111111;
+  margin: 0 0 1.25rem 0;
 }
 
-/* Call To Action layout alignment inside post cards */
-.postcard .btn {
+.postcard .info .btn {
+  margin-top: auto;
   width: 100%;
-  text-align: center;
-  box-sizing: border-box;
 }
 
-/* --- THE "MORE" EXTENSION GRID SECTION --- */
+/* Disabled/Pending State Button */
+.postcard .btn.disabled,
+.postcard .btn:disabled {
+  background: #e0e0e0;
+  color: #888888;
+  border: 1px solid #cccccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- 6. MORE EXTENSION HUB --- */
 .more-extension-hub {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin: 6rem auto 2rem auto;
-  padding: 0 3rem;
   max-width: 1400px;
+  margin: 4rem auto 0 auto;
+  padding: 0 3rem;
 }
 
 .more-grid-tab {
   background: #f9f9f9;
-  border-top: 2px solid #e0e0e0;
-  padding: 2rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.more-grid-tab:hover {
-  border-top-color: #0088cc; /* Glow Sky Blue on tab focus */
-  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem;
 }
 
 .more-grid-tab h4 {
-  font-family: 'Syncopate', sans-serif;
+  font-family: 'Space Grotesk', monospace, sans-serif;
   font-size: 0.8rem;
+  color: #d30000;
+  margin: 0 0 0.75rem 0;
   letter-spacing: 1px;
-  color: #111111;
-  margin: 0 0 1rem 0;
 }
 
 .more-grid-tab p {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #555555;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
-/* --- VIEWPORT RESPONSIVITY RULES --- */
+/* --- 7. FLOATING SYSTEM COMMS HUB (WHATSAPP) --- */
+.whatsapp-chat {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.whatsapp-chat a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #111111;
+  color: #ffffff;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 1px solid #333333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.whatsapp-chat a:hover {
+  transform: translateY(-3px);
+  border-color: #25d366;
+}
+
+.whatsapp-chat img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.whatsapp-chat span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- 8. INDUSTRIAL FOOTER --- */
+.footer-deco {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 4rem 3rem 2rem 3rem;
+  margin-top: 6rem;
+  border-top: 1px solid #222222;
+  text-align: center;
+}
+
+.footer-deco h3 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #888888;
+}
+
+.footer-deco ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-deco ul li a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #cccccc;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.footer-deco ul li a:hover {
+  color: #d30000;
+}
+
+.footer-deco p {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.7rem;
+  color: #555555;
+  letter-spacing: 1.5px;
+}
+
+/* --- 9. RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 1024px) {
   .more-extension-hub {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    padding: 0 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .hub-header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hub-header nav a {
+    margin: 0 0.5rem;
+  }
+
+  .category-nav-bar {
+    top: 102px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0.75rem 1.5rem;
+    scrollbar-width: none;
+  }
+
+  .category-nav-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-header {
+    padding: 0 1.5rem 0.75rem 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
   .product-postcards {
+    padding: 0 1.5rem 2rem 1.5rem;
     grid-template-columns: 1fr;
-    padding: 0 1.5rem;
-    gap: 1.5rem;
   }
-  .postcard .img-container {
-    height: 380px; /* Expands visual frame nicely on true layout columns */
-  }
-  .more-extension-hub {
-    padding: 0 1.5rem;
+
+  .whatsapp-chat {
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 }

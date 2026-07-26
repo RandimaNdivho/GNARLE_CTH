@@ -1,219 +1,74 @@
-/* css/style.css */
+/* ==========================================================================
+   GNARLIE.CTH - MASTER SYSTEM STYLESHEET (style.css)
+   ========================================================================== */
 
-/* Import a heavy, high-end streetwear font */
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@400;700&display=swap');
+/* --- 1. CORE FONTS & GLOBAL RESET --- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syncopate:wght@700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Space Grotesk', sans-serif;
-  color: #111111; /* Changed to dark grey/black for high readability */
-  overflow-x: hidden;
-  background: 
-    linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.95)), 
-    url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center center fixed;
+  color: #111111;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.96)), 
+    url('../Assets/GNARLIE\ S1\ LOGO.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+/* Universal Anti-Bleed Image Constraint */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-.logo {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-  color: #111111;
-  text-transform: uppercase;
-}
-
-/* Sky Blue accent selection */
-.logo ::selection {
-  background: #0088cc; 
+/* Custom Text Selection Highlight */
+::selection {
+  background: #0088cc; /* High-contrast Sky Blue */
   color: #ffffff;
 }
 
-/* Navigation links */
-nav a {
-  margin: 0 1.5rem;
-  color: #111111;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: #0088cc; /* High-contrast Sky Blue on white */
-}
-
-/* Active/selected link - Premium Gold touch */
-nav a.active {
-  color: #b38f24; /* Deeper Metallic Gold for light bg legibility */
-}
-
-/* Clean, razor-sharp underline animation */
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 0%;
-  height: 2px;
-  background: #d30000; /* High-contrast Red */
-  transition: width 0.2s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* Premium Streetwear Button */
-.btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #ffffff;
-  background: #111111; /* Stark black button on white background */
-  border: 1px solid #111111;
-  border-radius: 0px; /* Sharp corners */
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn:hover {
-  background: transparent;
-  color: #111111;
-  border: 1px solid #0088cc; /* Sky Blue hover border */
-  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.25);
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 10rem 2rem; 
-  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url('../assets/GNARLIE S1 LOGO.jpg') no-repeat center/cover;
-  color: #111111;
-  border-bottom: 4px solid #d30000; /* Heavy red border line */
-}
-
-.hero h1 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  line-height: 0.9;
-  margin-bottom: 1.5rem;
-  color: #111111;
-  /* High-end editorial shadow updated for light mode */
-  text-shadow: 3px 3px 0px rgba(211, 0, 0, 0.3); 
-}
-
-.hero p {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: #0088cc; /* High-contrast Sky blue subtext */
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-.hero .btn {
-  background: #d30000; /* Red loud button for the hero */
-  color: #ffffff;
-  border: 1px solid #d30000;
-}
-
-.hero .btn:hover {
-  background: transparent;
-  color: #d30000;
-  border: 1px solid #d30000;
-  box-shadow: none;
-}
-
-/* CTA Card - Made it look like a limited drop box */
-.cta-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f9f9f9;
-  padding: 3rem;
-  margin: 4rem auto;
-  max-width: 900px;
-  border: 1px solid #b38f24; /* Clean Gold Border */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  position: relative;
-}
-
-.cta-card img {
-  width: 220px;
-  filter: grayscale(20%);
-  border: 1px solid #e0e0e0;
-}
-
-.cta-info {
-  max-width: 400px;
-  margin-left: 3rem;
-}
-
-.cta-info h2 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #111111;
-}
-
-.cta-info .price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #0088cc; /* Sky blue pricing stands out */
-  margin: 1rem 0;
-}
-
-/* --- TOP SHORTCUT DROP BAR --- */
+/* --- 2. TOP DROP SHORTCUT BAR --- */
 .drop-shortcut-bar {
   display: flex;
   align-items: center;
-  background: #f4f4f4;
-  padding: 0.75rem 3rem;
-  border-bottom: 1px solid #e5e5e5;
-  gap: 1.5rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 1px solid #222222;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .shortcut-label {
-  font-family: 'Syncopate', sans-serif;
+  font-family: 'Space Grotesk', monospace, sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 1px;
-  color: #555555;
-  white-space: nowrap;
+  font-weight: 700;
+  color: #d30000;
+  letter-spacing: 1.5px;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
 }
 
 .shortcut-scroll-container {
   display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scrollbar-width: none; /* Hidden lookbook scroll */
-}
-
-.shortcut-scroll-container::-webkit-scrollbar {
-  display: none;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .shortcut-item {
@@ -221,64 +76,184 @@ nav a:hover::after {
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: #333333;
+  color: #cccccc;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  transition: all 0.2s ease;
-}
-
-.shortcut-item img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-  border: 1px solid #ddd;
+  transition: color 0.2s ease;
 }
 
 .shortcut-item:hover {
-  color: #0088cc; /* Loud Sky Blue text pop */
-  border-color: #0088cc;
-  background: #ffffff;
-  transform: translateY(-2px);
+  color: #0088cc;
 }
 
-/* --- HUB HEADER SYSTEM --- */
+.shortcut-item img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #333333;
+}
+
+/* --- 3. GLOBAL NAVIGATION & HEADER ARCHITECTURE --- */
+header,
 .hub-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 3rem;
-  background: transparent;
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 100;
 }
 
-nav a:hover, nav a.active {
+.logo {
+  font-family: 'Syncopate', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #111111;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 clamp(0.4rem, 1.2vw, 1.25rem);
+  color: #111111;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  letter-spacing: 1.5px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
   color: #0088cc;
 }
 
-/* --- THE DASHBOARD BENTO GRID --- */
+nav a.active {
+  color: #b38f24;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #d30000;
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* --- 4. UNIVERSAL STREETWEAR BUTTON SYSTEM --- */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff;
+  background: #111111;
+  border: 1px solid #111111;
+  border-radius: 0px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn:hover {
+  background: transparent;
+  color: #111111;
+  border-color: #0088cc;
+  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.2);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-hero {
+  background: #d30000;
+  color: #ffffff;
+  border-color: #d30000;
+}
+
+.btn-hero:hover {
+  background: transparent;
+  color: #d30000;
+  border-color: #d30000;
+  box-shadow: 0 4px 20px rgba(211, 0, 0, 0.25);
+}
+
+/* --- 5. HERO LANDING SECTION --- */
+.hero {
+  text-align: center;
+  padding: clamp(4rem, 10vw, 9rem) 1.5rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.95)), 
+              url('../Assets/GNARLIE\ S1\ LOGO.jpg') no-repeat center/cover;
+  color: #111111;
+  border-bottom: 4px solid #d30000;
+}
+
+.hero h1 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: clamp(2.2rem, 6.5vw, 4.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin: 0 0 1.25rem 0;
+  color: #111111;
+  text-shadow: 2px 2px 0px rgba(211, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #0088cc;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+/* --- 6. DASHBOARD BENTO GRID (INDUSTRIAL MANIFEST) --- */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 240px;
+  grid-auto-rows: minmax(280px, auto);
   gap: 1.5rem;
   max-width: 1400px;
-  margin: 0 auto 6rem auto;
-  padding: 0 3rem;
+  margin: 3rem auto 5rem auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
 }
 
-/* Base Card Styling */
 .dash-card {
   background: #ffffff;
-  border: 1px solid #d30000;
+  border: 1px solid #111111;
+  padding: 1.25rem;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   text-decoration: none;
   color: #111111;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -286,39 +261,64 @@ nav a:hover, nav a.active {
 }
 
 .dash-card:hover {
-  border-color: #b38f24; /* Gold active edge */
+  border-color: #d30000;
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 4px 6px 0px #111111;
 }
 
-.card-content {
-  padding: 2rem;
+/* Grid Layout Sizing */
+.card-big    { grid-column: span 2; grid-row: span 2; }
+.card-medium { grid-column: span 2; grid-row: span 1; }
+.card-small  { grid-column: span 1; grid-row: span 1; }
+.card-wide   { grid-column: span 2; grid-row: span 1; }
+
+/* Industrial Meta Bar (Top of Card) */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
   z-index: 2;
+}
+
+.card-serial {
+  font-size: 0.65rem;
+  color: #555555;
+  letter-spacing: 1px;
+}
+
+/* Image Wrapper & Visual Container */
+.img-wrapper {
+  width: 100%;
+  height: 180px;
+  background: #f8f8f8;
+  overflow: hidden;
   position: relative;
+  border: 1px solid #eeeeee;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Asymmetric Grid Configurations */
-.card-big {
-  grid-column: span 2;
-  grid-row: span 2;
+.featured-look-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(105%);
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.card-medium {
-  grid-column: span 2;
-  grid-row: span 1;
+.dash-card:hover .featured-look-img {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(100%);
 }
 
-.card-small {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.card-wide {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-/* Background Image Handler */
 .card-image-bg {
   position: absolute;
   top: 0;
@@ -329,6 +329,7 @@ nav a:hover, nav a.active {
   background-position: center;
   filter: grayscale(20%) contrast(105%);
   transition: transform 0.4s ease, filter 0.4s ease;
+  z-index: 0;
 }
 
 .dash-card:hover .card-image-bg {
@@ -336,159 +337,177 @@ nav a:hover, nav a.active {
   filter: grayscale(0%) contrast(100%);
 }
 
-/* Gradient overlay lightened & inverted for white background readability */
-.card-big::after, .image-focus::after {
+.card-big::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(255,255,255,0.95) 25%, rgba(255,255,255,0.3) 100%);
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.1) 100%);
   z-index: 1;
 }
 
-/* Image-Heavy Focus Variant Card */
-.image-focus .featured-look-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+/* Card Content & Text Formatting */
+.manifest-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
 }
 
-.image-focus:hover .featured-look-img {
-  filter: grayscale(0%);
-}
-
-/* Typography Inside Tabs */
+.manifest-content h2,
 .dash-card h2 {
   font-family: 'Syncopate', sans-serif;
-  font-size: 1.5rem;
-  line-height: 1.1;
-  margin: 0.5rem 0;
-  letter-spacing: -1px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
   color: #111111;
+  text-transform: uppercase;
 }
 
-.card-big h2 {
-  font-size: 2.2rem;
+.card-big h2 { 
+  font-size: clamp(1.6rem, 3vw, 2.2rem); 
 }
 
 .dash-card h3 {
   font-family: 'Syncopate', sans-serif;
-  font-size: 1.1rem;
-  margin: 0.5rem 0 0 0;
+  font-size: 0.95rem;
+  margin: 0;
   color: #111111;
+  text-transform: uppercase;
 }
 
 .dash-card p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555555;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 
-/* --- BRAND METRIC TAGS --- */
+/* Bottom Action Bar */
+.card-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #111111;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.card-title-group p {
+  font-size: 0.7rem;
+  color: #777777;
+}
+
+.raw-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: none;
+  background: #f0f0f0;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #111111;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.raw-link:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.green-link {
+  background: #111111;
+  color: #25d366;
+  border-color: #25d366;
+}
+
+.green-link:hover {
+  background: #25d366;
+  color: #111111;
+}
+
+.status-badge {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #d30000;
+  letter-spacing: 1px;
+}
+
+/* Brand Metric Tags */
 .card-tag {
   display: inline-block;
   font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   background: #f0f0f0;
-  margin-bottom: 0.5rem;
 }
 
-.card-tag.gold { color: #b38f24; border-left: 2px solid #b38f24; }
-.card-tag.red { color: #d30000; border-left: 2px solid #d30000; }
+.card-tag.gold     { color: #b38f24; border-left: 2px solid #b38f24; }
+.card-tag.red      { color: #d30000; border-left: 2px solid #d30000; }
 .card-tag.sky-blue { color: #0088cc; border-left: 2px solid #0088cc; }
 
-/* --- RESPONSIVE MOBILE FALLBACK MATRIX --- */
-@media (max-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 260px;
-    padding: 0 1.5rem;
-  }
-  .card-big {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .drop-shortcut-bar { padding: 0.75rem 1.5rem; }
-  .hub-header { padding: 1.5rem; }
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    gap: 1rem;
-  }
-  .card-big, .card-medium, .card-small, .card-wide {
-    grid-column: span 1;
-  }
-  .card-content { padding: 1.5rem; }
-}
-
-/* WhatsApp Floating Action */
+/* --- 7. FLOATING SYSTEM COMMS HUB (WHATSAPP) --- */
 .whatsapp-chat {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #111111;
-  border: 1px solid #111111;
-  border-radius: 0px;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.whatsapp-chat:hover {
-  transform: scale(1.05);
-  background: #0088cc;
-  border-color: #0088cc;
-}
-
-.whatsapp-chat:hover a {
-  color: #ffffff;
-}
-
-.whatsapp-chat img {
-  width: 20px;
-  margin-right: 10px;
-  filter: invert(0); /* Reverted to work on black button background */
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
 }
 
 .whatsapp-chat a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #111111;
   color: #ffffff;
-  font-weight: 700;
+  padding: 0.6rem 1.1rem 0.6rem 0.65rem;
+  border-radius: 50px;
   text-decoration: none;
-  font-size: 0.8rem;
+  border: 1px solid #333333;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.whatsapp-chat a:hover {
+  transform: translateY(-3px);
+  border-color: #25d366;
+  background: #0a0a0a;
+}
+
+.whatsapp-chat img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.whatsapp-chat span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* Footer Decor */
+/* --- 8. INDUSTRIAL FOOTER --- */
 .footer-deco {
   position: relative;
-  background: #ffffff;
-  color: #555555;
+  background: #0a0a0a;
+  color: #ffffff;
   text-align: center;
-  padding: 4rem 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-top: 1px solid #e5e5e5;
+  padding: 4rem 1.5rem 2.5rem 1.5rem;
+  margin-top: 5rem;
+  border-top: 1px solid #222222;
 }
 
-/* Animated subtle luxury top border */
 .footer-deco::before {
   content: "";
   position: absolute;
@@ -496,34 +515,105 @@ nav a:hover, nav a.active {
   left: 0;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, #d30000, #0088cc, #b38f24);
+  background: linear-gradient(90deg, #d30000, #0088cc, #b38f24, #d30000);
+  background-size: 200% 100%;
   animation: glowline 6s linear infinite;
 }
 
 @keyframes glowline {
-  0% { background-position: 0% }
-  100% { background-position: 200% }
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
 }
 
-.footer-deco a {
-  color: #111111;
-  text-decoration: underline;
-  font-weight: 700;
+.footer-deco h3 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #888888;
 }
 
-.footer-deco a:hover {
+.footer-deco ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-deco ul li a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: #cccccc;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.footer-deco ul li a:hover {
   color: #0088cc;
 }
 
-/* Utility Lists */
-ul {
-  list-style: none;
-  padding: 0;
+.footer-deco p {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.7rem;
+  color: #555555;
+  letter-spacing: 1.5px;
   margin: 0;
 }
 
-ul li {
-  margin-bottom: 12px;
-  font-size: 1rem;
-  color: #555555;
+/* --- 9. RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .card-big { grid-column: span 2; grid-row: auto; }
+}
+
+@media (max-width: 768px) {
+  header,
+  .hub-header {
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .card-big, .card-medium, .card-small, .card-wide {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .footer-deco ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-chat span {
+    display: none;
+  }
+
+  .whatsapp-chat a {
+    padding: 0.6rem;
+    border-radius: 50%;
+  }
+
+  .whatsapp-chat img {
+    width: 24px;
+    height: 24px;
+  }
 }

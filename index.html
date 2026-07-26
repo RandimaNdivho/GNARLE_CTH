@@ -4,122 +4,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GNARLIE.CTH - HOME </title>
+  <title>GNARLIE.CTH - HOME</title>
   <link rel="stylesheet" href="Css/style.css">
   <link rel="stylesheet" href="Css/responsive.css">
 </head>
 <body>
 
- <section class="hero">
-  <h1>GNARLIE.CTH</h1>
-  <p>"THE ELEMENT"</p>
-  <a href="shop.html" class="btn">Shop Now</a>
-</section>
+ 
+  <header class="hub-header">
+  <div class="logo">GNARLIE.CTH</div>
+  
+  <!-- Hamburger Button -->
+  <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
+  <!-- NAVIGATION HEADER -->
+  <nav id="mainNav">
+    <a href="index.html" class="active">/ Home</a>
+    <a href="shop.html">/ Shop</a>
+    <a href="cart.html">/ Cart</a>
+  </nav>
+</header>
 
-  <!-- TOP SHORTCUT BAR: THE DROP NAVIGATION  -->
+  <!-- 2. QUICK ACCESS RUNNER TICKER -->
   <div class="drop-shortcut-bar">
     <div class="shortcut-label">QUICK_ACCESS //</div>
     <div class="shortcut-scroll-container">
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-01" class="shortcut-item">
         <img src="Assets/GNARLIE GRAPHIC TEE S1.jpg" alt="Drop 01">
         <span>S1_TEE_01</span>
       </a>
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-02" class="shortcut-item">
         <img src="Assets/GNARLIE CROPPED TEE S1.jpg" alt="Drop 02">
         <span>S1_CROP_02</span>
       </a>
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-03" class="shortcut-item">
         <img src="Assets/Men TEE S2.png" alt="Drop 03">
         <span>S2_MEN_03</span>
       </a>
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-04" class="shortcut-item">
         <img src="Assets/Female Cropped Tee S2.png" alt="Drop 04">
         <span>S2_FEM_04</span>
       </a>
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-05" class="shortcut-item">
         <img src="Assets/Men Cropped Hoodie.png" alt="Drop 05">
         <span>S1_HD_05</span>
       </a>
-      <a href="product.html" class="shortcut-item">
+      <a href="product.html#item-06" class="shortcut-item">
         <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Drop 06">
         <span>S1_HD_06</span>
       </a>
-      <a href="product.html" class="shortcut-item">
-        <span> More...</span>
+      <a href="shop.html" class="shortcut-item">
+        <span>More...</span>
       </a>
     </div>
   </div>
 
-  <header class="hub-header">
-    <div class="logo">GNARLIE.CTH</div>
-    <nav id="mainNav">
-      <a href="shop.html" class="active">/ Shop</a>
-      <a href="cart.html">/ Cart</a>
-    </nav>
-  </header>
- 
-  <!-- MAIN EDITORIAL MESH: THE 6 BIG TABS -->
+  <!-- 3. MAIN HERO BANNER -->
+  <section class="hero">
+    <h1>GNARLIE.CTH</h1>
+    <p>"THE ELEMENT"</p>
+    <a href="shop.html" class="btn">Shop Now</a>
+  </section>
+
+  <!-- 4. ABLOH INDUSTRIAL SUPPLY MANIFEST (LOWER BENTO GRID) -->
   <main class="dashboard-grid">
-    
-    <!-- TAB 1: THE PRIMARY HERO DROP (Redirects straight to products) -->
-    <a href="shop.html" class="dash-card card-big link-card" data-card="01">
-      <div class="card-image-bg" style="background-image: url('Assets/GNARLIE S1 LOGO.jpg');"></div>
-      <div class="card-content">
-        <span class="card-tag gold">INITIALIZE_ACCESS</span>
-        <h2>GNARLIE CLOTHING //</h2>
-        <p>"THE ELEMENT"</p>
-      </div>
-    </a>
 
-    <!-- TAB 2: BRAND MANIFESTO FACT -->
-    <div class="dash-card card-medium" data-card="02">
-      <div class="card-content">
-        <span class="card-tag red">SPECIFICATION_01</span>
-        <h2>GNARLIE.CTH</h2>
-        <p>is pure urban streetwear driven by whatever inspires us in the moment. We don't do boxes, and we don't do standard rules. Our identity shifts with every wave, we put out a design, it hits the streets, and we're already moving on to the next concept. No permanent themes, no staying still. "IT DROPS", and that's it.</p>
+    <!-- CARD 01: SIGNATURE TEE ZOOM (ARTICLE 01) -->
+    <article class="dash-card card-big" data-card="01">
+      <div class="card-meta">
+        <span class="card-tag gold">"ARTICLE_01"</span>
+        <span class="card-serial">GN-S1-01 // R350</span>
       </div>
-    </div>
-
-    <!-- TAB 3: HIGHLIGHTED DROPPED VISUAL (FEATURED ITEM PROMO) -->
-    <div class="dash-card card-medium image-focus" data-card="03">
-      <img src="Assets/GNARLIE GRAPHIC TEE S1.jpg" alt="Featured Drop Visual" class="featured-look-img">
-      <div class="card-content">
-        <span class="card-tag sky-blue">LOOKBOOK_SPOTLIGHT</span>
-        <h3>SIGNATURE TEXTURE</h3>
+      <div class="card-image-bg" style="background-image: url('Assets/GNARLIE GRAPHIC TEE S1.jpg');"></div>
+      <div class="card-action-bar">
+        <div class="card-title-group">
+          <h2>"SIGNATURE TEE"</h2>
+          <p>Heavy graffiti textures. Ceremony front & aggression back.</p>
+        </div>
+        <a href="product.html#item-01" class="raw-link">ACQUIRE ↗</a>
       </div>
-    </div>
+    </article>
 
-    <!-- TAB 4: BRAND IDENTITY / METADATA MATRIX -->
-    <div class="dash-card card-small text-heavy" data-card="04">
-      <div class="card-content">
-        <span class="card-tag gold">DATA_STREAM</span>
-        <h2>EST. 2026 // SOUTH AFRICA </h2>
+    <!-- CARD 02: BRAND MANIFESTO (RAW DEFINITION) -->
+    <article class="dash-card card-medium text-manifest" data-card="02">
+      <div class="card-meta">
+        <span class="card-tag red">"MANIFESTO"</span>
+        <span class="card-serial">SPEC-01</span>
+      </div>
+      <div class="manifest-content">
+        <h2>"STREETWEAR"</h2>
+        <p>Pure urban posture driven by whatever inspires us in the moment. No permanent themes. No staying still. "IT DROPS", and that's it.</p>
+      </div>
+      <div class="card-action-bar">
+        <span class="status-badge">● LIMITED RUN</span>
+        <a href="about.html" class="raw-link">READ INTEL ↗</a>
+      </div>
+    </article>
+
+    <!-- CARD 03: LOOKBOOK VISUAL PROJECTION -->
+    <article class="dash-card card-medium image-focus" data-card="03">
+      <div class="card-meta">
+        <span class="card-tag sky-blue">"VISUAL_PROJECTION"</span>
+        <span class="card-serial">ZA // 2026</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Featured Drop Visual" class="featured-look-img">
+      </div>
+      <div class="card-action-bar">
+        <div class="card-title-group">
+          <h3>"RIBBON HOODIE"</h3>
+          <p>Heavy fleece knit. Distressed ribbon details.</p>
+        </div>
+        <a href="product.html#item-06" class="raw-link">VIEW ↗</a>
+      </div>
+    </article>
+
+    <!-- CARD 04: METADATA & ORIGIN -->
+    <article class="dash-card card-small text-heavy" data-card="04">
+      <div class="card-meta">
+        <span class="card-tag gold">"DATA_STREAM"</span>
+        <span class="card-serial">EST. 2026</span>
+      </div>
+      <div class="manifest-content">
+        <h2>"SOUTH AFRICA"</h2>
         <p>A calculated friction between ritualistic layout design and raw street posture. We do not restock.</p>
       </div>
-    </div>
-
-    <!-- TAB 5: HIGHLIGHTED DROPPED VISUAL (CROP DESIGN FOCUS) -->
-    <div class="dash-card card-small image-focus" data-card="05">
-      <img src="Assets/GNARLIE CROPPED TEE S1.jpg" alt="Featured Crop Visual" class="featured-look-img">
-      <div class="card-content">
-        <span class="card-tag red">GRAFFITI_AGGRESSION</span>
-        <h3>GNARLIE.CTH_CROP ARCHIVE</h3>
+      <div class="card-action-bar">
+        <span class="status-badge">ORIGIN // ZA</span>
       </div>
-    </div>
+    </article>
 
-    <!-- TAB 6: BRAND INTEL / CLOSING DROP STATUS -->
-    <div class="dash-card card-wide" data-card="06">
-      <div class="card-content">
-        <span class="card-tag sky-blue">DISTRIBUTION_STATUS</span>
-        <h2>SYSTEM_LOG: ACTIVE DROP STAGE</h2>
-        <p>All assets currently deployed online are limited execution runs. Secure comms terminal (WhatsApp link below) remains open for priority orders and immediate regional dispatch coordination.</p>
+    <!-- CARD 05: CROPPED ARCHIVE FEATURE -->
+    <article class="dash-card card-small image-focus" data-card="05">
+      <div class="card-meta">
+        <span class="card-tag red">"ARTICLE_02"</span>
+        <span class="card-serial">R300</span>
       </div>
-    </div>
+      <div class="img-wrapper">
+        <img src="Assets/GNARLIE CROPPED TEE S1.jpg" alt="Featured Crop Visual" class="featured-look-img">
+      </div>
+      <div class="card-action-bar">
+        <div class="card-title-group">
+          <h3>"CROPPED TEE"</h3>
+        </div>
+        <a href="product.html#item-02" class="raw-link">ACQUIRE ↗</a>
+      </div>
+    </article>
+
+    <!-- CARD 06: SYSTEM LOG & DISPATCH STATUS -->
+    <article class="dash-card card-wide" data-card="06">
+      <div class="card-meta">
+        <span class="card-tag sky-blue">"DISTRIBUTION_STATUS"</span>
+        <span class="card-serial">SYSTEM_LOG</span>
+      </div>
+      <div class="manifest-content">
+        <h2>ACTIVE DROP STAGE //</h2>
+        <p>All assets currently deployed online are limited execution runs. Secure comms terminal remains open for priority orders and immediate regional dispatch coordination.</p>
+      </div>
+      <div class="card-action-bar">
+        <a href="https://wa.me/0660460301" target="_blank" rel="noopener" class="raw-link green-link">OPEN COMMS TERMINAL ↗</a>
+      </div>
+    </article>
 
   </main>
 
-  <!-- FLOATING SYSTEM COMMS HUB -->
+  <!-- FLOATING SYSTEM COMMS HUB (WHATSAPP) -->
   <div class="whatsapp-chat">
     <a href="https://wa.me/0660460301" target="_blank" rel="noopener">
       <img src="Assets/GNARLIE S1 LOGO.jpg" alt="Secure Comms Link">
@@ -127,13 +180,14 @@
     </a>
   </div>
 
+  <!-- INDUSTRIAL FOOTER -->
   <footer class="footer-deco">
-     <h3>More to Explore</h3>
-      <ul>
-        <li><a href="season2.html">Season 2</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    <p>&copy; 2026 GNARLIE. All rights reserved.</p>
+    <h3>More to Explore</h3>
+    <ul>
+      <li><a href="season2.html">Season 2 Drop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
   </footer>
 
 </body>

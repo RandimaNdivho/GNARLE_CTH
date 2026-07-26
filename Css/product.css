@@ -1,209 +1,241 @@
-/* css/product-detail.css */
+/* ==========================================================================
+   GNARLIE.CTH - PRODUCT DETAIL STYLESHEET (product.css)
+   ========================================================================== */
 
-/* --- PRODUCT DETAIL: THE EXCLUSIVE DROP LAYOUT --- */
+/* --- 1. MAIN CONTAINER & SECTION SPACING --- */
+.shop-container {
+  max-width: 1400px;
+  margin: 1rem auto 6rem auto;
+}
 
-.product-detail {
+.catalog-section {
+  margin-bottom: 4rem;
+}
+
+.catalog-section[id] {
+  scroll-margin-top: 140px; /* Clean anchor scrolling past top sticky bars */
+}
+
+/* --- 2. CATALOG SECTION HEADER --- */
+.section-header {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5rem; /* Massive structural gap for a lookbook feel */
-  margin: 6rem auto;
-  max-width: 1200px;
-  color: #111111;
-  padding: 0 2rem 4rem 2rem;
-  border-bottom: 1px dashed #e5e5e5; /* Clean industrial line on light background */
+  align-items: baseline;
+  padding: 0 3rem 0.75rem 3rem;
+  border-bottom: 2px solid #111111;
+  margin-bottom: 2.5rem;
 }
 
-/* Product Image Frame */
-.product-image img {
-  width: 450px; /* Made the focal point much bigger and bolder */
-  height: auto;
-  border: 1px solid #e5e5e5;
-  background: #f9f9f9;
-  padding: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+.section-tag {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #d30000; /* High-voltage Red tag */
+  margin-right: 1rem;
 }
 
-.product-detail:hover .product-image img {
-  border-color: #d30000; /* Subtle high-voltage red border when interacting with page */
-  box-shadow: 0 10px 25px rgba(211, 0, 0, 0.1);
-}
-
-/* Typography Overhaul */
-.info h1 {
+.section-header h2 {
   font-family: 'Syncopate', sans-serif;
-  font-size: 3rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  line-height: 1;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
   color: #111111;
-  text-shadow: none;
-}
-
-/* Premium indicator above title */
-.info h1::before {
-  content: "DROP OVERVIEW / SPEC-01";
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: #b38f24; /* Metallic gold classification tuned for light BG */
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.info .price {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111111;
-  margin: 1.5rem 0;
-  text-shadow: none;
-}
-
-/* Industrial Select/Size Dropdown */
-select {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  padding: 1rem 1.5rem;
-  margin: 2rem 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
+  margin: 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.85rem;
+}
+
+.section-header .item-count {
+  margin-left: auto;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+/* --- 3. PRODUCT POSTCARDS GRID --- */
+.product-postcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 3rem;
+}
+
+.postcard {
   background: #ffffff;
-  color: #111111;
-  border: 1px solid #111111; /* Sharp black border on white */
-  border-radius: 0px; /* Absolutely squared off */
-  cursor: pointer;
-  appearance: none; /* Strips browser default styling */
-  /* Updated SVG arrow fill to black for light mode visibility */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23111111'><polygon points='0,0 10,0 5,5'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1.5rem center;
-  transition: all 0.2s ease;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-select:hover, select:focus {
-  border-color: #0088cc; /* High-contrast Sky Blue on focus */
-  outline: none;
+.postcard:hover {
+  transform: translateY(-4px);
+  border-color: #111111;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Heavy Tactical Action Buttons */
-.add-to-cart {
-  display: block;
+/* --- 4. CONTROLLED IMAGE CONTAINER --- */
+.postcard .img-container {
   width: 100%;
-  max-width: 300px;
-  padding: 1.25rem 2rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
+  height: 320px; /* Fixed height stops images from blowing up */
+  background: #f8f8f8;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.postcard .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps shirt completely visible inside frame */
+  padding: 1rem;
+  filter: grayscale(10%) contrast(102%);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.postcard:hover .img-container img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.05);
+}
+
+/* --- 5. PRODUCT INFORMATION & FORM CONTROLS --- */
+.postcard .info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.postcard .info h3 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  background: #d30000; /* Striking Red primary action */
-  color: #ffffff;
-  border: 1px solid #d30000;
-  border-radius: 0px;
+  letter-spacing: -0.5px;
+  margin: 0 0 0.5rem 0;
+  color: #111111;
+  line-height: 1.2;
+}
+
+.postcard .description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: #555555;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.postcard .price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0088cc; /* Sky Blue price highlight */
+  margin: 0 0 1rem 0;
+}
+
+/* Technical Label & Custom Select Dropdown */
+.postcard label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.postcard select {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111111;
+  background: #f9f9f9;
+  border: 1px solid #cccccc;
+  border-radius: 0px; /* Sharp industrial corners */
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  width: 100%;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(211, 0, 0, 0.15);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.add-to-cart:hover {
-  background: #111111;
-  color: #ffffff;
-  border-color: #111111;
-  transform: translateY(-3px); /* Sophisticated upward push */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.postcard select:focus,
+.postcard select:hover {
+  border-color: #0088cc;
+  background: #ffffff;
 }
 
-.add-to-cart:active {
-  transform: translateY(-1px);
+/* Action Buttons */
+.postcard .btn {
+  margin-top: auto;
+  width: 100%;
 }
 
 .view-cart-link {
-  display: inline-block;
-  margin-top: 1.5rem;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #d30000;
+  text-decoration: underline;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: #0088cc; /* High-contrast Sky Blue secondary link */
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-.view-cart-link:hover {
-  border-color: #0088cc;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* --- THE FLOATING TACTICAL MINI-CART --- */
-
-.mini-cart {
-  position: absolute;
-  top: 80px;
-  right: 3rem;
-  background: #ffffff;
-  border: 1px solid #111111;
-  padding: 2rem;
-  width: 280px;
-  border-radius: 0px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-  color: #111111;
-  z-index: 1000;
-}
-
-/* Gold identification subheader inside cart */
-.mini-cart::before {
-  content: "SECURE CHECKOUT TERMINAL";
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #b38f24;
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.mini-cart p {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  margin: 0 0 1.5rem 0;
-  color: #555555;
-}
-
-/* Redesigned Mini-Cart Button to match lookbook style */
-.mini-cart .btn {
   display: block;
   text-align: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  background: #111111;
-  color: #ffffff;
-  padding: 1rem;
-  text-decoration: none;
-  font-weight: 700;
-  border: 1px solid #111111;
-  box-shadow: none;
-  transition: all 0.2s ease;
+  margin-top: 0.75rem;
 }
 
-.mini-cart .btn:hover {
-  background: #d30000;
-  color: #ffffff;
-  border-color: #d30000;
+.view-cart-link.hidden {
+  display: none;
+}
+
+/* --- 6. COMING SOON / UNRELEASED STYLING --- */
+.postcard.coming-soon {
+  opacity: 0.85;
+  border-style: dashed;
+}
+
+.postcard.coming-soon .price {
+  color: #888888;
+}
+
+.postcard.coming-soon select {
+  cursor: not-allowed;
+  background: #eeeeee;
+}
+
+.btn.disabled,
+.btn:disabled {
+  background: #e0e0e0;
+  color: #888888;
+  border: 1px solid #cccccc;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* --- 7. RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  .section-header {
+    padding: 0 1.5rem 0.75rem 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .product-postcards {
+    padding: 0 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .postcard .img-container {
+    height: 280px; /* Compact height for smaller screens */
+  }
 }

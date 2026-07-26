@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GNARLIE CORE STREETWEAR PLATFORM // UNIFIED MASTER RESPONSIVE MANIFEST
+   GNARLIE CORE STREETWEAR PLATFORM // UNIFIED MASTER RESPONSIVE MANIFEST (responsive.css)
    ========================================================================== */
 
 /* --- 00. GLOBAL ANTI-BLEED & LIQUID MEDIA CONTROLS --- */
@@ -23,351 +23,215 @@ img, video, iframe {
 /* --- 01. LARGE TABLET & MEDIUM DESKTOP COMPRESSION (Max-Width: 1200px) --- */
 @media (max-width: 1200px) {
   .dashboard-grid, 
-  .product-grid, 
+  .shop-container, 
   .product-postcards,
-  .more-extension-hub,
-  .product-detail,
   .cart,
   .checkout {
-    max-width: 100% !important;
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
-
-  .product-detail {
-    gap: 2.5rem;
+    max-width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 /* --- 02. MEDIUM COMPACT TABLET VIEWPORTS (Max-Width: 1024px) --- */
 @media (max-width: 1024px) {
-  /* Bento Dashboard System */
+  /* Abloh Bento Dashboard Grid System */
   .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-auto-rows: 240px !important;
-    gap: 1.25rem !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(260px, auto);
+    gap: 1.25rem;
   }
   
   .card-big, .card-wide {
-    grid-column: span 2 !important;
+    grid-column: span 2;
   }
 
-  /* Structural Columns */
-  .more-extension-hub {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-    margin-top: 4rem !important;
+  .card-small {
+    grid-column: span 1;
   }
 
+  /* Postcard Grid Adjustments */
   .product-postcards {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-    gap: 2rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
   }
 
-  /* Product View Port Adjustments */
-  .product-detail {
-    gap: 3rem !important;
-  }
-  
-  .product-image img {
-    width: 380px !important;
-  }
-
-  .info h1 {
-    font-size: 2.5rem !important;
+  .postcard .img-container {
+    height: 300px;
   }
 }
 
-/* --- 03. MOBILES & HANDHELD REVIEWS (Max-Width: 768px) --- */
+/* --- 03. MOBILES & HANDHELD VIEWPORTS (Max-Width: 768px) --- */
 @media (max-width: 768px) {
   
-  /* Persistent Top Drop Runner Bar Layout adjustment */
+  /* Persistent Top Drop Runner Bar Layout */
   .drop-shortcut-bar {
-    padding: 0.75rem 1.5rem !important;
-    gap: 1rem !important;
+    padding: 0.6rem 1rem;
+    gap: 1rem;
   }
 
   .shortcut-label {
-    font-size: 0.6rem !important;
-    letter-spacing: 0px !important;
+    font-size: 0.65rem;
+    margin-right: 0.75rem;
   }
 
-  /* Global Core Navigation Hub Redesign */
+  /* Global Navigation Header */
   .hub-header, header {
-    padding: 1.25rem 1.5rem !important;
-    position: relative !important;
-    background: #ffffff !important;
+    padding: 1rem 1.25rem;
+    position: relative;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .logo {
-    font-size: 1.4rem !important;
+    font-size: 1.4rem;
   }
 
-  /* Desktop Inline Links Eraser block */
-  header nav, .hub-header nav {
-    display: none !important; /* Forces fallback to raw JS hamburger structures */
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
-  /* Hamburger Operational Button Blueprint Overrides */
-  #hamburger {
-    display: block !important;
-    position: absolute !important;
-    top: 50% !important;
-    right: 1.5rem !important;
-    transform: translateY(-50%) !important;
-    z-index: 2000 !important;
+  nav a {
+    margin: 0 0.5rem;
+    font-size: 0.75rem;
   }
 
-  /* Tactical Overlay Mobile Panel Configuration Drawer */
-  #mainNav ul {
-    display: none;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background-color: #ffffff!important;
-    
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    padding: 2.5rem !important;
-    margin: 0 !important;
-    list-style: none !important;
-    border-bottom: 4px solid #ff0000 !important;
-    z-index: 1999 !important;
-  }
-
-  #mainNav ul.hamreveal {
-    display: flex !important;
-  }
-
-  #mainNav ul li {
-    margin-bottom: 2rem !important;
-    text-align: center !important;
-  }
-
-  #mainNav ul li a {
-    font-size: 1.6rem !important;
-    letter-spacing: 0px !important;
-  }
-
-  /* Hero Section Core Scale Decreases */
+  /* Hero Section Scaling */
   .hero {
-    padding: 6rem 1.5rem !important;
+    padding: 5rem 1.25rem;
   }
 
   .hero h1 {
-    font-size: 2.8rem !important;
-    letter-spacing: -1px !important;
-    text-shadow: 2px 2px 0px #ff0000 !important;
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 0px rgba(211, 0, 0, 0.2);
   }
 
   .hero p {
-    font-size: 0.9rem !important;
-    letter-spacing: 2px !important;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
   }
 
-  /* Cta Limited Box Block Drop */
-  .cta-card {
-    flex-direction: column !important;
-    padding: 2rem !important;
-    margin: 3rem 1.5rem !important;
-    text-align: center !important;
-  }
-
-  .cta-info {
-    margin-left: 0 !important;
-    margin-top: 2rem !important;
-    text-align: center !important;
-  }
-
-  /* Flatten bento structures into sequential single mobile column streams */
+  /* Bento Stream Flattening (Abloh Layout) */
   .dashboard-grid {
-    grid-template-columns: 1fr !important;
-    grid-auto-rows: auto !important;
-    gap: 1.25rem !important;
-    padding: 0 1.5rem !important;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(240px, auto);
+    gap: 1.25rem;
+    padding: 0 1.25rem;
   }
 
   .card-big, .card-medium, .card-small, .card-wide {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-    min-height: 220px !important;
+    grid-column: span 1;
+    grid-row: auto;
   }
 
   .card-big h2 {
-    font-size: 1.6rem !important;
+    font-size: 1.5rem;
   }
 
   /* Shop Postcards Flow Override */
   .product-postcards {
-    grid-template-columns: 1fr !important;
-    padding: 0 1.5rem !important;
-    gap: 2.5rem !important;
+    grid-template-columns: 1fr;
+    padding: 0 1.25rem;
+    gap: 2rem;
   }
 
   .postcard .img-container {
-    height: 380px !important; /* Provides deep product focus frames on mobile */
+    height: 320px;
   }
 
-  /* Product Details Workspace Override */
-  .product-detail {
-    flex-direction: column !important;
-    align-items: center !important;
-    margin: 3rem auto !important;
-    padding: 0 1.5rem !important;
+  .postcard select,
+  .postcard .btn {
+    max-width: 100%;
   }
 
-  .product-image, .product-image img {
-    width: 100% !important;
-    max-width: 100% !important;
+  /* Mini Cart & Floating WhatsApp Bar Adjustments */
+  .whatsapp-chat {
+    bottom: 1.25rem;
+    right: 1.25rem;
   }
 
-  .info {
-    width: 100% !important;
-    margin-top: 2rem !important;
-  }
-
-  .info h1 {
-    font-size: 2.2rem !important;
-  }
-
-  select, .add-to-cart {
-    max-width: 100% !important;
-  }
-
-  /* Mini Cart Dynamic Positioning Overhaul */
-  .mini-cart {
-    top: 90px !important;
-    right: 5% !important;
-    width: 90% !important;
-  }
-
-  /* Checkout Frame Adjustments */
-  .checkout h1 {
-    font-size: 2.2rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  /* Shopping Manifest Table Mobilization (Forces text structure on small viewports) */
-  #cart-table current-element, 
+  /* Mobile Cart Table Transformation */
+  #cart-table, 
   #cart-table thead, 
   #cart-table tbody, 
   #cart-table th, 
   #cart-table td, 
   #cart-table tr { 
-    display: block !important; 
+    display: block; 
   }
 
   #cart-table thead tr { 
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
 
   #cart-table tr {
-    border-bottom: 2px solid #1a1a1a !important;
-    padding: 1rem 0 !important;
+    border-bottom: 2px solid #111111;
+    padding: 1rem 0;
   }
 
   #cart-table td { 
-    border: none !important;
-    padding: 0.5rem 0 !important;
-    text-align: left !important;
+    border: none;
+    padding: 0.5rem 0;
+    text-align: left;
   }
 
   #cart-table td:last-child {
-    text-align: left !important;
-    color: #00bfff !important;
+    text-align: left;
+    color: #0088cc;
   }
 
   .cart-summary {
-    text-align: center !important;
+    text-align: center;
   }
 
   .cart-summary p strong {
-    display: block !important;
-    margin-left: 0 !important;
-    margin-top: 0.5rem !important;
+    display: block;
+    margin-left: 0;
+    margin-top: 0.5rem;
   }
 
   .cart .checkout {
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  /* Fixed Messaging Interface Node Scaling */
-  .whatsapp-chat {
-    bottom: 20px !important;
-    right: 20px !important;
-    padding: 0.6rem 1rem !important;
+    width: 100%;
+    text-align: center;
   }
 }
 
-/* --- 04. SMARTPHONE AND COMPACT MICRO PORTRAITS (Max-Width: 480px) --- */
+/* --- 04. SMARTPHONE AND MICRO PORTRAITS (Max-Width: 480px) --- */
 @media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+
   .hero h1 {
-    font-size: 2.2rem !important;
+    font-size: 2rem;
   }
   
   .postcard .img-container {
-    height: 300px !important;
+    height: 260px;
   }
 
   .cart h1 {
-    font-size: 2rem !important;
-  }
-}
-/* ==========================================================================
-   MOBILE NAVIGATION EMERGENCY OVERRIDE
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* Force the navigation container to remain visible on mobile layout */
-  header nav, 
-  .hub-header nav, 
-  #mainNav, 
-  #mainNav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1.25rem !important;
-    
-    /* Strip away fixed full-screen overlays */
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    padding: 1rem 0 !important;
-    margin: 1rem 0 0 0 !important;
-    background: transparent !important;
-    border-top: 1px dashed #1a1a1a !important; 
-    border-bottom: 1px dashed #1a1a1a !important;
+    font-size: 1.8rem;
   }
 
-  /* Standardize list items and clean spacing rules */
-  #mainNav ul li, 
-  nav ul li {
-    margin: 0 !important;
-    padding: 0 !important;
-    display: inline-block !important;
-    width: auto !important;
+  /* Hide chat text on tiny mobile screens to prevent overlap */
+  .whatsapp-chat span {
+    display: none;
   }
 
-  /* Shrink high-fashion fonts down so they fit perfectly on an iPhone screen */
-  header nav a, 
-  .hub-header nav a, 
-  #mainNav ul li a {
-    display: inline-block !important;
-    font-size: 0.75rem !important;
-    letter-spacing: 1px !important;
-    margin: 0 0.5rem !important;
-    text-shadow: none !important;
+  .whatsapp-chat a {
+    padding: 0.6rem;
+    border-radius: 50%;
   }
 
-  /* Kill the conflicting hamburger button */
-  #hamburger {
-    display: none !important;
+  .whatsapp-chat img {
+    width: 24px;
+    height: 24px;
   }
 }

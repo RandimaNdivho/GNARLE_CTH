@@ -1,5 +1,9 @@
+/* ==========================================================================
+   GNARLIE.CTH - MASTER ENGINE SCRIPT (main.js)
+   ========================================================================== */
+
 // --------------------
-// CART STORAGE SETUP
+// 1. STATE MANAGEMENT
 // --------------------
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -9,119 +13,140 @@ function saveCart() {
 }
 
 // --------------------
-// ADD TO CART (product.html)
-// --------------------
-document.querySelectorAll('.add-to-cart').forEach(button => {
-  button.addEventListener('click', () => {
-    const product = button.getAttribute('data-product');
-    const price = parseInt(button.getAttribute('data-price'));
-    const sizeId = button.getAttribute('data-size');
-    const size = document.getElementById(sizeId).value;
-
-    cart.push({ product, price, size, quantity: 1 });
-    saveCart();
-
-    alert(`Added ${product} (Size: ${size}) to cart!`);
-
-    const viewCartLink = button.nextElementSibling;
-    if (viewCartLink && viewCartLink.classList.contains('view-cart-link')) {
-      viewCartLink.classList.remove('hidden');
-    }
-  });
-});
-
-// --------------------
-// MINI CART DROPDOWN (header)
+// 2. MINI CART DROPDOWN UPDATE
 // --------------------
 function updateMiniCart() {
   const miniCart = document.querySelector('.mini-cart');
   if (!miniCart) return;
 
-  miniCart.innerHTML = '';
-
   if (cart.length === 0) {
-    miniCart.innerHTML = '<p>Your cart is empty</p>';
+    miniCart.innerHTML = '<p class="empty-msg">CART: EMPTY</p>';
     return;
   }
 
-  let totalItems = 0;
-  let totalPrice = 0;
-
-  cart.forEach(item => {
-    totalItems += item.quantity;
-    totalPrice += item.price * item.quantity;
-  });
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   miniCart.innerHTML = `
-    <p><strong>${totalItems}</strong> items | <strong>R${totalPrice}</strong></p>
-    <a href="cart.html" class="btn">View Cart</a>
+    <p><strong>${totalItems} ITEMS</strong> | <strong class="price-highlight">R${totalPrice}</strong></p>
+    <a href="cart.html" class="btn">VIEW CART</a>
   `;
 }
 
 // --------------------
-// RENDER CART (cart.html)
+// 3. ADD TO CART HANDLER
+// --------------------
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-to-cart');
+  if (!btn) return;
+
+  const product = btn.getAttribute('data-product');
+  const price = parseInt(btn.getAttribute('data-price'), 10);
+  const sizeId = btn.getAttribute('data-size');
+  const sizeSelect = document.getElementById(sizeId);
+  const size = sizeSelect ? sizeSelect.value : 'DEFAULT';
+
+  // Check if item already exists in cart with same size
+  const existingItem = cart.find(item => item.product === product && item.size === size);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ product, price, size, quantity: 1 });
+  }
+
+  saveCart();
+
+  // Show inline feedback link (View Cart)
+  const viewCartLink = btn.nextElementSibling;
+  if (viewCartLink && viewCartLink.classList.contains('view-cart-link')) {
+    viewCartLink.classList.remove('hidden');
+  }
+
+  // Visual feedback on button
+  const originalText = btn.textContent;
+  btn.textContent = 'ADDED TO CART ✓';
+  btn.style.background = '#0088cc';
+  
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.style.background = '';
+  }, 1500);
+});
+
+// --------------------
+// 4. RENDER CART (cart.html)
 // --------------------
 function renderCart() {
   const tbody = document.querySelector('#cart-table tbody');
+  const totalElement = document.getElementById('cart-total');
+  
   if (!tbody) return;
 
   tbody.innerHTML = '';
-  let total = 0;
+
+  if (cart.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 2rem;">YOUR CART IS CURRENTLY EMPTY.</td></tr>`;
+    if (totalElement) totalElement.textContent = 'R0';
+    return;
+  }
+
+  let grandTotal = 0;
 
   cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    grandTotal += itemTotal;
+
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${item.product}</td>
+      <td><strong>${item.product}</strong></td>
       <td>${item.size}</td>
       <td>R${item.price}</td>
       <td>
         <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="qty">
       </td>
-      <td>R${item.price * item.quantity}</td>
-      <td><button class="remove" data-index="${index}">X</button></td>
+      <td>R${itemTotal}</td>
+      <td><button class="remove" data-index="${index}">✕</button></td>
     `;
     tbody.appendChild(row);
-    total += item.price * item.quantity;
   });
 
-  const totalElement = document.getElementById('cart-total');
   if (totalElement) {
-    totalElement.textContent = `R${total}`;
+    totalElement.textContent = `R${grandTotal}`;
   }
-
-  saveCart();
 }
 
 // --------------------
-// CART INTERACTIONS
+// 5. CART TABLE INTERACTIONS (QUANTITY & REMOVE)
 // --------------------
-document.addEventListener('input', e => {
+document.addEventListener('input', (e) => {
   if (e.target.classList.contains('qty')) {
-    const index = e.target.dataset.index;
-    cart[index].quantity = parseInt(e.target.value);
-    renderCart();
+    const index = parseInt(e.target.dataset.index, 10);
+    const newQty = parseInt(e.target.value, 10);
+
+    if (newQty > 0) {
+      cart[index].quantity = newQty;
+      saveCart();
+      renderCart();
+    }
   }
 });
 
-document.addEventListener('click', e => {
+document.addEventListener('click', (e) => {
   if (e.target.classList.contains('remove')) {
-    const index = e.target.dataset.index;
+    const index = parseInt(e.target.dataset.index, 10);
     cart.splice(index, 1);
+    saveCart();
     renderCart();
   }
 });
 
-const checkoutBtn = document.querySelector('.checkout');
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    window.location.href = "checkout.html";
-  });
-}
-
 // --------------------
-// INITIALIZE
+// 6. INITIALIZATION
 // --------------------
-updateMiniCart();
-if (document.querySelector('#cart-table')) {
-  renderCart();
-}
+document.addEventListener('DOMContentLoaded', () => {
+  updateMiniCart();
+  if (document.querySelector('#cart-table')) {
+    renderCart();
+  }
+});
