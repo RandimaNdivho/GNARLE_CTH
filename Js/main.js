@@ -150,3 +150,45 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCart();
   }
 });
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.add-to-cart');
+  if (!btn) return;
+
+  // Prevent form submission/page reload if inside a form
+  e.preventDefault();
+
+  const product = btn.getAttribute('data-product');
+  const price = parseInt(btn.getAttribute('data-price'), 10) || 0;
+  
+  // Mobile-safe select lookup: Try ID first, then relative search in same card
+  const sizeId = btn.getAttribute('data-size');
+  let sizeSelect = sizeId ? document.getElementById(sizeId) : null;
+  
+  if (!sizeSelect) {
+    const parentCard = btn.closest('.dash-card, .postcard, .product-detail, .card');
+    if (parentCard) sizeSelect = parentCard.querySelector('select');
+  }
+
+  const size = sizeSelect ? sizeSelect.value : 'M'; // Defaultfallback
+
+  // Add/Increment in cart array
+  const existingItem = cart.find(item => item.product === product && item.size === size);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ product, price, size, quantity: 1 });
+  }
+
+  saveCart();
+
+  // Mobile feedback
+  const originalText = btn.textContent;
+  btn.textContent = 'ADDED ✓';
+  btn.style.background = '#0088cc';
+  
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.style.background = '';
+  }, 1500);
+});
