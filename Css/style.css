@@ -617,3 +617,113 @@ nav a.active::after {
     height: 24px;
   }
 }
+/* ==========================================================================
+   VERTICAL HEIGHT EXPANSION FOR DESKTOP-ON-MOBILE
+   ========================================================================== */
+
+/* 1. HERO SECTION HEIGHT BOOST */
+.hero {
+  padding: 12rem 2rem !important; /* Blown up vertical padding */
+  min-height: 80vh; /* Takes up most of the initial phone screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 5rem !important; /* Bigger hero title */
+  margin-bottom: 2rem !important;
+}
+
+.hero p {
+  font-size: 1.6rem !important;
+  letter-spacing: 4px !important;
+  margin-bottom: 3.5rem !important;
+}
+
+.hero .btn {
+  padding: 1.2rem 3.5rem !important;
+  font-size: 1.2rem !important;
+}
+
+/* 2. BENTO DASHBOARD GRID HEIGHTS */
+.dashboard-grid {
+  grid-auto-rows: minmax(420px, auto) !important; /* Increased row height from 280px to 420px */
+  gap: 2rem !important;
+  margin: 4rem auto 8rem auto !important;
+}
+
+.dash-card {
+  padding: 2rem !important;
+}
+
+/* 3. BENTO CARD INTERNAL IMAGES & CONTENT */
+.img-wrapper {
+  height: 320px !important; /* Taller product images inside bento cards */
+  margin-bottom: 1.5rem !important;
+}
+
+.manifest-content h2, 
+.dash-card h2 {
+  font-size: 1.8rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.card-big h2 {
+  font-size: 2.8rem !important;
+}
+
+.dash-card p {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* 4. SHOP POSTCARD GRID (PRODUCT LISTINGS) */
+.product-postcards {
+  gap: 2.5rem !important;
+  margin: 4rem auto 8rem auto !important;
+}
+
+.postcard {
+  padding: 1.75rem !important;
+}
+
+.postcard .img-container {
+  height: 480px !important; /* Generous height for product pictures */
+  margin-bottom: 1.5rem !important;
+}
+
+.postcard h3 {
+  font-size: 1.4rem !important;
+  margin: 0.75rem 0 !important;
+}
+
+.postcard p {
+  font-size: 1.1rem !important;
+}
+
+.postcard .price {
+  font-size: 1.5rem !important;
+  margin: 1rem 0 !important;
+}
+
+.postcard select,
+.postcard .btn {
+  padding: 1rem 1.5rem !important;
+  font-size: 1rem !important;
+}
+
+/* 5. FOOTER STRETCH */
+.footer-deco {
+  padding: 8rem 2rem 5rem 2rem !important;
+  margin-top: 8rem !important;
+}
+
+.footer-deco h3 {
+  font-size: 1.4rem !important;
+}
+
+.footer-deco ul li a {
+  font-size: 1.2rem !important;
+}
