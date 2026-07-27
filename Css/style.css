@@ -824,3 +824,48 @@ header,
 .drop-shortcut-bar * {
   white-space: nowrap !important;
 }
+/* ==========================================================================
+   STACKED NAVIGATION LINKS (ICON TOP, LABEL BOTTOM)
+   ========================================================================== */
+#mainNav {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1.75rem !important;
+}
+
+#mainNav a {
+  display: flex !important;
+  flex-direction: column !important; /* Forces text directly below icon */
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;               /* Space between SVG and text */
+  color: #888888 !important;         /* Default mute grey */
+  text-decoration: none !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-svg {
+  display: block;
+  stroke: currentColor;
+}
+
+/* Micro Label Styling under Icon */
+.nav-label {
+  font-size: 0.65rem !important;     /* Micro industrial font size */
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+
+/* Hover and Active State Highlight */
+#mainNav a:hover,
+#mainNav a.active {
+  color: #000000 !important;         /* High contrast deep black when active/hovered */
+  transform: translateY(-1px);
+}
+
+#mainNav a.active .nav-svg {
+  stroke-width: 2.5;                /* Slightly thicker stroke for active page */
+}

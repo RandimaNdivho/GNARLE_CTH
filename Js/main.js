@@ -192,3 +192,59 @@ document.addEventListener('click', (e) => {
     btn.style.background = '';
   }, 1500);
 });
+/* ==========================================================================
+   INBUILT SVG NAVIGATION ENGINE (STACKED ICON + TEXT)
+   ========================================================================== */
+function transformNavToIcons() {
+  const navLinks = document.querySelectorAll('#mainNav a');
+  if (!navLinks.length) return;
+
+  const navConfig = {
+    'index.html': {
+      label: 'HOME',
+      svg: `<svg class="nav-svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>`
+    },
+    'shop.html': {
+      label: 'SHOP',
+      svg: `<svg class="nav-svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>`
+    },
+    'product.html': {
+      label: 'PRODUCT',
+      svg: `<svg class="nav-svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>`
+    },
+    'cart.html': {
+      label: 'CART',
+      svg: `<svg class="nav-svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>`
+    }
+  };
+
+  navLinks.forEach(link => {
+    const rawHref = link.getAttribute('href') || '';
+    const cleanHref = rawHref.split('#')[0]; // Handles product.html#item-01 etc.
+    
+    if (navConfig[cleanHref]) {
+      const { svg, label } = navConfig[cleanHref];
+      link.innerHTML = `
+        ${svg}
+        <span class="nav-label">${label}</span>
+      `;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  transformNavToIcons();
+});
