@@ -239,3 +239,33 @@
     height: 280px; /* Compact height for smaller screens */
   }
 }
+/* ==========================================================================
+   SECONDARY LOGO (G★N MARK) FOCAL POINT STYLING
+   ========================================================================== */
+.logo-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+/* Secondary G★N Logo - Main Focal Point */
+.secondary-brand-mark {
+  height: 38px !important;            /* Distinct, commanding size */
+  width: auto !important;
+  object-fit: contain !important;
+  display: block;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.15)); /* Gives it extra presence */
+}
+
+/* Subordinate Text Logo & Divider */
+.logo-group .logo {
+  font-size: 0.95rem !important;      /* Toned down slightly so G★N leads */
+  letter-spacing: 1.5px !important;
+  opacity: 0.85;
+}
+
+.logo-divider {
+  color: #666666;
+  font-size: 0.8rem !important;
+  font-weight: 400;
+}

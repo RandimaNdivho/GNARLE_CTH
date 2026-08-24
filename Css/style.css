@@ -21,7 +21,7 @@ body {
   background-color: #ffffff;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.96)), 
-    url('../Assets/GNARLIE\ S1\ LOGO.jpg');
+    url('../Assets/GN Secondary Logo.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -208,7 +208,7 @@ nav a.active::after {
   text-align: center;
   padding: clamp(4rem, 10vw, 9rem) 1.5rem;
   background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.95)), 
-              url('../Assets/GNARLIE\ S1\ LOGO.jpg') no-repeat center/cover;
+              url('../Assets/GN Secondary Logo.png') no-repeat center/cover;
   color: #111111;
   border-bottom: 4px solid #d30000;
 }

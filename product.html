@@ -12,280 +12,198 @@
 </head>
 <body>
 
-  <!-- TOP SHORTCUT DROP BAR -->
-  <div class="drop-shortcut-bar">
-    <div class="shortcut-label">CATALOG_INDEX //</div>
-    <div class="shortcut-scroll-container">
-      <a href="#section-shirts" class="shortcut-item"><span>01_SHIRTS</span></a>
-      <a href="#section-hoodies" class="shortcut-item"><span>02_HOODIES</span></a>
-      <a href="#section-beanies" class="shortcut-item"><span>03_BEANIES_&_ACC</span></a>
+  <!-- DESKTOP-ON-MOBILE CANVAS LOCK WRAPPER -->
+  <div class="desktop-lock-wrapper">
+
+    <!-- TOP SHORTCUT DROP BAR -->
+    <div class="drop-shortcut-bar">
+      <div class="shortcut-label">CATALOG_INDEX //</div>
+      <div class="shortcut-scroll-container">
+        <a href="#section-shirts" class="shortcut-item"><span>01_SHIRTS</span></a>
+        <a href="#section-hoodies" class="shortcut-item"><span>02_HOODIES</span></a>
+        <a href="#section-beanies" class="shortcut-item"><span>03_BEANIES_&_ACC</span></a>
+      </div>
     </div>
-  </div>
 
+    <!-- HEADER WITH DUAL LOGO INTEGRATION -->
     <header class="hub-header">
-  <div class="logo">GNARLIE.CTH</div>
-  
-  <!-- Hamburger Button -->
-  <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- NAVIGATION HEADER -->
-  <nav id="mainNav">
-    <a href="index.html" class="active">/ Home</a>
-    <a href="shop.html">/ Shop</a>
-    <a href="product.html">/ Products</a>
-    <a href="cart.html">/ Cart</a>
-  </nav>
-</header>
-
-  <!-- CATEGORY QUICK FILTER BAR -->
-  <nav class="category-nav-bar">
-    <a href="#section-shirts" class="category-btn active">TEES & SHIRTS</a>
-    <a href="#section-hoodies" class="category-btn">HOODIES & SWEATS</a>
-    <a href="#section-beanies" class="category-btn">BEANIES & ACCESSORIES</a>
-  </nav>
-
-  <!-- THE FULL PRODUCT DISTRIBUTION CONTAINER -->
-  <main class="shop-container">
-
-    <!-- ================= SECTION 01: TEES & SHIRTS ================= -->
-    <section class="catalog-section" id="section-shirts">
-      <div class="section-header">
-        <span class="section-tag">[SEC-01]</span>
-        <h2>TEES & SHIRTS</h2>
-        <span class="item-count">04 ITEMS ALLOCATED</span>
+      <div class="logo-group">
+        <a href="index.html" class="logo">GNARLIE.CTH</a>
+        <span class="logo-divider">//</span>
+        <img src="Assets/GN Secondary Logo.png" alt="G★N Brand Mark" class="secondary-brand-mark">
       </div>
+      
+      <!-- Hamburger Button -->
+      <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <div class="product-postcards">
+      <!-- NAVIGATION HEADER -->
+      <nav id="mainNav">
+        <a href="index.html">/ Home</a>
+        <a href="shop.html">/ Shop</a>
+        <a href="product.html" class="active">/ Products</a>
+        <a href="cart.html">/ Cart</a>
+      </nav>
+    </header>
 
-        <!-- Product 1 -->
-        <div class="postcard" id="item-01" data-serial="GN-S1-01">
-          <div class="img-container">
-            <img src="Assets/GNARLIE GRAPHIC TEE S1.jpg" alt="GNARLIE Signature Tee">
-          </div>
-          <div class="info">
-            <h3>GNARLIE Signature Tee S1</h3>
-            <p class="description">Heavy graffiti textures. Ceremony front & aggression back.</p>
-            <p class="price">R350</p>
-            <label for="size1">Choose Size:</label>
-            <select id="size1">
-              <option>S</option><option>M</option><option>L</option><option>XL</option>
-            </select>
-            <button class="btn add-to-cart" data-product="GNARLIE Signature Tee S1" data-price="350" data-size="size1">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
+    <!-- CATEGORY QUICK FILTER BAR -->
+    <nav class="category-nav-bar">
+      <a href="#section-shirts" class="category-btn active">TEES & SHIRTS</a>
+      <a href="#section-hoodies" class="category-btn">HOODIES & SWEATS</a>
+      <a href="#section-beanies" class="category-btn">BEANIES & ACCESSORIES</a>
+    </nav>
+
+    <!-- THE FULL PRODUCT DISTRIBUTION CONTAINER -->
+    <main class="shop-container">
+
+      <!-- ================= SECTION 01: TEES & SHIRTS ================= -->
+      <section class="catalog-section" id="section-shirts">
+        <div class="section-header">
+          <span class="section-tag">[SEC-01]</span>
+          <h2>TEES & SHIRTS</h2>
+          <span class="item-count">02 ITEMS ALLOCATED</span>
         </div>
 
-        <!-- Product 2 -->
-        <div class="postcard" id="item-02" data-serial="GN-S1-02">
-          <div class="img-container">
-            <img src="Assets/GNARLIE CROPPED TEE S1.jpg" alt="GNARLIE Cropped Tee">
+        <div class="product-postcards">
+
+          <!-- Product 05 -->
+          <div class="postcard" id="item-05" data-serial="GN-S1-05">
+            <div class="img-container">
+              <img src="Assets/Gray Long Sleeve.png" alt="Unisex Long Sleeve Tee">
+            </div>
+            <div class="info">
+              <h3>Unisex Long Sleeve Tee</h3>
+              <p class="description">Graffiti textures. Heavy statement.</p>
+              <p class="price">R550</p>
+              <button class="btn disabled" disabled>DROP PENDING</button>
+            </div>
           </div>
-          <div class="info">
-            <h3>GNARLIE Cropped Tee S1</h3>
-            <p class="description">Bold cropped fit. Ceremony front & aggression back.</p>
-            <p class="price">R300</p>
-            <label for="size2">Choose Size:</label>
-            <select id="size2">
-              <option>S</option><option>M</option><option>L</option>
-            </select>
-            <button class="btn add-to-cart" data-product="GNARLIE Cropped Tee S1" data-price="300" data-size="size2">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
+
+          <!-- Product 06 -->
+          <div class="postcard" id="item-06" data-serial="GN-S1-06">
+            <div class="img-container">
+              <img src="Assets/GNARLIE Crossfade Tee.png" alt="Crossfade Long Sleeve Tee">
+            </div>
+            <div class="info">
+              <h3>Crossfade Long Sleeve Tee</h3>
+              <p class="description">Graffiti textures. Heavy statement.</p>
+              <p class="price">R550</p>
+              <button class="btn disabled" disabled>DROP PENDING</button>
+            </div>
           </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECTION 02: HOODIES & SWEATS ================= -->
+      <section class="catalog-section" id="section-hoodies">
+        <div class="section-header">
+          <span class="section-tag">[SEC-02]</span>
+          <h2>HOODIES & SWEATS</h2>
+          <span class="item-count">02 ITEMS ALLOCATED</span>
         </div>
 
-        <!-- Product 3 -->
-        <div class="postcard" id="item-03" data-serial="GN-S1-03">
-          <div class="img-container">
-            <img src="Assets/Men TEE S2.png" alt="MEN Fitted Tee S2">
+        <div class="product-postcards">
+
+          <!-- Hoodie Product 01 -->
+          <div class="postcard" id="item-hoodie-01" data-serial="GN-S1-H01">
+            <div class="img-container">
+              <img src="Assets/Men Cropped Hoodie.png" alt="Men Cropped Hoodie">
+            </div>
+            <div class="info">
+              <h3>Men Cropped Hoodie</h3>
+              <p class="description">Heavyweight custom fleece. Cropped Boxy profile.</p>
+              <p class="price">R1300</p>
+              <button class="btn disabled" disabled>DROP PENDING</button>
+            </div>
           </div>
-          <div class="info">
-            <h3>MEN FITTED SHIRT S2</h3>
-            <p class="description">Structure cut. High-density street specification.</p>
-            <p class="price">R350</p>
-            <label for="size3">Choose Size:</label>
-            <select id="size3">
-              <option>S</option><option>M</option><option>L</option><option>XL</option>
-            </select>
-            <button class="btn add-to-cart" data-product="MEN FITTED SHIRT S2" data-price="350" data-size="size3">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
+
+          <!-- Hoodie Product 02 -->
+          <div class="postcard" id="item-hoodie-02" data-serial="GN-S1-H02">
+            <div class="img-container">
+              <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Women Cropped Ribbon Hoodie">
+            </div>
+            <div class="info">
+              <h3>Women Cropped Ribbon Hoodie</h3>
+              <p class="description">Heavy fleece knit. Distressed ribbon details.</p>
+              <p class="price">R1300</p>
+              <button class="btn disabled" disabled>DROP PENDING</button>
+            </div>
           </div>
+
+        </div>
+      </section>
+
+      <!-- ================= SECTION 03: BEANIES & ACCESSORIES ================= -->
+      <section class="catalog-section" id="section-beanies">
+        <div class="section-header">
+          <span class="section-tag">[SEC-03]</span>
+          <h2>BEANIES & ACCESSORIES</h2>
+          <span class="item-count">01 ITEM PENDING</span>
         </div>
 
-        <!-- Product 4 -->
-        <div class="postcard" id="item-04" data-serial="GN-S1-04">
-          <div class="img-container">
-            <img src="Assets/Female Cropped Tee S2.png" alt="FEMALE Cropped Tee S2">
+        <div class="product-postcards">
+
+          <!-- Product 07 (Unreleased) -->
+          <div class="postcard coming-soon" id="item-07" data-serial="GN-S1-07">
+            <div class="img-container">
+              <img src="Assets/GN Secondary Logo.png" alt="GNARLIE Tactical Beanie">
+            </div>
+            <div class="info">
+              <h3>GNARLIE Heavy Beanie</h3>
+              <p class="description">Ribbed knit silhouette. High-density embroidery badge.</p>
+              <p class="price">R250</p>
+              <label for="size7">Allocation:</label>
+              <select id="size7" disabled>
+                <option>ONE SIZE</option>
+              </select>
+              <button class="btn disabled" disabled>DROP PENDING</button>
+            </div>
           </div>
-          <div class="info">
-            <h3>FEMALE Cropped Tee S2</h3>
-            <p class="description">Aggressive crop silhouette. Raw edge finish.</p>
-            <p class="price">R300</p>
-            <label for="size4">Choose Size:</label>
-            <select id="size4">
-              <option>S</option><option>M</option><option>L</option>
-            </select>
-            <button class="btn add-to-cart" data-product="FEMALE Cropped Tee S2" data-price="300" data-size="size4">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
+
         </div>
+      </section>
 
-         <!-- Product 5 -->
-        <div class="postcard" id="item-05" data-serial="GN-S1-05">
-          <div class="img-container">
-            <img src="Assets/Gray Long Sleeve.png" alt="Unisex Long Sleeve Tee">
-          </div>
-          <div class="info">
-            <h3>Unisex Long Sleeve Tee</h3>
-            <p class="description">Graffiti textures. Heavy statement.</p>
-            <p class="price">R550</p>
-            <label for="size5">Choose Size:</label>
-            <select id="size5">
-              <option>S</option><option>M</option><option>L</option>
-            </select>
-            <button class="btn add-to-cart" data-product="Unisex Long Sleeve Tee" data-price="550" data-size="size5">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
+      <!-- THE "MORE" EXTENSION GRID SECTION -->
+      <section class="more-extension-hub">
+        <div class="more-grid-tab">
+          <h4>[01] SYSTEM_SPECS</h4>
+          <p>All items cut from raw, dense premium custom blanks. Preshrunk to retain brutal asymmetry across excessive street use.</p>
         </div>
-
-          <!-- Product 6 -->
-        <div class="postcard" id="item-06" data-serial="GN-S1-06">
-          <div class="img-container">
-            <img src="Assets/GNARLIE Crossfade Tee.png" alt="Crossfade Long Sleeve Tee">
-          </div>
-          <div class="info">
-            <h3>Crossfade Long Sleeve Tee</h3>
-            <p class="description">Graffiti textures. Heavy statement.</p>
-            <p class="price">R750</p>
-            <label for="size6">Choose Size:</label>
-            <select id="size6">
-              <option>S</option><option>M</option><option>L</option>
-            </select>
-            <button class="btn add-to-cart" data-product="Crossfade Long Sleeve Tee" data-price="550" data-size="size6">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
+        <div class="more-grid-tab">
+          <h4>[02] LOGISTICS</h4>
+          <p>Regional South African drops dispatch via express courier networks within 48 business hours of receipt confirmation parameters.</p>
         </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SECTION 02: HOODIES & SWEATS ================= -->
-    <section class="catalog-section" id="section-hoodies">
-      <div class="section-header">
-        <span class="section-tag">[SEC-02]</span>
-        <h2>HOODIES & SWEATS</h2>
-        <span class="item-count">02 ITEMS ALLOCATED</span>
-      </div>
-
-      <div class="product-postcards">
-
-        <!-- Product 5 -->
-        <div class="postcard" id="item-05" data-serial="GN-S1-05">
-          <div class="img-container">
-            <img src="Assets/Men Cropped Hoodie.png" alt="Men Cropped Hoodie">
-          </div>
-          <div class="info">
-            <h3>Men Cropped Hoodie</h3>
-            <p class="description">Heavyweight custom fleece. Cropped Boxy profile.</p>
-            <p class="price">R1300</p>
-            <label for="size5">Choose Size:</label>
-            <select id="size5">
-              <option>S</option><option>M</option><option>L</option><option>XL</option>
-            </select>
-            <button class="btn add-to-cart" data-product="Men Cropped Hoodie" data-price="1300" data-size="size5">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
+        <div class="more-grid-tab">
+          <h4>[03] ENCRYPTED_RETURNS</h4>
+          <p>Defective assets or allocation size mismatches can be flagged through the secure comms uplink within 7 days of shipment validation.</p>
         </div>
+      </section>
 
-        <!-- Product 6 -->
-        <div class="postcard" id="item-06" data-serial="GN-S1-06">
-          <div class="img-container">
-            <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Women Cropped Ribbon Hoodie">
-          </div>
-          <div class="info">
-            <h3>Women Cropped Ribbon Hoodie</h3>
-            <p class="description">Heavy fleece knit. Distressed ribbon details.</p>
-            <p class="price">R1300</p>
-            <label for="size6">Choose Size:</label>
-            <select id="size6">
-              <option>S</option><option>M</option><option>L</option>
-            </select>
-            <button class="btn add-to-cart" data-product="Women Cropped Ribbon Hoodie" data-price="1300" data-size="size6">Add to Cart</button>
-            <a href="cart.html" class="view-cart-link hidden">View Cart</a>
-          </div>
-        </div>
+    </main>
 
-      </div>
-    </section>
+    <!-- FLOATING SYSTEM COMMS HUB (WHATSAPP) -->
+    <div class="whatsapp-chat">
+      <a href="https://wa.me/27660460301" target="_blank" rel="noopener">
+        <img src="Assets/GN Secondary Logo.png" alt="Secure Comms Link">
+        <span>Chat with us</span>
+      </a>
+    </div>
 
-    <!-- ================= SECTION 03: BEANIES & ACCESSORIES ================= -->
-    <section class="catalog-section" id="section-beanies">
-      <div class="section-header">
-        <span class="section-tag">[SEC-03]</span>
-        <h2>BEANIES & ACCESSORIES</h2>
-        <span class="item-count">01 ITEM PENDING</span>
-      </div>
+    <!-- INDUSTRIAL FOOTER -->
+    <footer class="footer-deco">
+      <h3>More to Explore</h3>
+      <ul>
+        <li><a href="season2.html">Season 2 Drop</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
+    </footer>
 
-      <div class="product-postcards">
-
-        <!-- Product 7 (Unreleased) -->
-        <div class="postcard coming-soon" id="item-07" data-serial="GN-S1-07">
-          <div class="img-container">
-            <img src="Assets/GNARLIE S1 LOGO.jpg" alt="GNARLIE Tactical Beanie">
-          </div>
-          <div class="info">
-            <h3>GNARLIE Heavy Beanie</h3>
-            <p class="description">Ribbed knit silhouette. High-density embroidery badge.</p>
-            <p class="price">R250</p>
-            <label for="size7">Allocation:</label>
-            <select id="size7" disabled>
-              <option>ONE SIZE</option>
-            </select>
-            <button class="btn disabled" disabled>DROP PENDING</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- THE "MORE" EXTENSION GRID SECTION -->
-    <section class="more-extension-hub">
-      <div class="more-grid-tab">
-        <h4>[01] SYSTEM_SPECS</h4>
-        <p>All items cut from raw, dense premium custom blanks. Preshrunk to retain brutal asymmetry across excessive street use.</p>
-      </div>
-      <div class="more-grid-tab">
-        <h4>[02] LOGISTICS</h4>
-        <p>Regional South African drops dispatch via express courier networks within 48 business hours of receipt confirmation parameters.</p>
-      </div>
-      <div class="more-grid-tab">
-        <h4>[03] ENCRYPTED_RETURNS</h4>
-        <p>Defective assets or allocation size mismatches can be flagged through the secure comms uplink within 7 days of shipment validation.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FLOATING SYSTEM COMMS HUB (WHATSAPP) -->
-  <div class="whatsapp-chat">
-    <a href="https://wa.me/0660460301" target="_blank" rel="noopener">
-      <img src="Assets/GNARLIE S1 LOGO.jpg" alt="Secure Comms Link">
-      <span>Chat with us</span>
-    </a>
-  </div>
-
-  <!-- INDUSTRIAL FOOTER -->
-  <footer class="footer-deco">
-    <h3>More to Explore</h3>
-    <ul>
-      <li><a href="season2.html">Season 2 Drop</a></li>
-      <li><a href="about.html">About Us</a></li>
-    </ul>
-    <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
-  </footer>
+  </div> <!-- END .desktop-lock-wrapper -->
 
   <script src="js/main.js"></script>
 </body>
