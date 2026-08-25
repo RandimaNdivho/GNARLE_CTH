@@ -1,0 +1,172 @@
+<!-- moments.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1100, initial-scale=0.35, maximum-scale=1.0">
+  <title>GNARLIE.CTH - NOTABLE MOMENTS</title>
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/shop.css">
+  <link rel="stylesheet" href="Css/responsive.css">
+  <style>
+    /* TIMELINE SYSTEM STYLING */
+    .timeline-container {
+      max-width: 900px;
+      margin: 40px auto 80px auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #333;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 70px;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 21px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      background: #000;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .timeline-item.active .timeline-marker {
+      background: #fff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .timeline-date {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #888;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .timeline-card {
+      background: #111;
+      border: 1px solid #222;
+      padding: 24px;
+      border-left: 3px solid #fff;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.4rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .timeline-card p {
+      color: #aaa;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .timeline-tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 4px 10px;
+      background: #222;
+      color: #fff;
+      font-family: monospace;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DESKTOP-ON-MOBILE CANVAS LOCK WRAPPER -->
+  <div class="desktop-lock-wrapper">
+
+    <!-- HEADER WITH DUAL LOGO INTEGRATION -->
+    <header class="hub-header">
+      <div class="logo-group">
+        <a href="index.html" class="logo">GNARLIE.CTH</a>
+        <span class="logo-divider">//</span>
+        <img src="Assets/GNARLIE S1 LOGO.jpg" alt="G★N Brand Mark" class="secondary-brand-mark">
+      </div>
+      
+      <!-- Hamburger Button -->
+      <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION HEADER -->
+      <nav id="mainNav">
+        <a href="index.html">/ Home</a>
+        <a href="shop.html">/ Shop</a>
+      </nav>
+    </header>
+
+    <main class="shop-container">
+      <div class="section-header" style="margin-top: 30px;">
+        <span class="section-tag">[SYSTEM_LOGS]</span>
+        <h2>NOTABLE MOMENTS</h2>
+        <span class="item-count">CHRONOLOGICAL RECORD</span>
+      </div>
+
+      <div class="timeline-container">
+
+        <!-- MILESTONE 01: FIRST GARMENT PRINTED -->
+        <div class="timeline-item active">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">// 25 AUGUST 2026</div>
+          <div class="timeline-card">
+            <span class="timeline-tag">[MILESTONE_01]</span>
+            <h3>Printed our first garment today</h3>
+            <p>The first physical test print left the press. Raw weight, custom cut, and high-density ink application validated. Official genesis of the GNARLIE supply line.</p>
+            <img src="Assets/GN GSN Tee.png" alt="First Garment Print" width="200" height="200" />
+            <nav id ="mainNav" style="margin-top: 15px;">
+              <a href="shop.html">/ Shop</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- FUTURE PLACEHOLDER (PENDING LOGS) -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">SYSTEM_PENDING</div>
+          <div class="timeline-card" style="opacity: 0.5;">
+            <h3>Awaiting Next Operational Drop</h3>
+            <p>Future releases, pop-up events, and critical brand developments will be logged sequentially to this timeline.</p>
+            <span class="timeline-tag">[LOG_LOCKED]</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FLOATING SYSTEM COMMS HUB (WHATSAPP) -->
+    <div class="whatsapp-chat">
+      <a href="https://wa.me/27660460301" target="_blank" rel="noopener">
+        <img src="Assets/GNARLIE S1 LOGO.jpg" alt="Secure Comms Link">
+        <span>Chat with us</span>
+      </a>
+    </div>
+
+  </div> <!-- END .desktop-lock-wrapper -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>
