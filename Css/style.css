@@ -1,871 +1,576 @@
-/* ==========================================================================
-   GNARLIE.CTH - MASTER SYSTEM STYLESHEET (style.css)
-   ========================================================================== */
-
-/* --- 1. CORE FONTS & GLOBAL RESET --- */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Syncopate:wght@700&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
+:root {
+  --black: #050505;
+  --white: #ffffff;
+  --gray-light: #f4f4f4;
+  --gray-mid: #888888;
+  --accent: #111111;
+  --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  color: #111111;
-  background-color: #ffffff;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.96)), 
-    url('../Assets/GN Secondary Logo.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+  background-color: var(--white);
+  color: var(--black);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Universal Anti-Bleed Image Constraint */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Custom Text Selection Highlight */
-::selection {
-  background: #0088cc; /* High-contrast Sky Blue */
-  color: #ffffff;
-}
-
-/* --- 2. TOP DROP SHORTCUT BAR --- */
-.drop-shortcut-bar {
-  display: flex;
-  align-items: center;
-  background: #0a0a0a;
-  color: #ffffff;
-  padding: 0.5rem 1.5rem;
-  border-bottom: 1px solid #222222;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.shortcut-label {
-  font-family: 'Space Grotesk', monospace, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #d30000;
-  letter-spacing: 1.5px;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
-}
-
-.shortcut-scroll-container {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.shortcut-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: #cccccc;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: color 0.2s ease;
-}
-
-.shortcut-item:hover {
-  color: #0088cc;
-}
-
-.shortcut-item img {
-  width: 28px;
-  height: 28px;
-  object-fit: cover;
-  border-radius: 2px;
-  border: 1px solid #333333;
-}
-
-/* --- 3. GLOBAL NAVIGATION & HEADER ARCHITECTURE --- */
-header,
-.hub-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem clamp(1rem, 4vw, 3rem);
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
   position: relative;
+  min-height: 100vh;
+}
+
+/* Background Animated Logo Watermark */
+.bg-watermark {
+  position: fixed;
+  top: 63.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125%;
+}
+
+.bg-watermark img {
+  width: 55vw;
+  max-width: 650px;
+  opacity: 0.15;
+  filter: grayscale(100%);
+  object-fit: contain;
+}
+
+/* Header & Nav */
+.main-header {
+  position: sticky;
+  top: 0;
+  background: var(--white); 
+  padding: 20px 0 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
   z-index: 100;
 }
 
-.logo {
-  font-family: 'Syncopate', sans-serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -1px;
-  color: #111111;
+.brand-title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  text-decoration: none;
+  margin-bottom: 10px;
 }
 
-nav {
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.gn-star-icon {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+}
+
+.nav-item {
   display: flex;
   align-items: center;
-}
-
-nav a {
-  margin: 0 clamp(0.4rem, 1.2vw, 1.25rem);
-  color: #111111;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--black);
   text-decoration: none;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(0.75rem, 1vw, 0.85rem);
-  letter-spacing: 1.5px;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: #0088cc;
-}
-
-nav a.active {
-  color: #b38f24;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: #d30000;
-  transition: width 0.2s ease;
-}
-
-nav a:hover::after,
-nav a.active::after {
-  width: 100%;
-}
-
-/* --- 4. UNIVERSAL STREETWEAR BUTTON SYSTEM --- */
-.btn {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #ffffff;
-  background: #111111;
-  border: 1px solid #111111;
-  border-radius: 0px;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: var(--transition);
 }
 
-.btn:hover {
-  background: transparent;
-  color: #111111;
-  border-color: #0088cc;
-  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.2);
+.nav-item:hover, .nav-item.active {
+  background-color: var(--black);
+  color: var(--white);
 }
 
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-hero {
-  background: #d30000;
-  color: #ffffff;
-  border-color: #d30000;
-}
-
-.btn-hero:hover {
-  background: transparent;
-  color: #d30000;
-  border-color: #d30000;
-  box-shadow: 0 4px 20px rgba(211, 0, 0, 0.25);
-}
-
-/* --- 5. HERO LANDING SECTION --- */
-.hero {
-  text-align: center;
-  padding: clamp(4rem, 10vw, 9rem) 1.5rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.95)), 
-              url('../Assets/GN Secondary Logo.png') no-repeat center/cover;
-  color: #111111;
-  border-bottom: 4px solid #d30000;
-}
-
-.hero h1 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: clamp(2.2rem, 6.5vw, 4.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -1.5px;
-  line-height: 1;
-  margin: 0 0 1.25rem 0;
-  color: #111111;
-  text-shadow: 2px 2px 0px rgba(211, 0, 0, 0.2);
-}
-
-.hero p {
-  font-size: clamp(0.9rem, 2vw, 1.15rem);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #0088cc;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-/* --- 6. DASHBOARD BENTO GRID (INDUSTRIAL MANIFEST) --- */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(280px, auto);
-  gap: 1.5rem;
-  max-width: 1400px;
-  margin: 3rem auto 5rem auto;
-  padding: 0 clamp(1rem, 3vw, 3rem);
-}
-
-.dash-card {
-  background: #ffffff;
-  border: 1px solid #111111;
-  padding: 1.25rem;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  color: #111111;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.dash-card:hover {
-  border-color: #d30000;
-  transform: translateY(-4px);
-  box-shadow: 4px 6px 0px #111111;
-}
-
-/* Grid Layout Sizing */
-.card-big    { grid-column: span 2; grid-row: span 2; }
-.card-medium { grid-column: span 2; grid-row: span 1; }
-.card-small  { grid-column: span 1; grid-row: span 1; }
-.card-wide   { grid-column: span 2; grid-row: span 1; }
-
-/* Industrial Meta Bar (Top of Card) */
-.card-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Space Grotesk', monospace, sans-serif;
+.cart-count {
+  background: var(--black);
+  color: var(--white);
   font-size: 0.7rem;
-  font-weight: 700;
-  border-bottom: 1px solid #111111;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  z-index: 2;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
-.card-serial {
-  font-size: 0.65rem;
-  color: #555555;
-  letter-spacing: 1px;
+.nav-item:hover .cart-count {
+  background: var(--white);
+  color: var(--black);
 }
 
-/* Image Wrapper & Visual Container */
-.img-wrapper {
-  width: 100%;
-  height: 180px;
-  background: #f8f8f8;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #eeeeee;
-  margin-bottom: 1rem;
+/* Hero Section */
+.hero {
+  height: 55vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid #eee;
 }
 
-.featured-look-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(15%) contrast(105%);
-  transition: transform 0.4s ease, filter 0.4s ease;
+.hero-content h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
 }
 
-.dash-card:hover .featured-look-img {
-  transform: scale(1.05);
-  filter: grayscale(0%) contrast(100%);
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--black);
+  color: var(--white);
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--black);
+  transition: var(--transition);
 }
 
-.card-image-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+.cta-button:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* Show Room Section */
+.showroom {
+  padding: 60px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.showroom-card.tall {
+  position: relative;
+  height: 520px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--gray-light);
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+  transition: var(--transition);
+}
+
+.showroom-card.tall:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-bg {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: grayscale(20%) contrast(105%);
-  transition: transform 0.4s ease, filter 0.4s ease;
-  z-index: 0;
+  filter: grayscale(40%);
+  transition: var(--transition);
 }
 
-.dash-card:hover .card-image-bg {
-  transform: scale(1.03);
-  filter: grayscale(0%) contrast(100%);
+.style-bg { background-image: url("../Assets/F\ Model\ Capri\ +\ NG\ Tee.png "); }
+.drop-bg { background-image: url("../Assets/M\ Model\ Virgil\ Hoodie.png "); }
+.vault-bg { background-image: url(../Assets/F\ Model\ GN\ GrayDestressed\ Hoodie.png); }
+
+.showroom-card.tall:hover .card-bg {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
-.card-big::after {
-  content: '';
+.card-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.1) 100%);
-  z-index: 1;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  color: var(--white);
 }
 
-/* Card Content & Text Formatting */
-.manifest-content {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 1rem;
+.card-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: #ccc;
+  margin-bottom: 5px;
 }
 
-.manifest-content h2,
-.dash-card h2 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.2;
-  margin: 0 0 0.5rem 0;
-  letter-spacing: -0.5px;
-  color: #111111;
-  text-transform: uppercase;
+.card-overlay h4 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 8px;
 }
 
-.card-big h2 { 
-  font-size: clamp(1.6rem, 3vw, 2.2rem); 
+.card-overlay p {
+  font-size: 0.85rem;
+  color: #ddd;
+  margin-bottom: 20px;
 }
 
-.dash-card h3 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 0.95rem;
-  margin: 0;
-  color: #111111;
-  text-transform: uppercase;
+.card-btn {
+  align-self: flex-start;
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  padding: 10px 20px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
 }
 
-.dash-card p {
-  font-size: 0.8rem;
-  color: #555555;
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* Bottom Action Bar */
-.card-action-bar {
+/* Footer */
+.main-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.75rem;
-  border-top: 1px solid #111111;
-  margin-top: auto;
-  position: relative;
-  z-index: 2;
-}
-
-.card-title-group p {
-  font-size: 0.7rem;
-  color: #777777;
-}
-
-.raw-link {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
+  padding: 20px 5%;
+  border-top: 1px solid #eee;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: #111111;
-  text-decoration: none;
-  background: #f0f0f0;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid #111111;
-  white-space: nowrap;
-  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
 }
 
-.raw-link:hover {
-  background: #111111;
-  color: #ffffff;
+.explore-btn {
+  background: none;
+  border: 1px solid var(--black);
+  padding: 8px 18px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.green-link {
-  background: #111111;
-  color: #25d366;
-  border-color: #25d366;
+.explore-btn:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
-.green-link:hover {
-  background: #25d366;
-  color: #111111;
-}
-
-.status-badge {
-  font-family: 'Space Grotesk', monospace, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #d30000;
-  letter-spacing: 1px;
-}
-
-/* Brand Metric Tags */
-.card-tag {
-  display: inline-block;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 0.2rem 0.4rem;
-  background: #f0f0f0;
-}
-
-.card-tag.gold     { color: #b38f24; border-left: 2px solid #b38f24; }
-.card-tag.red      { color: #d30000; border-left: 2px solid #d30000; }
-.card-tag.sky-blue { color: #0088cc; border-left: 2px solid #0088cc; }
-
-/* --- 7. FLOATING SYSTEM COMMS HUB (WHATSAPP) --- */
-.whatsapp-chat {
+/* Modal Styling */
+.modal-overlay {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 1000;
-}
-
-.whatsapp-chat a {
+  inset: 0;
+  background: rgba(0,0,0,0.7);
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.6rem;
-  background: #111111;
-  color: #ffffff;
-  padding: 0.6rem 1.1rem 0.6rem 0.65rem;
-  border-radius: 50px;
-  text-decoration: none;
-  border: 1px solid #333333;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 200;
 }
 
-.whatsapp-chat a:hover {
-  transform: translateY(-3px);
-  border-color: #25d366;
-  background: #0a0a0a;
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
-.whatsapp-chat img {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
+.modal-content {
+  background: var(--white);
+  padding: 40px;
+  max-width: 650px;
+  width: 90%;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Cart Drawer Styling */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 100%;
+  max-width: 380px;
+  height: 100vh;
+  background: var(--white);
+  box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-close { background: none; border: none; cursor: pointer; }
+
+.cart-items {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.checkout-btn {
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+}
+/* --- HERO SECTION CONTAINER --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* --- FORCE WATERMARK BEHIND CONTENT --- */
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 900px;
+  z-index: 1; /* Sits behind text */
+  pointer-events: none;
+  opacity: 0.00; /* Adjust opacity as desired */
+}
+
+.hero-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- CENTERED CONTENT COLUMN --- */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Sits above watermark */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--black, #000);
+}
+
+/* --- PRODUCT PREVIEW ROW --- */
+.hero-product-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.preview-card {
+  position: relative;
+  width: 110px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--black, #000);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  backdrop-filter: blur(4px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preview-card img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.whatsapp-chat span {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* --- 8. INDUSTRIAL FOOTER --- */
-.footer-deco {
-  position: relative;
-  background: #0a0a0a;
-  color: #ffffff;
-  text-align: center;
-  padding: 4rem 1.5rem 2.5rem 1.5rem;
-  margin-top: 5rem;
-  border-top: 1px solid #222222;
-}
-
-.footer-deco::before {
-  content: "";
+.preview-badge {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 2px;
-  width: 100%;
-  background: linear-gradient(90deg, #d30000, #0088cc, #b38f24, #d30000);
-  background-size: 200% 100%;
-  animation: glowline 6s linear infinite;
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 3px 0;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
-@keyframes glowline {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
-}
-
-.footer-deco h3 {
-  font-family: 'Syncopate', sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  color: #888888;
-}
-
-.footer-deco ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2.5rem 0;
-  display: flex;
+/* --- CTA BUTTON --- */
+.shop-now-btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
-}
-
-.footer-deco ul li a {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  color: #cccccc;
+  background: var(--black, #000);
+  color: var(--white, #fff);
+  padding: 16px 36px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   text-decoration: none;
-  letter-spacing: 1px;
-  transition: color 0.2s ease;
+  border: 2px solid #000;
+  transition: all 0.25s ease;
 }
 
-.footer-deco ul li a:hover {
-  color: #0088cc;
+.shop-now-btn:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+/* --- CONTINUOUS SLIDING PREVIEW CONTAINER --- */
+.hero-product-preview {
+  width: 100%;
+  max-width: 420px; /* Limits overall marquee width */
+  overflow: hidden; /* Hides overflow as cards slide off screen */
+  margin: 10px 0;
+  position: relative;
+
+  /* Optional: Soft fade mask on left & right edges for smooth enter/exit */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-.footer-deco p {
-  font-family: 'Space Grotesk', monospace, sans-serif;
-  font-size: 0.7rem;
-  color: #555555;
-  letter-spacing: 1.5px;
-  margin: 0;
-}
-
-/* --- 9. RESPONSIVE BREAKPOINTS --- */
-@media (max-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-  .card-big { grid-column: span 2; grid-row: auto; }
-}
-
-@media (max-width: 768px) {
-  header,
-  .hub-header {
-    padding: 1rem 1.25rem;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  nav a {
-    margin: 0 0.5rem;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .card-big, .card-medium, .card-small, .card-wide {
-    grid-column: span 1;
-    grid-row: auto;
-  }
-
-  .footer-deco ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .whatsapp-chat span {
-    display: none;
-  }
-
-  .whatsapp-chat a {
-    padding: 0.6rem;
-    border-radius: 50%;
-  }
-
-  .whatsapp-chat img {
-    width: 24px;
-    height: 24px;
-  }
-}
-/* ==========================================================================
-   VERTICAL HEIGHT EXPANSION FOR DESKTOP-ON-MOBILE
-   ========================================================================== */
-
-/* 1. HERO SECTION HEIGHT BOOST */
-.hero {
-  padding: 12rem 2rem !important; /* Blown up vertical padding */
-  min-height: 80vh; /* Takes up most of the initial phone screen height */
+/* --- THE MOVING TRACK --- */
+.preview-track {
   display: flex;
-  flex-direction: column;
+  gap: 16px;
+  width: max-content;
+  animation: continuousSlide 12s linear infinite; /* Adjust time to speed up/slow down */
+}
+
+/* Pause sliding when user hovers to inspect a item */
+.hero-product-preview:hover .preview-track {
+  animation-play-state: paused;
+}
+
+/* --- INDIVIDUAL CARDS --- */
+.preview-card {
+  position: relative;
+  width: 110px;
+  height: 120px;
+  flex-shrink: 0; /* Prevents cards from squishing */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--black, #000);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 8px;
+  backdrop-filter: blur(4px);
 }
 
-.hero h1 {
-  font-size: 5rem !important; /* Bigger hero title */
-  margin-bottom: 2rem !important;
+.preview-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero p {
-  font-size: 1.6rem !important;
-  letter-spacing: 4px !important;
-  margin-bottom: 3.5rem !important;
+.preview-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 3px 0;
+  text-align: center;
+  letter-spacing: 0.05em;
 }
 
-.hero .btn {
-  padding: 1.2rem 3.5rem !important;
-  font-size: 1.2rem !important;
-}
-
-/* 2. BENTO DASHBOARD GRID HEIGHTS */
-.dashboard-grid {
-  grid-auto-rows: minmax(420px, auto) !important; /* Increased row height from 280px to 420px */
-  gap: 2rem !important;
-  margin: 4rem auto 8rem auto !important;
-}
-
-.dash-card {
-  padding: 2rem !important;
-}
-
-/* 3. BENTO CARD INTERNAL IMAGES & CONTENT */
-.img-wrapper {
-  height: 320px !important; /* Taller product images inside bento cards */
-  margin-bottom: 1.5rem !important;
-}
-
-.manifest-content h2, 
-.dash-card h2 {
-  font-size: 1.8rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.card-big h2 {
-  font-size: 2.8rem !important;
-}
-
-.dash-card p {
-  font-size: 1.1rem !important;
-  line-height: 1.6 !important;
-}
-
-/* 4. SHOP POSTCARD GRID (PRODUCT LISTINGS) */
-.product-postcards {
-  gap: 2.5rem !important;
-  margin: 4rem auto 8rem auto !important;
-}
-
-.postcard {
-  padding: 1.75rem !important;
-}
-
-.postcard .img-container {
-  height: 480px !important; /* Generous height for product pictures */
-  margin-bottom: 1.5rem !important;
-}
-
-.postcard h3 {
-  font-size: 1.4rem !important;
-  margin: 0.75rem 0 !important;
-}
-
-.postcard p {
-  font-size: 1.1rem !important;
-}
-
-.postcard .price {
-  font-size: 1.5rem !important;
-  margin: 1rem 0 !important;
-}
-
-.postcard select,
-.postcard .btn {
-  padding: 1rem 1.5rem !important;
-  font-size: 1rem !important;
-}
-
-/* 5. FOOTER STRETCH */
-.footer-deco {
-  padding: 8rem 2rem 5rem 2rem !important;
-  margin-top: 8rem !important;
-}
-
-.footer-deco h3 {
-  font-size: 1.4rem !important;
-}
-
-.footer-deco ul li a {
-  font-size: 1.2rem !important;
-}
-/* ==========================================================================
-   HOMEPAGE OVERFLOW & CANVAS CONSTRAINTS (FIXES INDEX ZOOM ISSUE)
-   ========================================================================== */
-
-/* 1. LOCK CANVAS WIDTH ACROSS ENTIRE HOMEPAGE */
-html, body {
-  width: 100% !important;
-  max-width: 1100px !important;
-  margin: 0 auto !important;
-  overflow-x: hidden !important; /* Prevents hidden elements from pushing canvas width */
-}
-
-/* 2. CONTAIN TOP RUNNER BAR OVERFLOW */
-.drop-shortcut-bar {
-  max-width: 1100px !important;
-  width: 100% !important;
-  overflow-x: auto !important; /* Keeps bar scrollable without breaking page width */
-  box-sizing: border-box !important;
-}
-
-/* 3. CONTAIN HEADER & HERO */
-header, 
-.hub-header, 
-.hero {
-  max-width: 1100px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* 4. DASHBOARD BENTO GRID STRICT CONTAINER */
-.dashboard-grid {
-  max-width: 1100px !important;
-  width: 100% !important;
-  margin: 2rem auto !important;
-  padding: 0 1.5rem !important;
-  box-sizing: border-box !important;
-}
-
-/* 5. PREVENT BENTO CARDS AND TEXT FROM OVERFLOWING */
-.dash-card {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
-  word-wrap: break-word !important;
-  overflow: hidden !important;
-}
-
-.dash-card h1, 
-.dash-card h2, 
-.dash-card h3, 
-.dash-card p {
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-/* ==========================================================================
-   STRICT HOMEPAGE DESKTOP-ON-MOBILE LOCKDOWN
-   ========================================================================== */
-
-/* Force rigid container around the whole homepage canvas */
-.desktop-lock-wrapper {
-  width: 1100px !important;
-  max-width: 1100px !important;
-  min-width: 1100px !important;
-  margin: 0 auto !important;
-  overflow: hidden !important; /* Clips anything trying to overflow */
-  position: relative !important;
-}
-
-/* Force all top bars & runner elements to fit inside 1100px */
-.drop-shortcut-bar,
-.shortcut-scroll-container,
-.hub-header,
-header,
-.hero,
-.dashboard-grid {
-  width: 100% !important;
-  max-width: 1100px !important;
-  box-sizing: border-box !important;
-}
-
-/* Stop text from expanding flex items horizontally */
-.shortcut-item,
-.shortcut-label,
-.card-meta,
-.dash-card * {
-  max-width: 100% !important;
-  white-space: normal !important;
-}
-
-/* Allow horizontal scrolling ONLY inside the quick access runner bar */
-.drop-shortcut-bar {
-  overflow-x: auto !important;
-  white-space: nowrap !important;
-}
-.drop-shortcut-bar * {
-  white-space: nowrap !important;
-}
-/* ==========================================================================
-   STACKED NAVIGATION LINKS (ICON TOP, LABEL BOTTOM)
-   ========================================================================== */
-#mainNav {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 1.75rem !important;
-}
-
-#mainNav a {
-  display: flex !important;
-  flex-direction: column !important; /* Forces text directly below icon */
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 4px !important;               /* Space between SVG and text */
-  color: #888888 !important;         /* Default mute grey */
-  text-decoration: none !important;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.nav-svg {
-  display: block;
-  stroke: currentColor;
-}
-
-/* Micro Label Styling under Icon */
-.nav-label {
-  font-size: 0.65rem !important;     /* Micro industrial font size */
-  font-weight: 700 !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  line-height: 1 !important;
-}
-
-/* Hover and Active State Highlight */
-#mainNav a:hover,
-#mainNav a.active {
-  color: #000000 !important;         /* High contrast deep black when active/hovered */
-  transform: translateY(-1px);
-}
-
-#mainNav a.active .nav-svg {
-  stroke-width: 2.5;                /* Slightly thicker stroke for active page */
+/* --- INFINITE LOOP KEYFRAMES --- */
+@keyframes continuousSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Shifts track by half its total length (one full set of cards) */
+    transform: translateX(calc(-50% - 8px)); 
+  }
 }

@@ -1,192 +1,160 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1100, initial-scale=0.35, maximum-scale=1.0">
-  <title>GNARLIE.CTH - HOME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNARLIE.CTH — Official Store</title>
   <link rel="stylesheet" href="Css/style.css">
-  <link rel="stylesheet" href="Css/responsive.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-  <!-- DESKTOP-ON-MOBILE CANVAS LOCK WRAPPER -->
-  <div class="desktop-lock-wrapper">
+  <!-- Dynamic Image Watermark Background -->
+  <div class="bg-watermark" aria-hidden="true">
+    <img src="Assets/GNARLIE CAMO LOGO.png" alt="GNARLIE Background Logo">
+  </div>
 
-    <!-- 1. NAVIGATION HEADER -->
-    <header class="hub-header">
-      <div class="logo">GNARLIE.CTH</div>
-      
-      <!-- Hamburger Button -->
-      <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+  <!-- Header -->
+  <header class="main-header">
+    <h1 class="brand-title">GNARLIE.CTH</h1>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-item active"><i data-lucide="home"></i> <span>HOME</span></a>
+      <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo" class="gn-star-icon">
+      <a href="shop.html" class="nav-item"><i data-lucide="shopping-bag"></i> <span>SHOP</span></a>
+      <button class="nav-item cart-btn" id="cartToggle">
+        <i data-lucide="shopping-cart"></i> <span>CART</span>
+        <span class="cart-count" id="cartCount">0</span>
       </button>
+    </nav>
+  </header>
 
-      <nav id="mainNav">
-        <a href="index.html" class="active">/ Home</a>
-        <a href="shop.html">/ Shop</a>
-        <a href="cart.html">/ Cart</a>
-      </nav>
-    </header>
+  <main>
+    <!-- Hero Section -->
+   <section class="hero-section">
+  <!-- Watermark Background -->
+  <div class="hero-watermark">
+    <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo Watermark">
+  </div>
 
-    <!-- 2. QUICK ACCESS RUNNER TICKER -->
-    <div class="drop-shortcut-bar">
-      <div class="shortcut-label">QUICK_ACCESS //</div>
-      <div class="shortcut-scroll-container">
-        <a href="product.html#item-01" class="shortcut-item">
-          <img src="Assets/Gray Long Sleeve.png" alt="Drop 01">
-          <span>S1_TEE_01</span>
-        </a>
-        <a href="product.html#item-02" class="shortcut-item">
-          <img src="Assets/GNARLIE Crossfade Tee.png" alt="Drop 02">
-          <span>S1_CROP_02</span>
-        </a>
-        <a href="product.html#item-03" class="shortcut-item">
-          <img src="Assets/Men Cropped Hoodie.png" alt="Drop 03">
-          <span>S2_MEN_03</span>
-        </a>
-        <a href="product.html#item-04" class="shortcut-item">
-          <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Drop 04">
-          <span>S2_FEM_04</span>
-        </a>
-        <a href="shop.html" class="shortcut-item">
-          <span>More...</span>
-        </a>
+  <div class="hero-content">
+    <h1 class="hero-title">SHOP HERE</h1>
+
+    <div class="hero-product-preview">
+  <div class="preview-track">
+    <!-- First Set of Cards -->
+    <div class="preview-card">
+      <img src="Assets/GN Destressed WindBreaker.png" alt="Featured Drop 1">
+      <span class="preview-badge">NEW</span>
+    </div>
+    <div class="preview-card">
+      <img src="Assets/Men Cropped Hoodie.png" alt="Featured Drop 2">
+      <span class="preview-badge">POPULAR</span>
+    </div>
+    <div class="preview-card">
+      <img src="Assets/GN GreybDestressed hoodie.png" alt="Featured Drop 3">
+      <span class="preview-badge">DROP 01</span>
+    </div>
+
+    <!-- Duplicate Set for Seamless Continuous Loop -->
+    <div class="preview-card">
+      <img src="Assets/GN Destressed WindBreaker.png" alt="Featured Drop 1">
+      <span class="preview-badge">NEW</span>
+    </div>
+    <div class="preview-card">
+      <img src="Assets/Men Cropped Hoodie.png" alt="Featured Drop 2">
+      <span class="preview-badge">POPULAR</span>
+    </div>
+    <div class="preview-card">
+      <img src="Assets/GN GreybDestressed hoodie.png" alt="Featured Drop 3">
+      <span class="preview-badge">DROP 01</span>
+    </div>
+  </div>
+</div>
+
+    <!-- Shop Now CTA Button -->
+    <a href="shop.html" class="shop-now-btn">
+      SHOP NOW &rarr;
+    </a>
+  </div>
+</section>
+
+    <!-- Show Room Section -->
+    <section class="showroom">
+      <h3 class="section-title">"SHOW ROOM"</h3>
+      <div class="card-container">
+        
+        <!-- Card 1: How To Style -->
+        <div class="showroom-card tall" data-modal="style">
+          <div class="card-bg style-bg"></div>
+          <div class="card-overlay">
+            <span class="card-tag">LOOKBOOK</span>
+            <h4>HOW TO STYLE</h4>
+            <p>Explore complete fit builds & combos</p>
+            <button class="card-btn">VIEW STYLES</button>
+          </div>
+        </div>
+
+        <!-- Card 2: The Drop -->
+        <div class="showroom-card tall" data-modal="drop">
+          <div class="card-bg drop-bg"></div>
+          <div class="card-overlay">
+            <span class="card-tag">NEW RELEASE</span>
+            <h4>THE DROP</h4>
+            <p>Featured centerpiece garments</p>
+            <button class="card-btn">EXPLORE DROP</button>
+          </div>
+        </div>
+
+        <!-- Card 3: The Vault -->
+        <div class="showroom-card tall" data-modal="vault">
+          <div class="card-bg vault-bg"></div>
+          <div class="card-overlay">
+            <span class="card-tag">ARCHIVE</span>
+            <h4>THE VAULT</h4>
+            <p>Behind the craft & early access</p>
+            <button class="card-btn">ENTER VAULT</button>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <!-- 3. MAIN HERO BANNER -->
-    <section class="hero">
-      <h1>GNARLIE.CTH</h1>
-      <p>"THE ELEMENT"</p>
-      <a href="shop.html" class="btn">Shop Now</a>
     </section>
+  </main>
 
-    <!-- 4. ABLOH INDUSTRIAL SUPPLY MANIFEST (LOWER BENTO GRID) -->
-    <main class="dashboard-grid">
-
-      <!-- CARD 01: SIGNATURE TEE ZOOM (ARTICLE 01) -->
-      <article class="dash-card card-big" data-card="01">
-        <div class="card-meta">
-          <span class="card-tag gold">"ARTICLE_01"</span>
-          <span class="card-serial">GN-S1-01 // R550</span>
-        </div>
-        <div class="card-image-bg" style="background-image: url('Assets/Gray Long Sleeve.png');"></div>
-        <div class="card-action-bar">
-          <div class="card-title-group">
-            <h2>"Long Sleeve Tee"</h2>
-            <p>Heavy graffiti textures. Ceremony front & aggression back.</p>
-          </div>
-          <a href="product.html#item-01" class="raw-link">ACQUIRE ↗</a>
-        </div>
-      </article>
-
-      <!-- CARD 02: BRAND MANIFESTO (RAW DEFINITION) -->
-      <article class="dash-card card-medium text-manifest" data-card="02">
-        <div class="card-meta">
-          <span class="card-tag red">"MANIFESTO"</span>
-          <span class="card-serial">SPEC-01</span>
-        </div>
-        <div class="manifest-content">
-          <h2>"STREETWEAR"</h2>
-          <p>Pure urban posture driven by whatever inspires us in the moment. No permanent themes. No staying still. "IT DROPS", and that's it.</p>
-        </div>
-        <div class="card-action-bar">
-          <span class="status-badge">● LIMITED RUN</span>
-          <a href="about.html" class="raw-link">READ INTEL ↗</a>
-        </div>
-      </article>
-
-      <!-- CARD 03: LOOKBOOK VISUAL PROJECTION -->
-      <article class="dash-card card-medium image-focus" data-card="03">
-        <div class="card-meta">
-          <span class="card-tag sky-blue">"VISUAL_PROJECTION"</span>
-          <span class="card-serial">ZA // 2026</span>
-        </div>
-        <div class="img-wrapper">
-          <img src="Assets/WOMEN RIBBON HOODIE.jpg" alt="Featured Drop Visual" class="featured-look-img">
-        </div>
-        <div class="card-action-bar">
-          <div class="card-title-group">
-            <h3>"RIBBON HOODIE"</h3>
-            <p>Heavy fleece knit. Distressed ribbon details.</p>
-          </div>
-          <a href="product.html#item-06" class="raw-link">VIEW ↗</a>
-        </div>
-      </article>
-
-      <!-- CARD 04: METADATA & ORIGIN -->
-      <article class="dash-card card-small text-heavy" data-card="04">
-        <div class="card-meta">
-          <span class="card-tag gold">"DATA_STREAM"</span>
-          <span class="card-serial">EST. 2026</span>
-        </div>
-        <div class="manifest-content">
-          <h2>"SOUTH AFRICA"</h2>
-          <p>A calculated friction between ritualistic layout design and raw street posture. We do not restock.</p>
-        </div>
-        <div class="card-action-bar">
-          <span class="status-badge">ORIGIN // ZA</span>
-        </div>
-      </article>
-
-      <!-- CARD 05: CROPPED ARCHIVE FEATURE -->
-      <article class="dash-card card-small image-focus" data-card="05">
-        <div class="card-meta">
-          <span class="card-tag red">"ARTICLE_02"</span>
-          <span class="card-serial">R550</span>
-        </div>
-        <div class="img-wrapper">
-          <img src="Assets/GNARLIE Crossfade Tee.png" alt="Featured Crop Visual" class="featured-look-img">
-        </div>
-        <div class="card-action-bar">
-          <div class="card-title-group">
-            <h3>"CrossFade Tee"</h3>
-          </div>
-          <a href="product.html#item-02" class="raw-link">ACQUIRE ↗</a>
-        </div>
-      </article>
-
-      <!-- CARD 06: SYSTEM LOG & DISPATCH STATUS -->
-      <article class="dash-card card-wide" data-card="06">
-        <div class="card-meta">
-          <span class="card-tag sky-blue">"DISTRIBUTION_STATUS"</span>
-          <span class="card-serial">SYSTEM_LOG</span>
-        </div>
-        <div class="manifest-content">
-          <h2>ACTIVE DROP STAGE //</h2>
-          <p>All assets currently deployed online are limited execution runs. Secure comms terminal remains open for priority orders and immediate regional dispatch coordination.</p>
-        </div>
-        <div class="card-action-bar">
-          <a href="https://wa.me/27660460301" target="_blank" rel="noopener" class="raw-link green-link">OPEN COMMS TERMINAL ↗</a>
-        </div>
-      </article>
-
-    </main>
-
-    <!-- FLOATING SYSTEM COMMS HUB (WHATSAPP) -->
-    <div class="whatsapp-chat">
-      <a href="https://wa.me/27660460301" target="_blank" rel="noopener">
-        <img src="Assets/GNARLIE S1 LOGO.jpg" alt="Secure Comms Link">
-        <span>Chat with us</span>
-      </a>
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-left">2026 GNARLIE.CTH &copy; ALL RIGHTS RESERVED</div>
+    <div class="footer-right">
+      <button class="explore-btn" id="exploreBtn">EXPLORE MORE</button>
     </div>
+  </footer>
 
-    <!-- INDUSTRIAL FOOTER -->
-    <footer class="footer-deco">
-      <h3>More to Explore</h3>
-      <ul>
-        <li><a href="moments.html">Notable Moments</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-      <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
-    </footer>
+  <!-- Dynamic Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i data-lucide="x"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
 
-  </div> <!-- END .desktop-lock-wrapper -->
-  
-   <script src="js/main.js"></script>
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>YOUR CART (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="cart-close" id="cartClose"><i data-lucide="x"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-msg">Your cart is currently empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>TOTAL:</span>
+        <span id="cartTotalAmount">$0.00</span>
+      </div>
+      <button class="checkout-btn" onclick="alert('Proceeding to Checkout!')">CHECKOUT</button>
+    </div>
+  </div>
 
+  <script src="Js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

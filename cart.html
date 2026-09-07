@@ -1,77 +1,141 @@
-<!-- cart.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1100, initial-scale=0.35, maximum-scale=1.0">
-  <title>GNARLIE.CTH - YOUR CART </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNARLIE.CTH - YOUR CART</title>
   <link rel="stylesheet" href="Css/style.css">
   <link rel="stylesheet" href="Css/cart.css">
   <link rel="stylesheet" href="Css/responsive.css">
 </head>
-<body>
-  
-  <header class="hub-header">
-  <div class="logo">GNARLIE.CTH</div>
-  
-  <!-- Hamburger Button -->
-  <button id="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<body class="light-mode">
 
-  <!-- NAVIGATION HEADER -->
-  <nav id="mainNav">
-    <a href="index.html" class="active">/ Home</a>
-    <a href="shop.html">/ Shop</a>
-    <a href="cart.html">/ Cart</a>
-  </nav>
-</header>
+  <!-- DESKTOP-ON-MOBILE CANVAS LOCK WRAPPER -->
+  <div class="desktop-lock-wrapper">
 
-  <!-- Cart Section -->
-  <section class="cart">
-    <h1>Your Cart</h1>
-    <table id="cart-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Size</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Items injected by JS -->
-      </tbody>
-    </table>
-    <div class="cart-summary">
-      <h2>Cart Total: <span id="cart-total">R0</span></h2>
-      <button class="btn checkout">Checkout</button>
-    </div>
-  </section>
+    <!-- 1. DYNAMIC HEADER BAR -->
+    <header class="hub-header">
+      <div class="brand-title">GNARLIE.CTH</div>
+      <span class="header-status-tag">// DISPATCH TERMINAL</span>
+      
+      <nav class="tactical-nav">
+        <!-- ACTIVE PAGE SLOTS INTO FIRST POSITION -->
+        <a href="cart.html" class="nav-item active" aria-label="Cart">
+          <span class="nav-label">Cart</span>
+        </a>
 
-  <!-- WhatsApp Integration -->
-  <div class="whatsapp-chat">
-    <a href="https://wa.me/0660460301" target="_blank">
-      <img src="Assets/GNARLIE S1 LOGO.jpg" alt="Chat on WhatsApp">
-      Chat with us
-    </a>
-  </div>
+        <!-- CENTERED SECONDARY LOGO MARK -->
+        <a href="index.html" class="nav-logo-mark" aria-label="GNARLIE Star Logo">
+          <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo" class="gn-star-icon">
+        </a>
 
-<!-- INDUSTRIAL FOOTER -->
-    <footer class="footer-deco">
-      <h3>More to Explore</h3>
-      <ul>
-        <li><a href="moments.html">Notable Moments</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-      <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
+        <a href="index.html" class="nav-item" aria-label="Home">
+          <span class="nav-label">Home</span>
+        </a>
+
+        <a href="shop.html" class="nav-item" aria-label="Shop">
+          <span class="nav-label">Shop</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- 2. CART DISPATCH TERMINAL -->
+    <main class="cart-container">
+      <div class="cart-header-bar">
+        <h2>MANIFEST OVERVIEW</h2>
+        <span class="system-id">[TERMINAL-03]</span>
+      </div>
+
+      <div class="cart-layout-grid">
+        <!-- LEFT: CART ITEMS TABLE -->
+        <div class="cart-table-wrapper">
+          <table id="cart-table">
+            <thead>
+              <tr>
+                <th>ITEM SPEC</th>
+                <th>SIZE</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>SUBTOTAL</th>
+                <th>REMOVE</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items-body">
+              <!-- Dynamically populated by JS; Fallback representation shown -->
+              <tr>
+                <td class="product-cell">
+                  <div class="cart-item-preview">
+                    <img src="Assets/Gray Long Sleeve.png" alt="Long Sleeve Tee">
+                    <span class="item-name">Long Sleeve Tee</span>
+                  </div>
+                </td>
+                <td class="size-cell"><span class="size-badge">M</span></td>
+                <td class="price-cell">R550</td>
+                <td class="qty-cell">
+                  <div class="qty-controls">
+                    <button class="qty-btn">-</button>
+                    <span class="qty-val">1</span>
+                    <button class="qty-btn">+</button>
+                  </div>
+                </td>
+                <td class="total-cell">R550</td>
+                <td class="action-cell">
+                  <button class="remove-btn" aria-label="Remove item">&times;</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- RIGHT: DISPATCH SUMMARY PANEL -->
+        <aside class="cart-summary-panel">
+          <div class="summary-header">
+            <h3>ORDER SUMMARY</h3>
+          </div>
+          <div class="summary-details">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">R550</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping (SA Express)</span>
+              <span id="cart-shipping">Calculated at Checkout</span>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <span id="cart-total">R550</span>
+            </div>
+          </div>
+          
+          <button class="btn-checkout camo-accent-btn">
+            PROCEED TO DISPATCH &rarr;
+          </button>
+
+          <div class="security-tag">
+            <span>[ENCRYPTED CHECKOUT]</span>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- 3. INDUSTRIAL FOOTER -->
+    <footer class="industrial-footer">
+      <div class="footer-left">
+        <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
+      </div>
+      <div class="footer-right">
+        <a href="moments.html" class="explore-more-btn">[Explore More]</a>
+      </div>
     </footer>
 
+  </div> <!-- END .desktop-lock-wrapper -->
 
-  <script src="js/main.js"></script>
+ <script src="Js/main.js"></script>
+  <script src="Js/cart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartPage();
+    });
+  </script>
 </body>
 </html>

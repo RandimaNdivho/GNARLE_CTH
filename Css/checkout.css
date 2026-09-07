@@ -1,108 +1,314 @@
-/* css/checkout.css */
+/* ==========================================================================
+   GNARLIE.CTH - CHECKOUT TERMINAL STYLESHEET (checkout.css)
+   ========================================================================== */
 
-/* --- THE DROP OUTPOST / CHECKOUT TERMINAL --- */
-
-.checkout {
-  max-width: 600px;
-  margin: 6rem auto;
-  color: #111111;
-  padding: 0 2rem;
-}
-
-.checkout h1 {
-  text-align: left; /* Kept left-aligned to lock with the lookbook aesthetic */
-  font-family: 'Syncopate', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  line-height: 1;
-  margin-bottom: 3rem;
-  color: #111111;
-  text-shadow: none;
-}
-
-/* Strategic category header */
-.checkout h1::before {
-  content: "SHIPPING & DISPATCH / DATA-ENTRY";
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 3px;
-  color: #b38f24; /* Metallic Gold priority flag tuned for light BG */
-  display: block;
-  margin-bottom: 1rem;
-}
-
-#checkout-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Increased spacing to give text fields breathing room */
-}
-
-/* Luxury Streetwear Form Inputs */
-#checkout-form input {
-  padding: 1.25rem 1.5rem;
-  background: #f9f9f9; /* Soft light neutral base */
-  border: 1px solid #e5e5e5; /* Clean muted border default */
-  color: #111111;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  border-radius: 0px; /* Absolutely zero rounding */
-  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* The Interactive Glow Shift */
-#checkout-form input:hover {
-  border-color: #d30000; /* High-voltage Red frame on hover */
-}
-
-#checkout-form input:focus {
-  border-color: #0088cc; /* High-contrast Sky Blue takes over when typing */
+/* --- 1. BASE CONTAINER ARCHITECTURE --- */
+.checkout-container {
+  padding: 2.5rem;
+  flex-grow: 1;
   background: #ffffff;
-  color: #111111;
-  outline: none; /* Kills browser default blue border ring */
-  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.15); /* Sleek digital overlay shadow */
 }
 
-/* Styling for HTML placeholders inside the fields */
-#checkout-form input::placeholder {
-  color: #777777; /* High-contrast readable placeholder gray */
+.checkout-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid #111111;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.checkout-header-bar h2 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111111;
   text-transform: uppercase;
+}
+
+.checkout-header-bar .system-id {
+  font-family: 'Space Grotesk', monospace, sans-serif;
   font-size: 0.75rem;
+  font-weight: 700;
+  color: #d30000;
   letter-spacing: 1.5px;
 }
 
-/* High-Impact Complete Order Action Button */
-#checkout-form .btn {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
+/* --- 2. ASYMMETRIC GRID LAYOUT --- */
+.checkout-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* --- 3. TACTICAL FORM & INPUTS --- */
+.checkout-form-wrapper {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  padding: 2rem;
+}
+
+.form-section-title {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.75rem;
   font-weight: 700;
+  color: #d30000;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  background: #111111; /* Solid black base button for light background */
-  color: #ffffff;
-  padding: 1.25rem;
-  border: 1px solid #111111;
-  border-radius: 0px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin-top: 1rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#checkout-form .btn:hover {
-  background: #d30000; /* Turns high-voltage Red when confirming purchase */
-  color: #ffffff;
+.tactical-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row.dual-field .field-group {
+  flex: 1;
+}
+
+.form-row.tri-field .field-group {
+  flex: 1;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-group label {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #555555;
+  letter-spacing: 1px;
+}
+
+.field-group input {
+  padding: 0.85rem 1rem;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  color: #111111;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  border-radius: 0;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.field-group input:hover {
+  border-color: #111111;
+}
+
+.field-group input:focus {
   border-color: #d30000;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(211, 0, 0, 0.2);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(211, 0, 0, 0.08);
 }
 
-#checkout-form .btn:active {
-  transform: translateY(-1px);
+.field-group input::placeholder {
+  color: #999999;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* Submit Action Button */
+.btn-dispatch {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 1.1rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn-dispatch:hover {
+  box-shadow: 0 8px 20px rgba(211, 0, 0, 0.25);
+}
+
+.btn-dispatch:active {
+  transform: scale(0.98);
+}
+
+/* --- 4. CONFIRMATION OVERLAY --- */
+.confirmation-box {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 2.5rem;
+  border: 1px solid #222222;
+  text-align: center;
+}
+
+.confirmation-box .badge {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #25d366;
+  letter-spacing: 1.5px;
+}
+
+.confirmation-box h2 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 1rem 0 0.75rem 0;
+  color: #ffffff;
+}
+
+.confirmation-box p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.btn-return-home {
+  display: inline-block;
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #d30000;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  transition: color 0.2s ease;
+}
+
+.btn-return-home:hover {
+  color: #ffffff;
 }
 
 .hidden {
   display: none !important;
+}
+
+/* --- 5. CHECKOUT SUMMARY LEDGER --- */
+.checkout-summary-panel {
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-header {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.summary-header h3 {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+.summary-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.summary-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.item-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+.item-sub {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.65rem;
+  color: #777777;
+  margin-top: 0.2rem;
+}
+
+.item-cost {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Ledger Total Breakdown */
+.ledger-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: #555555;
+}
+
+.ledger-row span:last-child {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-weight: 700;
+  color: #111111;
+}
+
+.ledger-row.grand-total {
+  border-top: 1px dashed #cccccc;
+  padding-top: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.ledger-row.grand-total span:last-child {
+  font-size: 1.2rem;
+  color: #d30000;
+}
+
+.security-tag {
+  text-align: center;
+}
+
+.security-tag span {
+  font-family: 'Space Grotesk', monospace, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #888888;
+  letter-spacing: 1px;
 }

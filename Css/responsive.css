@@ -114,3 +114,100 @@ nav a {
 .whatsapp-chat span {
   display: inline-block !important; /* Keeps "CHAT WITH US" text label visible */
 }
+/* --- MOBILE RESPONSIVE ADAPTATION --- */
+@media screen and (max-width: 768px) {
+
+  /* 1. Stack the grid vertically */
+  .cart-layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 12px;
+  }
+
+  /* 2. Turn table elements into stacked block cards */
+  #cart-table, 
+  #cart-table thead, 
+  #cart-table tbody, 
+  #cart-table tr, 
+  #cart-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide raw table headers on mobile */
+  #cart-table thead {
+    display: none;
+  }
+
+  /* Style each cart row as an individual card */
+  #cart-table tbody tr {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  /* Product cell layout */
+  .product-cell {
+    margin-bottom: 12px;
+  }
+
+  .cart-item-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cart-item-preview img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .item-name {
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  /* Align size, price, and quantities in a single horizontal row */
+  .size-cell, 
+  .price-cell, 
+  .qty-cell, 
+  .total-cell {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* Position remove button absolute to top-right of card */
+  .action-cell {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: auto;
+  }
+
+  .remove-btn {
+    font-size: 1.4rem;
+    padding: 4px 8px;
+  }
+
+  /* Make summary panel take full width at bottom */
+  .cart-summary-panel {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+
+  .btn-checkout {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+  }
+}
