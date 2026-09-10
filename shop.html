@@ -18,9 +18,9 @@
   <header class="main-header">
     <h1 class="brand-title">"SHOP GNARLIE HERE"</h1>
     <nav class="nav-links">
-      <a href="index.html" class="nav-item"><i data-lucide="home"></i> <span>HOME</span></a>
-      <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo" class="gn-star-icon">
       <a href="shop.html" class="nav-item active"><i data-lucide="shopping-bag"></i> <span>SHOP</span></a>
+      <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo" class="gn-star-icon">
+      <a href="index.html" class="nav-item"><i data-lucide="home"></i> <span>HOME</span></a>
       <button class="nav-item cart-btn" id="cartToggle">
         <i data-lucide="shopping-cart"></i> <span>CART</span>
         <span class="cart-count" id="cartCount">0</span>
@@ -72,12 +72,13 @@
       <div class="product-grid" id="productGrid">
 
         <!-- ================= TEES ================= -->
+        <!-- TEE 1 (PRODUCT 1) -->
         <article class="inline-product-card" data-category="tees">
           <div class="tile-img-container">
-            <img src="Assets/GNARLIE Crossfade Tee.png" alt="GNARLIE Crossfade Tee">
+            <img src="Assets/GNARLIE CAMO FROG SIGNATURE.png" alt="GNARLIE CAMO FROG SIGNATURE">
           </div>
           <div class="tile-info">
-            <h4>GNARLIE Crossfade Tee</h4>
+            <h4>GNARLIE CAMO FROG SIGNATURE</h4>
             <p class="price">R450</p>
           </div>
           <div class="size-selector-row">
@@ -89,6 +90,7 @@
           <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
         </article>
 
+        <!-- TEE 2 (PRODUCT 2) -->
         <article class="inline-product-card" data-category="tees">
           <div class="tile-img-container">
             <img src="Assets/GN GSN Tee.png" alt="GN GSN Graphic Tee">
@@ -106,13 +108,86 @@
           <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
         </article>
 
+        <!-- TEE 3 (PRODUCT 3) -->
         <article class="inline-product-card" data-category="tees">
           <div class="tile-img-container">
-            <img src="Assets/F Model Capri + NG Tee.png" alt="NG Oversized Boxy Tee">
+            <img src="Assets/G N Brown Tee.png" alt="GN Brown Tee">
           </div>
           <div class="tile-info">
-            <h4>NG Oversized Boxy Tee</h4>
-            <p class="price">R480</p>
+            <h4>GN Brown Tee</h4>
+            <p class="price">R420</p>
+          </div>
+          <div class="size-selector-row">
+            <button class="size-btn" onclick="selectSize(this)">S</button>
+            <button class="size-btn active" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
+        </article>
+
+        <!-- TEE 4 (PRODUCT 4) -->
+        <article class="inline-product-card" data-category="tees">
+          <div class="tile-img-container">
+            <img src="Assets/GN StarFrog Pixel Tee.png" alt="GN StarFrog Pixel Tee">
+          </div>
+          <div class="tile-info">
+            <h4>GN StarFrog Pixel Tee</h4>
+            <p class="price">R420</p>
+          </div>
+          <div class="size-selector-row">
+            <button class="size-btn" onclick="selectSize(this)">S</button>
+            <button class="size-btn active" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
+        </article>
+
+        <!-- TEE 5 (PRODUCT 5) -->
+        <article class="inline-product-card" data-category="tees">
+          <div class="tile-img-container">
+            <img src="Assets/GN PixelStar Tee .png" alt="GN PixelStar Tee">
+          </div>
+          <div class="tile-info">
+            <h4>GN PixelStar Tee</h4>
+            <p class="price">R420</p>
+          </div>
+          <div class="size-selector-row">
+            <button class="size-btn" onclick="selectSize(this)">S</button>
+            <button class="size-btn active" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
+        </article>
+
+        <!-- TEE 5 (PRODUCT 5) -->
+        <article class="inline-product-card" data-category="tees">
+          <div class="tile-img-container">
+            <img src="Assets/GN Camo Sigil Tee.png" alt="GN Camo Sigil Tee">
+          </div>
+          <div class="tile-info">
+            <h4>GN Camo Sigil Tee</h4>
+            <p class="price">R420</p>
+          </div>
+          <div class="size-selector-row">
+            <button class="size-btn" onclick="selectSize(this)">S</button>
+            <button class="size-btn active" onclick="selectSize(this)">M</button>
+            <button class="size-btn" onclick="selectSize(this)">L</button>
+            <button class="size-btn" onclick="selectSize(this)">XL</button>
+          </div>
+          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
+        </article>
+
+        <!-- TEE 5 (PRODUCT 5) -->
+        <article class="inline-product-card" data-category="tees">
+          <div class="tile-img-container">
+            <img src="Assets/GN Brown Sigil Tee.png" alt="GN Brown Sigil Tee">
+          </div>
+          <div class="tile-info">
+            <h4>GN Brown Sigil Tee</h4>
+            <p class="price">R420</p>
           </div>
           <div class="size-selector-row">
             <button class="size-btn" onclick="selectSize(this)">S</button>
@@ -175,22 +250,6 @@
           <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
         </article>
 
-        <article class="inline-product-card" data-category="hoodies">
-          <div class="tile-img-container">
-            <img src="Assets/M Model Virgil Hoodie.png" alt="Virgil Signature Zip Hoodie">
-          </div>
-          <div class="tile-info">
-            <h4>Virgil Signature Zip Hoodie</h4>
-            <p class="price">R1250</p>
-          </div>
-          <div class="size-selector-row">
-            <button class="size-btn" onclick="selectSize(this)">S</button>
-            <button class="size-btn active" onclick="selectSize(this)">M</button>
-            <button class="size-btn" onclick="selectSize(this)">L</button>
-            <button class="size-btn" onclick="selectSize(this)">XL</button>
-          </div>
-          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
-        </article>
 
         <article class="inline-product-card" data-category="hoodies">
           <div class="tile-img-container">
@@ -208,6 +267,7 @@
           </div>
           <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)">+ ADD TO CART</button>
         </article>
+        
 
         <!-- ================= PANTS ================= -->
         <article class="inline-product-card" data-category="pants">
