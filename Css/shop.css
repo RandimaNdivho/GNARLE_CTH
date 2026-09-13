@@ -467,3 +467,79 @@
     box-sizing: border-box !important;
   }
 }
+/* ==========================================================================
+   NAVIGATION & HOW-TO-SHOP GUIDE
+   ========================================================================== */
+
+.nav-guide-container {
+  border: 1px solid #111111;
+  background: #ffffff;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.guide-header {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.guide-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  background: #111111;
+  color: #ffffff;
+  padding: 3px 6px;
+  margin-bottom: 0.3rem;
+}
+
+.guide-header h3 {
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 0;
+  color: #111111;
+}
+
+.guide-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.step-num {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: #111111;
+  padding: 2px 6px;
+  border-radius: 2px;
+  line-height: 1;
+}
+
+.step-details h4 {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.15rem 0;
+  color: #111111;
+}
+
+.step-details p {
+  font-size: 0.7rem;
+  color: #555555;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.step-details p strong {
+  color: #111111;
+}
