@@ -421,6 +421,7 @@
     margin: 4px 0 2px 0 !important;
     overflow: hidden !important;
     display: -webkit-box !important;
+    line-clamp: 2 !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     word-break: break-word !important;
