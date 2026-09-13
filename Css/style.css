@@ -435,51 +435,6 @@ body {
   color: var(--black, #000);
 }
 
-/* --- PRODUCT PREVIEW ROW --- */
-.hero-product-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin: 10px 0;
-  width: 100%;
-}
-
-.preview-card {
-  position: relative;
-  width: 110px;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--black, #000);
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  backdrop-filter: blur(4px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.preview-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.preview-badge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #000;
-  color: #fff;
-  font-size: 0.6rem;
-  font-weight: 900;
-  padding: 3px 0;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
 
 /* --- CTA BUTTON --- */
 .shop-now-btn {
@@ -501,79 +456,7 @@ body {
   background: #222;
   transform: translateY(-2px);
 }
-/* --- CONTINUOUS SLIDING PREVIEW CONTAINER --- */
-.hero-product-preview {
-  width: 100%;
-  max-width: 420px; /* Limits overall marquee width */
-  overflow: hidden; /* Hides overflow as cards slide off screen */
-  margin: 10px 0;
-  position: relative;
 
-  /* Optional: Soft fade mask on left & right edges for smooth enter/exit */
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-/* --- THE MOVING TRACK --- */
-.preview-track {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  animation: continuousSlide 12s linear infinite; /* Adjust time to speed up/slow down */
-}
-
-/* Pause sliding when user hovers to inspect a item */
-.hero-product-preview:hover .preview-track {
-  animation-play-state: paused;
-}
-
-/* --- INDIVIDUAL CARDS --- */
-.preview-card {
-  position: relative;
-  width: 110px;
-  height: 120px;
-  flex-shrink: 0; /* Prevents cards from squishing */
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--black, #000);
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-  backdrop-filter: blur(4px);
-}
-
-.preview-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.preview-badge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #000;
-  color: #fff;
-  font-size: 0.6rem;
-  font-weight: 900;
-  padding: 3px 0;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-/* --- INFINITE LOOP KEYFRAMES --- */
-@keyframes continuousSlide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Shifts track by half its total length (one full set of cards) */
-    transform: translateX(calc(-50% - 8px)); 
-  }
-}
 /* ==========================================================================
    BAPE-STYLE MANUAL SCROLL SNAP CAROUSEL
    ========================================================================== */
