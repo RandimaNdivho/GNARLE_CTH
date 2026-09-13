@@ -574,3 +574,86 @@ body {
     transform: translateX(calc(-50% - 8px)); 
   }
 }
+/* ==========================================================================
+   BAPE-STYLE MANUAL SCROLL SNAP CAROUSEL
+   ========================================================================== */
+
+.gn-carousel-container {
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+}
+
+/* Scroll Snap Track */
+.gn-carousel-track {
+  display: flex !important;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+  gap: 0;
+}
+
+.gn-carousel-track::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+/* Individual Full-Width Slide */
+.gn-carousel-slide {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  scroll-snap-align: center !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdfdfd;
+}
+
+.gn-carousel-slide img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Badges */
+.gn-carousel-slide .preview-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  letter-spacing: 1px;
+}
+
+/* Bape Pagination Dots */
+.gn-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.gn-carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid #111111;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.gn-carousel-dots .dot.pill {
+  width: 24px;
+  border-radius: 999px;
+}
+
+.gn-carousel-dots .dot.active {
+  background: #111111;
+}
