@@ -1,8 +1,8 @@
 /* ==========================================================================
-   GNARLIE CORE STREETWEAR PLATFORM // MOBILE RESPONSIVE MANIFEST
+   GNARLIE CORE STREETWEAR PLATFORM // REWRITTEN RESPONSIVE & COMPONENT STYLES
    ========================================================================== */
 
-/* --- 00. GLOBAL ANTI-BLEED & OVERFLOW PROTECTION --- */
+/* --- 00. RESET & VIEWPORT LOCK --- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -10,10 +10,13 @@
 html, body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* Prevents awkward horizontal scrollbars on mobile */
-  -webkit-text-size-adjust: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
 }
 
 img, video, iframe {
@@ -22,48 +25,93 @@ img, video, iframe {
   display: block;
 }
 
-/* --- 01. DESKTOP NAVIGATION & HEADER BASE --- */
+/* --- 01. NAVIGATION HEADER --- */
 .hub-header, header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 1.5rem;
   background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 nav a {
-  display: inline-block;
   font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #111111;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+  opacity: 0.6;
 }
 
 #hamburger {
   display: none;
 }
 
-/* --- 02. SECTION CATEGORY TAB BAR --- */
+/* --- 02. CATEGORY FILTER BAR & PILLS --- */
 .category-bar, .shortcut-scroll-container {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  background: #f4f4f4;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #f8f8f8;
   border-bottom: 1px solid #e5e5e5;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* --- 03. DESKTOP PRODUCT GRID SYSTEM --- */
+/* Base Category Pill Styling */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid #111111;
+  background: transparent;
+  color: #111111;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.pill-btn.active,
+.active-pill {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* --- 03. PRODUCT GRID SYSTEM --- */
 .product-postcards,
 #productGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row on desktop */
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns default (Desktop) */
   gap: 1.5rem;
   max-width: 1200px;
   margin: 2rem auto;
@@ -78,16 +126,23 @@ nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.postcard:hover,
+.inline-product-card:hover {
+  border-color: #111111;
 }
 
 .postcard .img-container,
 .tile-img-container {
   width: 100%;
-  height: 280px;
-  background: #f8f8f8;
+  aspect-ratio: 4 / 5;
+  background: #f4f4f4;
   overflow: hidden;
   margin-bottom: 1rem;
+  border-radius: 2px;
 }
 
 .postcard .img-container img,
@@ -95,57 +150,160 @@ nav a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* --- 04. BENTO DASHBOARD GRID (DESKTOP) --- */
+.inline-product-card:hover img {
+  transform: scale(1.03);
+}
+
+.tile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tile-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.tile-price {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555555;
+}
+
+/* --- 04. INTERACTIVE SIZE SELECTOR & CTA BUTTONS --- */
+.size-selector-row {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  flex: 1;
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  color: #111111;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.size-btn:hover {
+  border-color: #111111;
+}
+
+.size-btn.active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+/* Dynamic Add-to-Cart & Action CTA */
+.camo-accent-btn,
+.inline-add-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #111111;
+  color: #ffffff;
+  border: 1px solid #111111;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.camo-accent-btn:hover,
+.inline-add-btn:hover {
+  background: #333333;
+  border-color: #333333;
+}
+
+.camo-accent-btn:active,
+.inline-add-btn:active {
+  transform: scale(0.98);
+}
+
+/* Disabled State (Sold Out / Out of Stock) */
+.camo-accent-btn:disabled,
+.inline-add-btn:disabled,
+.size-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #e5e5e5 !important;
+  color: #888888 !important;
+  border-color: #cccccc !important;
+}
+
+/* --- 05. BENTO DASHBOARD GRID --- */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   max-width: 1200px;
   margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
 .card-big    { grid-column: span 2; grid-row: span 2; }
 .card-medium { grid-column: span 2; grid-row: span 1; }
 .card-small  { grid-column: span 1; grid-row: span 1; }
 
-/* --- 05. FLOATING WHATSAPP BUTTON --- */
+/* --- 06. FLOATING WHATSAPP BUTTON --- */
 .whatsapp-chat {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   z-index: 9999;
 }
 
-.whatsapp-chat span {
-  display: inline-block;
-}
-
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVE ENGINE
+   MOBILE RESPONSIVE BREAKPOINT (MAX-WIDTH: 768PX)
    ========================================================================== */
 
 @media screen and (max-width: 768px) {
 
-  /* --- 1. HEADER & NAVIGATION MOBILE ADAPTATION --- */
+  /* Header scaling */
   .hub-header, header {
-    padding: 1rem !important;
+    padding: 0.85rem 1rem;
   }
 
   nav {
-    gap: 0.75rem !important;
+    gap: 0.85rem;
   }
 
   nav a {
-    font-size: 0.75rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
   }
 
-  /* --- 2. MOBILE 2-COLUMN PRODUCT GRID |- -| --- */
+  /* Horizontal scrolling filter bar on mobile */
+  .category-bar, .shortcut-scroll-container {
+    justify-content: flex-start;
+    padding: 0.75rem 0.85rem;
+  }
+
+  /* STRICT MOBILE 2-COLUMN PRODUCT GRID |- -| */
   .product-postcards,
   #productGrid {
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 items per row on mobile */
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.75rem !important;
     padding: 0 0.75rem !important;
     margin: 1rem auto !important;
@@ -153,20 +311,40 @@ nav a {
 
   .postcard,
   .inline-product-card {
-    padding: 0.5rem !important;
+    padding: 0.65rem !important;
   }
 
   .postcard .img-container,
   .tile-img-container {
-    height: 180px !important; /* Scaled down height for 2-column mobile cards */
-    margin-bottom: 0.5rem !important;
+    aspect-ratio: 1 / 1; /* Square images on mobile to preserve screen space */
+    margin-bottom: 0.5rem;
   }
 
-  /* --- 3. BENTO DASHBOARD MOBILE STACKING --- */
+  .tile-title {
+    font-size: 0.8rem;
+  }
+
+  .tile-price {
+    font-size: 0.75rem;
+  }
+
+  .size-btn {
+    height: 30px;
+    font-size: 0.65rem;
+  }
+
+  .camo-accent-btn,
+  .inline-add-btn {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  /* Bento grid stacks into 1 column on mobile */
   .dashboard-grid {
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-    padding: 0 1rem;
+    gap: 0.85rem !important;
+    padding: 0 0.85rem;
   }
 
   .card-big,
@@ -176,12 +354,12 @@ nav a {
     grid-row: span 1 !important;
   }
 
-  /* --- 4. CART PAGE STACKED CARDS --- */
+  /* Cart table mobile cards */
   .cart-layout-grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding: 0 12px;
+    gap: 1rem;
+    padding: 0 0.75rem;
   }
 
   #cart-table, 
@@ -199,68 +377,28 @@ nav a {
 
   #cart-table tbody tr {
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #1a1a1a;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-  }
-
-  .product-cell {
-    margin-bottom: 12px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 0.85rem;
+    margin-bottom: 0.85rem;
   }
 
   .cart-item-preview {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   .cart-item-preview img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
-    border-radius: 4px;
-  }
-
-  .item-name {
-    font-weight: 800;
-    font-size: 0.9rem;
-  }
-
-  .size-cell, 
-  .price-cell, 
-  .qty-cell, 
-  .total-cell {
-    display: inline-flex;
-    align-items: center;
-    margin-right: 12px;
-    margin-bottom: 8px;
-    font-size: 0.85rem;
   }
 
   .action-cell {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: auto;
-  }
-
-  .remove-btn {
-    font-size: 1.2rem;
-    padding: 4px 8px;
-  }
-
-  .cart-summary-panel {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-  }
-
-  .btn-checkout {
-    width: 100%;
-    padding: 16px;
-    font-size: 1rem;
+    top: 0.75rem;
+    right: 0.75rem;
   }
 }
