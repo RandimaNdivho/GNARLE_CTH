@@ -602,8 +602,8 @@ h2 {
 
   /* 5. Center G★N Logo Icon */
   .gn-star-icon {
-    height: 22px !important;
-    width: auto !important;
+    height: 150px !important;
+    width: 150px !important;
     object-fit: contain !important;
     display: block !important;
     margin: 0 0.15rem !important;
@@ -617,5 +617,92 @@ h2 {
     padding: 1px 5px !important;
     border-radius: 999px !important;
     margin-left: 2px !important;
+  }
+}
+/* ==========================================================================
+   MOBILE PRODUCT CARD GRID SURGERY (SAFE BOTTOM APPEND)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+
+  /* 1. Prevent Grid Overflow & Hard Lock 2 Columns */
+  #productGrid,
+  .product-postcards {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* minmax stops right side cut-off */
+    gap: 0.5rem !important;
+    padding: 0 0.5rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Tighten Individual Card Containers */
+  .inline-product-card,
+  .postcard {
+    width: 100% !important;
+    padding: 0.4rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* 3. Image Container Fit */
+  .tile-img-container,
+  .postcard .img-container {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* 4. Responsive Typography & Truncation */
+  .tile-info h4,
+  .inline-product-card h4 {
+    font-size: 0.7rem !important;
+    line-height: 1.15 !important;
+    height: 2.3em !important; /* Locks title to exactly 2 lines */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    line-clamp: 2 !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0.2rem 0 !important;
+  }
+
+  .tile-info .price,
+  .inline-product-card .price {
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    margin: 0.2rem 0 0.4rem 0 !important;
+  }
+
+  /* 5. Compact Size Selector Row */
+  .size-selector-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2px !important;
+    margin: 0.3rem 0 !important;
+    width: 100% !important;
+  }
+
+  .size-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    height: 26px !important;
+    padding: 0 !important;
+    font-size: 0.6rem !important;
+    border-radius: 2px !important;
+  }
+
+  /* 6. Fit CTA Button Within Card */
+  .inline-add-btn,
+  .camo-accent-btn {
+    width: 100% !important;
+    padding: 0.45rem 0.2rem !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 }
