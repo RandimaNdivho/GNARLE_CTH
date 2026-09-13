@@ -525,90 +525,97 @@ h2 {
   font-weight: 700 !important;
 }
 /* ==========================================================================
-   MAIN HEADER & NAV FIX (TARGETED TO YOUR HTML)
+   MAIN HEADER & NAV MOBILE OVERRIDES (SAFE BOTTOM APPEND)
    ========================================================================== */
 
-/* 1. Header Container Lock */
-.main-header {
-  display: flex !important;
-  flex-direction: column !important; /* Stack Title above Nav on Mobile */
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0.75rem 1rem !important;
-  background: #ffffff !important;
-  border-bottom: 1px solid #e5e5e5 !important;
-  gap: 0.5rem !important;
-}
+@media screen and (max-width: 768px) {
+  /* 1. Header Container Lock */
+  .main-header {
+    display: flex !important;
+    flex-direction: column !important; /* Stack Title above Nav on Mobile */
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 0.5rem !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-/* 2. Brand Title Setup */
-.main-header .brand-title {
-  font-size: 1.1rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  text-align: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  color: #111111 !important;
-}
+  /* 2. Brand Title Responsive Scaling */
+  .main-header .brand-title {
+    font-size: clamp(0.85rem, 4vw, 1.1rem) !important; /* Automatically shrinks on tiny screens */
+    font-weight: 900 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    color: #111111 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 
-/* 3. Navigation Bar Layout */
-.nav-links {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 1.25rem !important;
-  width: 100% !important;
-}
+  /* 3. Navigation Bar Layout */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important; /* Slightly tighter gap for mobile */
+    width: 100% !important;
+  }
 
-/* 4. Nav Links & Icon Tweaks */
-.nav-item {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.35rem !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 1px !important;
-  text-decoration: none !important;
-  color: #111111 !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-}
+  /* 4. Nav Links & Icon Tweaks */
+  .nav-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-decoration: none !important;
+    color: #111111 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
 
-/* Remove giant pill background overlay on active shop button if unwanted */
-.nav-item.active {
-  background: transparent !important;
-  color: #111111 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 4px !important;
-}
+  /* Remove giant pill background overlay on active shop button */
+  .nav-item.active {
+    background: transparent !important;
+    color: #111111 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px !important;
+  }
 
-/* Scale Lucide Icons */
-.nav-item svg,
-.nav-item [data-lucide] {
-  width: 16px !important;
-  height: 16px !important;
-}
+  /* Scale Lucide Icons */
+  .nav-item svg,
+  .nav-item [data-lucide] {
+    width: 14px !important;
+    height: 14px !important;
+  }
 
-/* 5. Center G★N Logo Icon */
-.gn-star-icon {
-  height: 28px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 0.25rem !important;
-}
+  /* 5. Center G★N Logo Icon */
+  .gn-star-icon {
+    height: 22px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 0.15rem !important;
+  }
 
-/* Cart Badge Styling */
-.cart-count {
-  background: #111111 !important;
-  color: #ffffff !important;
-  font-size: 0.65rem !important;
-  padding: 2px 6px !important;
-  border-radius: 999px !important;
-  margin-left: 2px !important;
+  /* Cart Badge Styling */
+  .cart-count {
+    background: #111111 !important;
+    color: #ffffff !important;
+    font-size: 0.6rem !important;
+    padding: 1px 5px !important;
+    border-radius: 999px !important;
+    margin-left: 2px !important;
+  }
 }
