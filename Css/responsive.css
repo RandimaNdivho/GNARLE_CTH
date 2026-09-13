@@ -402,3 +402,125 @@ nav a:hover {
     right: 0.75rem;
   }
 }
+/* ==========================================================================
+   GNARLIE MOBILE UI CLEANUP FIXES
+   ========================================================================== */
+
+/* 1. FIX HEADER OVERLAP & TITLES */
+header, .hub-header {
+  padding: 0.75rem 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: auto !important;
+}
+
+/* Reduce giant banner typography on mobile */
+.hero-title, 
+h1, 
+.shop-header-text {
+  font-size: 1.25rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: 1px !important;
+  max-width: 60% !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Keep the G★N Logo scaled nicely in header */
+.header-logo, 
+header img {
+  max-height: 36px !important;
+  width: auto !important;
+}
+
+/* 2. UNIFY FILTER BUTTONS INTO A CLEAN SINGLE SCROLLABLE BAR */
+.category-bar, 
+.shortcut-scroll-container,
+.filter-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar for Chrome/Firefox/Safari */
+  background: #ffffff !important;
+  border-bottom: 1px solid #eee;
+}
+
+.category-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Make all pills uniform in size and aesthetic */
+.pill-btn, 
+.category-bar button,
+.filter-btn {
+  flex: 0 0 auto !important;
+  padding: 0.4rem 0.85rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  border: 1px solid #111111 !important;
+  border-radius: 999px !important; /* Uniform pill shape */
+  background: transparent !important;
+  color: #111111 !important;
+  white-space: nowrap !important;
+}
+
+.pill-btn.active, 
+.category-bar button.active {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* 3. CLEAN SECTION TITLE & BACKGROUND G★N WATERMARK */
+.section-title, 
+h2 {
+  font-size: 1rem !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  margin: 1.25rem 0 0.75rem 0 !important;
+}
+
+/* Keep background watermark graphic anchored and non-intrusive */
+.watermark-bg, 
+.G-N-watermark {
+  opacity: 0.08 !important;
+  pointer-events: none;
+}
+
+/* 4. PERFECT MOBILE 2-COLUMN GRID FIT */
+.product-postcards,
+#productGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.5rem !important;
+  padding: 0 0.5rem !important;
+}
+
+.postcard,
+.inline-product-card {
+  border: 1px solid #eaeaea !important;
+  padding: 0.5rem !important;
+  box-sizing: border-box !important;
+}
+
+.postcard .img-container,
+.tile-img-container {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important; /* Square crop for clean grid alignment */
+  background: #f7f7f7 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.tile-title, 
+.postcard-title {
+  font-size: 0.75rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
