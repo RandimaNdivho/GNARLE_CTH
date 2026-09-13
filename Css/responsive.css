@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GNARLIE CORE STREETWEAR PLATFORM // DESKTOP-ON-MOBILE MANIFEST (responsive.css)
+   GNARLIE CORE STREETWEAR PLATFORM // MOBILE RESPONSIVE MANIFEST
    ========================================================================== */
 
 /* --- 00. GLOBAL ANTI-BLEED & OVERFLOW PROTECTION --- */
@@ -8,9 +8,12 @@
 }
 
 html, body {
-  min-width: 1100px; /* Force minimum desktop canvas width */
-  overflow-x: auto;   /* Allow clean horizontal panning if needed */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevents awkward horizontal scrollbars on mobile */
   -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 img, video, iframe {
@@ -19,37 +22,36 @@ img, video, iframe {
   display: block;
 }
 
-/* --- 01. NAVIGATION HEADER LOCKDOWN --- */
+/* --- 01. DESKTOP NAVIGATION & HEADER BASE --- */
 .hub-header, header {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 1.25rem 2rem !important;
-  background: #ffffff !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
 }
 
 nav {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 1.5rem !important;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 nav a {
-  display: inline-block !important;
-  font-size: 0.85rem !important;
-  letter-spacing: 1.5px !important;
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
 }
 
-/* Hide hamburger menu toggle if it exists */
 #hamburger {
-  display: none !important;
+  display: none;
 }
 
 /* --- 02. SECTION CATEGORY TAB BAR --- */
 .category-bar, .shortcut-scroll-container {
-  display: flex !important;
+  display: flex;
   justify-content: center;
   gap: 1rem;
   padding: 1rem 0;
@@ -57,26 +59,30 @@ nav a {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* --- 03. LOCKED 3-COLUMN PRODUCT GRID --- */
-.product-postcards {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Force 3 columns across all devices */
-  gap: 1.5rem !important;
-  max-width: 1200px !important;
-  margin: 2rem auto !important;
-  padding: 0 1.5rem !important;
+/* --- 03. DESKTOP PRODUCT GRID SYSTEM --- */
+.product-postcards,
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row on desktop */
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
-.postcard {
+.postcard,
+.inline-product-card {
   background: #ffffff;
   border: 1px solid #e5e5e5;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
-.postcard .img-container {
+.postcard .img-container,
+.tile-img-container {
   width: 100%;
   height: 280px;
   background: #f8f8f8;
@@ -84,40 +90,93 @@ nav a {
   margin-bottom: 1rem;
 }
 
-.postcard .img-container img {
+.postcard .img-container img,
+.tile-img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* --- 04. BENTO DASHBOARD GRID (FOR INDEX PAGE) --- */
+/* --- 04. BENTO DASHBOARD GRID (DESKTOP) --- */
 .dashboard-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important; /* Retain full 4-column bento desktop view */
-  gap: 1.25rem !important;
-  max-width: 1200px !important;
-  margin: 2rem auto !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 2rem auto;
 }
 
-.card-big    { grid-column: span 2 !important; grid-row: span 2 !important; }
-.card-medium { grid-column: span 2 !important; grid-row: span 1 !important; }
-.card-small  { grid-column: span 1 !important; grid-row: span 1 !important; }
+.card-big    { grid-column: span 2; grid-row: span 2; }
+.card-medium { grid-column: span 2; grid-row: span 1; }
+.card-small  { grid-column: span 1; grid-row: span 1; }
 
 /* --- 05. FLOATING WHATSAPP BUTTON --- */
 .whatsapp-chat {
-  position: fixed !important;
-  bottom: 2rem !important;
-  right: 2rem !important;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 9999;
 }
 
 .whatsapp-chat span {
-  display: inline-block !important; /* Keeps "CHAT WITH US" text label visible */
+  display: inline-block;
 }
-/* --- MOBILE RESPONSIVE ADAPTATION --- */
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE ENGINE
+   ========================================================================== */
+
 @media screen and (max-width: 768px) {
 
-  /* 1. Stack the grid vertically */
+  /* --- 1. HEADER & NAVIGATION MOBILE ADAPTATION --- */
+  .hub-header, header {
+    padding: 1rem !important;
+  }
+
+  nav {
+    gap: 0.75rem !important;
+  }
+
+  nav a {
+    font-size: 0.75rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* --- 2. MOBILE 2-COLUMN PRODUCT GRID |- -| --- */
+  .product-postcards,
+  #productGrid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 items per row on mobile */
+    gap: 0.75rem !important;
+    padding: 0 0.75rem !important;
+    margin: 1rem auto !important;
+  }
+
+  .postcard,
+  .inline-product-card {
+    padding: 0.5rem !important;
+  }
+
+  .postcard .img-container,
+  .tile-img-container {
+    height: 180px !important; /* Scaled down height for 2-column mobile cards */
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* --- 3. BENTO DASHBOARD MOBILE STACKING --- */
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 0 1rem;
+  }
+
+  .card-big,
+  .card-medium,
+  .card-small {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* --- 4. CART PAGE STACKED CARDS --- */
   .cart-layout-grid {
     display: flex;
     flex-direction: column;
@@ -125,7 +184,6 @@ nav a {
     padding: 0 12px;
   }
 
-  /* 2. Turn table elements into stacked block cards */
   #cart-table, 
   #cart-table thead, 
   #cart-table tbody, 
@@ -135,12 +193,10 @@ nav a {
     width: 100%;
   }
 
-  /* Hide raw table headers on mobile */
   #cart-table thead {
     display: none;
   }
 
-  /* Style each cart row as an individual card */
   #cart-table tbody tr {
     position: relative;
     background: rgba(255, 255, 255, 0.05);
@@ -151,7 +207,6 @@ nav a {
     box-sizing: border-box;
   }
 
-  /* Product cell layout */
   .product-cell {
     margin-bottom: 12px;
   }
@@ -171,10 +226,9 @@ nav a {
 
   .item-name {
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
-  /* Align size, price, and quantities in a single horizontal row */
   .size-cell, 
   .price-cell, 
   .qty-cell, 
@@ -183,9 +237,9 @@ nav a {
     align-items: center;
     margin-right: 12px;
     margin-bottom: 8px;
+    font-size: 0.85rem;
   }
 
-  /* Position remove button absolute to top-right of card */
   .action-cell {
     position: absolute;
     top: 12px;
@@ -194,11 +248,10 @@ nav a {
   }
 
   .remove-btn {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 4px 8px;
   }
 
-  /* Make summary panel take full width at bottom */
   .cart-summary-panel {
     width: 100%;
     box-sizing: border-box;

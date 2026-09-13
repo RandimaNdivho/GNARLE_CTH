@@ -319,3 +319,31 @@
   height: 100%;
   object-fit: cover;
 }
+.gender-toggle-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.gender-btn {
+  background: transparent;
+  border: 1px solid #000;
+  padding: 6px 16px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gender-btn.active {
+  background: #000;
+  color: #fff;
+}
+/* Disabled CTA State for Sold Out Items */
+.inline-add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #666 !important;
+}

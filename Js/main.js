@@ -2,14 +2,17 @@
    1. GLOBAL STATE MANAGEMENT & PERSISTENCE
    ========================================================================== */
 
-// Initialize cart state array from localStorage to retain items across page navigations.
-// If localStorage is empty or null, fallback to an empty array [].
 let cart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
+let activeGender = 'all';
+let currentCategory = null;
 
-/**
- * Helper function to synchronize current JS cart state to localStorage.
- * Call this every time items are added, updated, or removed.
- */
+const categoryNames = {
+  tees: "Tee-Shirts",
+  hoodies: "Hoodies",
+  pants: "Pants",
+  accessories: "Accessories"
+};
+
 function saveCartState() {
   localStorage.setItem('gnarlie_cart', JSON.stringify(cart));
 }
@@ -18,7 +21,6 @@ function saveCartState() {
    2. CONTENT DATA FOR SHOWROOM MODALS (HOME PAGE)
    ========================================================================== */
 
-// Structured HTML content payloads served dynamically inside home page modals.
 const modalData = {
   style: {
     title: "HOW TO STYLE — FIT COMBOS",
@@ -62,7 +64,6 @@ const modalData = {
    3. SAFE DOM ELEMENT REFERENCES
    ========================================================================== */
 
-// Cart Side Drawer DOM Elements
 const cartToggle = document.getElementById('cartToggle');
 const cartClose = document.getElementById('cartClose');
 const cartDrawer = document.getElementById('cartDrawer');
@@ -71,80 +72,53 @@ const cartDrawerCount = document.getElementById('cartDrawerCount');
 const cartItemsContainer = document.getElementById('cartItems');
 const cartTotalAmount = document.getElementById('cartTotalAmount');
 
-// Home Page Modal DOM Elements
 const modalOverlay = document.getElementById('modalOverlay');
 const modalClose = document.getElementById('modalClose');
 const modalBody = document.getElementById('modalBody');
-
-// Footer Element
 const exploreBtn = document.getElementById('exploreBtn');
 
 /* ==========================================================================
    4. SIDE DRAWER CART ENGINE
    ========================================================================== */
 
-/**
- * Toggles the open/closed CSS state class on the sliding cart drawer.
- */
 function toggleCart() {
   if (cartDrawer) {
     cartDrawer.classList.toggle('open');
   }
 }
 
-// Bind trigger listeners safely with null-checks to prevent errors on non-drawer pages
 if (cartToggle) cartToggle.addEventListener('click', toggleCart);
 if (cartClose) cartClose.addEventListener('click', toggleCart);
 
-/**
- * Adds an item to the global cart state array, saves to storage, and refreshes UI.
- * @param {string} name - Product title (with size if applicable)
- * @param {number} price - Unit item cost in ZAR (R)
- * @param {string} image - Optional preview thumbnail path
- */
 function addToCart(name, price, image = 'Assets/GNARLIE CAMO LOGO.png') {
   const existingIndex = cart.findIndex(item => item.name === name);
   
   if (existingIndex > -1) {
-    // Increment quantity if item with exact name/size combination already exists
     cart[existingIndex].qty += 1;
   } else {
-    // Push new product object into cart array
     cart.push({ name, price, qty: 1, image });
   }
 
-  saveCartState(); // Sync array to localStorage
-  updateCartUI();   // Update sliding drawer UI elements
+  saveCartState();
+  updateCartUI();
 
-  // Auto-open sliding drawer on item add if present on current page
   if (cartDrawer) cartDrawer.classList.add('open');
 }
 
-/**
- * Removes item completely at specified index from cart state.
- * @param {number} index - Position of item in cart array
- */
 function removeFromCart(index) {
   cart.splice(index, 1);
   saveCartState();
   updateCartUI();
 
-  // If cart.html render function exists in current scope, execute re-render
   if (typeof renderCartPage === 'function') {
     renderCartPage();
   }
 }
 
-/**
- * Updates or decreases item quantity. Removes element if quantity drops to 0.
- * @param {number} index - Index of target product
- * @param {number} delta - Change amount (+1 or -1)
- */
 function updateQuantity(index, delta) {
   if (cart[index]) {
     cart[index].qty += delta;
     
-    // If quantity hits 0 or lower, scrub item from state
     if (cart[index].qty <= 0) {
       cart.splice(index, 1);
     }
@@ -152,26 +126,20 @@ function updateQuantity(index, delta) {
     saveCartState();
     updateCartUI();
 
-    // Re-render full manifest table if currently on cart.html
     if (typeof renderCartPage === 'function') {
       renderCartPage();
     }
   }
 }
 
-/**
- * Recalculates total items/pricing and repopulates side cart drawer markup.
- */
 function updateCartUI() {
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
   const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-  // Update header/badge indicator counts
   if (cartCount) cartCount.textContent = totalItems;
   if (cartDrawerCount) cartDrawerCount.textContent = totalItems;
   if (cartTotalAmount) cartTotalAmount.textContent = `R${totalPrice.toFixed(2)}`;
 
-  // Populate HTML inside side drawer element container
   if (cartItemsContainer) {
     if (cart.length === 0) {
       cartItemsContainer.innerHTML = '<p class="empty-msg">Your cart is currently empty.</p>';
@@ -191,16 +159,14 @@ function updateCartUI() {
 }
 
 /* ==========================================================================
-   5. HOME PAGE MODAL SYSTEM
+   5. HOME PAGE MODAL & FOOTER HANDLERS
    ========================================================================== */
 
-// Find and attach click listeners to all showroom cards on home page
 const showroomCards = document.querySelectorAll('.showroom-card');
 if (showroomCards.length > 0) {
   showroomCards.forEach(card => {
     card.addEventListener('click', () => {
       const key = card.getAttribute('data-modal');
-      // Read data payload matching card key and display overlay
       if (modalData[key] && modalOverlay && modalBody) {
         modalBody.innerHTML = `
           <h3 style="font-size:1.3rem; margin-bottom:15px; font-weight:900;">${modalData[key].title}</h3>
@@ -212,24 +178,16 @@ if (showroomCards.length > 0) {
   });
 }
 
-/**
- * Closes modal overlay window.
- */
 function closeModal() {
   if (modalOverlay) modalOverlay.classList.remove('active');
 }
 
-// Close listeners for modal close button and background overlay backdrop
 if (modalClose) modalClose.addEventListener('click', closeModal);
 if (modalOverlay) {
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal();
   });
 }
-
-/* ==========================================================================
-   6. FOOTER INTERACTION HANDLER
-   ========================================================================== */
 
 if (exploreBtn) {
   exploreBtn.addEventListener('click', () => {
@@ -238,41 +196,21 @@ if (exploreBtn) {
 }
 
 /* ==========================================================================
-   7. SHOP PAGE ENGINE & CATEGORY SWITCHING
+   6. SHOP PAGE ENGINE & DYNAMIC DATABASE RENDERER
    ========================================================================== */
 
-// Category dictionary map for pill dynamic headers
-const categoryNames = {
-  tees: "Tee-Shirts",
-  hoodies: "Hoodies",
-  pants: "Pants",
-  accessories: "Accessories"
-};
-
-/**
- * Size selector engine for inline product cards.
- * Highlights active size pill and deselects siblings within the same parent row.
- * @param {HTMLElement} btnElement - Clicked size button
- */
 function selectSize(btnElement) {
   const parent = btnElement.closest('.size-selector-row');
   if (!parent) return;
 
-  // Clear existing active flags on row siblings
   parent.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
-  // Set active flag on target clicked size
   btnElement.classList.add('active');
 }
 
-/**
- * Formats data from inline card elements and triggers `addToCart`.
- * @param {HTMLElement} buttonElement - Clicked "Add to Cart" button inside product card
- */
 function handleAddFromCard(buttonElement) {
   const card = buttonElement.closest('.inline-product-card');
   if (!card) return;
 
-  // Read card UI values safely with optional chaining fallbacks
   const title = card.querySelector('.tile-info h4')?.textContent || "Product";
   const priceText = card.querySelector('.tile-info .price')?.textContent || "R0";
   const activeSizeBtn = card.querySelector('.size-btn.active');
@@ -280,33 +218,37 @@ function handleAddFromCard(buttonElement) {
   const imgElement = card.querySelector('.tile-img-container img');
   const imgSrc = imgElement ? imgElement.getAttribute('src') : 'Assets/GNARLIE CAMO LOGO.png';
 
-  // Sanitize raw text to extract float number (e.g., "R550.00" -> 550)
   const numericPrice = parseFloat(priceText.replace(/[^0-9.-]+/g, "")) || 0;
 
-  // Commit item to cart system with active size string appended
   addToCart(`${title} (${size})`, numericPrice, imgSrc);
 }
 
-/**
- * Dynamic Category Switching Core Engine:
- * Hides Frame 2 persuasion cards, rebuilds primary/secondary pill rows, 
- * updates grid headers, and displays matching category product cards.
- * @param {string} categoryKey - Category identifier ('tees', 'hoodies', 'pants', 'accessories')
- */
+function setGenderFilter(genderKey) {
+  activeGender = genderKey;
+
+  document.querySelectorAll('.gender-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-gender') === genderKey);
+  });
+
+  if (currentCategory) {
+    selectCategory(currentCategory);
+  }
+}
+
 function selectCategory(categoryKey) {
+  currentCategory = categoryKey;
+
   const primaryPillsContainer = document.getElementById('primaryPills');
   const secondaryPillsContainer = document.getElementById('secondaryPills');
   const persuasionSection = document.getElementById('persuasionSection');
   const productGridSection = document.getElementById('productGridSection');
   const activeCategoryHeading = document.getElementById('activeCategoryHeading');
-  const allCards = document.querySelectorAll('.inline-product-card');
+  const productGrid = document.getElementById('productGrid');
 
-  // Step 1: Hide Frame 2 Persuasion / Pitch Banners
-  if (persuasionSection) {
-    persuasionSection.style.display = 'none';
-  }
+  // 1. Hide Persuasion Banners
+  if (persuasionSection) persuasionSection.style.display = 'none';
 
-  // Step 2: Render unselected pill category buttons into secondary top container
+  // 2. Render Secondary Pills
   if (secondaryPillsContainer) {
     const remainingCategories = Object.keys(categoryNames).filter(key => key !== categoryKey);
     secondaryPillsContainer.innerHTML = remainingCategories.map(key => `
@@ -314,55 +256,78 @@ function selectCategory(categoryKey) {
     `).join('');
   }
 
-  // Step 3: Render primary selected pill inside lower active container
+  // 3. Render Primary Active Pill
   if (primaryPillsContainer) {
     primaryPillsContainer.innerHTML = `
       <button class="pill-btn active-pill" onclick="selectCategory('${categoryKey}')">${categoryNames[categoryKey]}</button>
     `;
   }
 
-  // Step 4: Update section header text to match selected category
+  // 4. Update Header Title
   if (activeCategoryHeading) {
-    activeCategoryHeading.textContent = `— ${categoryNames[categoryKey] || categoryKey} —`;
+    const genderTag = activeGender !== 'all' ? `${activeGender.toUpperCase()}'S ` : '';
+    activeCategoryHeading.textContent = `— ${genderTag}${categoryNames[categoryKey] || categoryKey} —`;
   }
 
-  // Step 5: Remove hidden state class and reveal grid container section
+  // 5. Reveal Product Grid Section
   if (productGridSection) {
     productGridSection.classList.remove('hidden');
     productGridSection.style.display = 'block';
   }
 
-  // Step 6: Filter product cards by matching `data-category` attributes
-  allCards.forEach(card => {
-    const cardCategory = card.getAttribute('data-category');
-    if (cardCategory === categoryKey) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
+  // 6. Filter & Render from Centralized PRODUCTS_DATABASE
+  if (productGrid && typeof PRODUCTS_DATABASE !== 'undefined') {
+    const filteredProducts = PRODUCTS_DATABASE.filter(item => {
+      const categoryMatch = item.category === categoryKey;
+      const genderMatch = activeGender === 'all' || item.gender === activeGender || item.gender === 'unisex';
+      return categoryMatch && genderMatch;
+    });
+
+    if (filteredProducts.length === 0) {
+      productGrid.innerHTML = `
+        <p style="grid-column: 1/-1; text-align: center; padding: 40px; font-weight: bold; letter-spacing: 0.1em;">
+          NO DISPATCHES AVAILABLE FOR THIS SELECTION.
+        </p>
+      `;
+      return;
     }
-  });
+
+    productGrid.innerHTML = filteredProducts.map(product => {
+      let buttonText = "+ ADD TO CART";
+      let buttonDisabled = "";
+
+      if (product.status === "sold-out") {
+        buttonText = "SOLD OUT";
+        buttonDisabled = "disabled style='opacity: 0.5; cursor: not-allowed;'";
+      } else if (product.status === "pre-order") {
+        buttonText = "PRE-ORDER NOW";
+      }
+
+      return `
+        <article class="inline-product-card" data-category="${product.category}" data-gender="${product.gender}">
+          <div class="tile-img-container">
+            <img src="${product.image}" alt="${product.title}">
+          </div>
+          <div class="tile-info">
+            <h4>${product.title}</h4>
+            <p class="price">R${product.price}</p>
+          </div>
+          <div class="size-selector-row">
+            ${product.sizes.map((size, idx) => `
+              <button class="size-btn ${idx === 1 || product.sizes.length === 1 ? 'active' : ''}" onclick="selectSize(this)">${size}</button>
+            `).join('')}
+          </div>
+          <button class="inline-add-btn camo-accent-btn" onclick="handleAddFromCard(this)" ${buttonDisabled}>${buttonText}</button>
+        </article>
+      `;
+    }).join('');
+  }
 }
 
-/**
- * Binds initial click event listeners to pre-rendered category pill elements on page load.
- */
 function initShopPage() {
-  const primaryPills = document.querySelectorAll('#primaryPills .pill-btn');
-  
-  primaryPills.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const category = e.currentTarget.getAttribute('data-category');
-      if (category) {
-        selectCategory(category);
-      }
-    });
-  });
-
-  // Perform initial UI pass with persisted cart items on page load
   updateCartUI();
 }
 
-// Automatically sync drawer state UI when DOM content completes loading
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
 });
