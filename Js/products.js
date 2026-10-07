@@ -7,7 +7,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-01",
     title: "GNARLIE CAMO FROG SIGNATURE",
-    price: 450,
+    price: 350,
     category: "tees",
     gender: "unisex", // 'men', 'women', or 'unisex'
     status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
@@ -17,7 +17,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-02",
     title: "GN GSN Graphic Tee",
-    price: 420,
+    price: 350,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
@@ -27,7 +27,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-03",
     title: "GN Brown Tee",
-    price: 420,
+    price: 275,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
@@ -37,7 +37,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-04",
     title: "GN StarFrog Pixel Tee",
-    price: 420,
+    price: 350,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
@@ -47,7 +47,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-05",
     title: "GN PixelStar Tee",
-    price: 420,
+    price: 350,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
@@ -57,7 +57,7 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-06",
     title: "GN Camo Sigil Tee",
-    price: 420,
+    price: 350,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
@@ -67,11 +67,51 @@ const PRODUCTS_DATABASE = [
   {
     id: "tee-07",
     title: "GN Brown Sigil Tee",
-    price: 420,
+    price: 350,
     category: "tees",
     gender: "unisex",
     status: "in-stock",
     image: "Assets/GN Brown Sigil Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-08",
+    title: "GN StarRed Tee.png",
+    price: 350,
+    category: "tees",
+    gender: "unisex", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN StarRed Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-09",
+    title: "GN StarPink Long Sleeve Tee.png",
+    price: 450,
+    category: "tees",
+    gender: "unisex", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN StarPink Long Sleeve Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-10",
+    title: "GN 77 Tee.png",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN 77 Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+{
+  id: "tee-11",
+    title: "GN StarRed Tee.png",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN FrogBag Tee.png",
     sizes: ["S", "M", "L", "XL"]
   },
 
