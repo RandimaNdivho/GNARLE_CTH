@@ -91,7 +91,7 @@ const PRODUCTS_DATABASE = [
     category: "tees",
     gender: "unisex", // 'men', 'women', or 'unisex'
     status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
-    image: "Assets/GN StarPisnk Long Sleeve.png",
+    image: "Assets/GN StarPink Long Sleeve.png",
     sizes: ["S", "M", "L", "XL"]
   },
   {
