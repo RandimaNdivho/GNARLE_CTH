@@ -125,6 +125,21 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.hero-content h1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--black);
+  color: var(--white);
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--black);
+  transition: var(--transition);
+}
+
 .hero-content h2 {
   font-size: 3.5rem;
   font-weight: 900;
