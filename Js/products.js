@@ -122,7 +122,7 @@ const PRODUCTS_DATABASE = [
     price: 950,
     category: "hoodies",
     gender: "unisex",
-    status: "in-stock",
+    status: "sold-out",
     image: "Assets/GN GreybDestressed hoodie.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -132,7 +132,7 @@ const PRODUCTS_DATABASE = [
     price: 1100,
     category: "hoodies",
     gender: "unisex",
-    status: "in-stock",
+    status: "sold-out",
     image: "Assets/GN Destressed WindBreaker.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -142,7 +142,7 @@ const PRODUCTS_DATABASE = [
     price: 850,
     category: "hoodies",
     gender: "men",
-    status: "in-stock",
+    status: "sold-out",
     image: "Assets/Men Cropped Hoodie.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -152,7 +152,7 @@ const PRODUCTS_DATABASE = [
     price: 890,
     category: "hoodies",
     gender: "women",
-    status: "in-stock",
+    status: "sold-out",
     image: "Assets/WOMEN RIBBON HOODIE.jpg",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -163,8 +163,8 @@ const PRODUCTS_DATABASE = [
     title: "GN Cheetah Denim Capris",
     price: 1150,
     category: "pants",
-    gender: "unisex",
-    status: "in-stock",
+    gender: "women",
+    status: "sold-out",
     image: "Assets/GN Cheetah Capris.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -173,10 +173,10 @@ const PRODUCTS_DATABASE = [
   {
     id: "acc-01",
     title: "GNARLIE Camo Patch Cap",
-    price: 350,
+    price: 250,
     category: "accessories",
     gender: "unisex",
-    status: "in-stock",
+    status: "sold-out",
     image: "Assets/GNARLIE CAMO LOGO.png",
     sizes: ["ONE SIZE"]
   }
