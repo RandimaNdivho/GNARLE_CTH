@@ -342,7 +342,13 @@ function selectCategory(categoryKey) {
       } else if (product.status === "pre-order") {
         buttonText = "PRE-ORDER NOW";
       }
-
+      
+      if (product.status === "unavailable") {
+        buttonText = "UNAVAILABLE";
+        buttonDisabled = "disabled style='opacity: 0.5; cursor: not-allowed;'";
+      } else if (product.status === "pre-order") {
+        buttonText = "PRE-ORDER NOW";
+      }
       return `
         <article class="inline-product-card" data-category="${product.category}" data-gender="${product.gender}">
           <div class="tile-img-container">

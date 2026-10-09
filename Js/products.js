@@ -182,7 +182,7 @@ const PRODUCTS_DATABASE = [
     price: 950,
     category: "hoodies",
     gender: "unisex",
-    status: "sold-out",
+    status: "unavailable",
     image: "Assets/GN GreybDestressed hoodie.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -192,27 +192,27 @@ const PRODUCTS_DATABASE = [
     price: 1100,
     category: "hoodies",
     gender: "unisex",
-    status: "sold-out",
+    status: "unavailable",
     image: "Assets/GN Destressed WindBreaker.png",
     sizes: ["S", "M", "L", "XL"]
   },
   {
     id: "hoodie-03",
     title: "Men's Raw Cropped Hoodie",
-    price: 850,
+    price: 950,
     category: "hoodies",
-    gender: "men",
-    status: "sold-out",
+    gender: "unisex",
+    status: "unavailable",
     image: "Assets/Men Cropped Hoodie.png",
     sizes: ["S", "M", "L", "XL"]
   },
   {
     id: "hoodie-04",
     title: "Women's Ribbon Hoodie",
-    price: 890,
+    price: 1100,
     category: "hoodies",
     gender: "women",
-    status: "sold-out",
+    status:"unavailable",
     image: "Assets/WOMEN RIBBON HOODIE.jpg",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -224,7 +224,7 @@ const PRODUCTS_DATABASE = [
     price: 1150,
     category: "pants",
     gender: "women",
-    status: "sold-out",
+    status: "unavailable",
     image: "Assets/GN Cheetah Capris.png",
     sizes: ["S", "M", "L", "XL"]
   },
@@ -236,7 +236,7 @@ const PRODUCTS_DATABASE = [
     price: 250,
     category: "accessories",
     gender: "unisex",
-    status: "sold-out",
+    status: "unavailable",
     image: "Assets/GNARLIE CAMO LOGO.png",
     sizes: ["ONE SIZE"]
   }
