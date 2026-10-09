@@ -107,9 +107,7 @@
             </div>
           </div>
           
-          <button class="btn-checkout camo-accent-btn">
-            PROCEED TO DISPATCH &rarr;
-          </button>
+         <button id="drawerCheckoutBtn" class="checkout-btn camo-accent-btn">CHECKOUT</button>
 
           <div class="security-tag">
             <span>[ENCRYPTED CHECKOUT]</span>
@@ -132,10 +130,41 @@
 
  <script src="Js/main.js"></script>
   <script src="Js/cart.js"></script>
+  <script src="Js/main.js"></script>
+  <script src="Js/cart.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      renderCartPage();
+      // 1. Render cart items and totals
+      if (typeof renderCartPage === 'function') {
+        renderCartPage();
+      }
+
+      // 2. FORCE BIND REDIRECT TO CHECKOUT.HTML
+      const checkoutBtn = document.getElementById('checkoutBtn');
+      if (checkoutBtn) {
+        // Clone and replace the element to completely strip any legacy click listeners attached by main.js
+        const cleanBtn = checkoutBtn.cloneNode(true);
+        checkoutBtn.parentNode.replaceChild(cleanBtn, checkoutBtn);
+
+        // Bind redirect action
+        cleanBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
+          
+          if (currentCart.length === 0) {
+            alert("YOUR DISPATCH MANIFEST IS EMPTY.");
+            return;
+          }
+
+          // Direct route to dedicated checkout page
+          window.location.href = "checkout.html";
+        });
+      }
     });
   </script>
+</body>
+</html>
 </body>
 </html>

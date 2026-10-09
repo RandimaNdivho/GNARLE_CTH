@@ -156,8 +156,39 @@ function updateCartUI() {
       </div>
     `).join('');
   }
+
+  // Ensure checkout button always redirects correctly whenever UI refreshes
+  initDrawerCheckout();
 }
 
+function initDrawerCheckout() {
+  const drawerCheckoutBtn = document.querySelector('.cart-drawer .checkout-btn') 
+    || document.querySelector('.cart-drawer button')
+    || document.getElementById('drawerCheckoutBtn');
+
+  if (drawerCheckoutBtn) {
+    const cleanBtn = drawerCheckoutBtn.cloneNode(true);
+    drawerCheckoutBtn.parentNode.replaceChild(cleanBtn, drawerCheckoutBtn);
+
+    cleanBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || cart || [];
+
+      if (currentCart.length === 0) {
+        alert("YOUR CART IS CURRENTLY EMPTY.");
+        return;
+      }
+
+      window.location.href = "checkout.html";
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initDrawerCheckout();
+});
 /* ==========================================================================
    5. HOME PAGE MODAL & FOOTER HANDLERS
    ========================================================================== */
@@ -275,13 +306,22 @@ function selectCategory(categoryKey) {
     productGridSection.style.display = 'block';
   }
 
-  // 6. Filter & Render from Centralized PRODUCTS_DATABASE
+ // 6. Filter & Render from Centralized PRODUCTS_DATABASE
   if (productGrid && typeof PRODUCTS_DATABASE !== 'undefined') {
-    const filteredProducts = PRODUCTS_DATABASE.filter(item => {
+    let filteredProducts = PRODUCTS_DATABASE.filter(item => {
       const categoryMatch = item.category === categoryKey;
       const genderMatch = activeGender === 'all' || item.gender === activeGender || item.gender === 'unisex';
       return categoryMatch && genderMatch;
     });
+
+    // PRIORITY SORT: Put active gender specifics (e.g., Women's) first, Unisex second
+    if (activeGender !== 'all') {
+      filteredProducts.sort((a, b) => {
+        if (a.gender === activeGender && b.gender !== activeGender) return -1;
+        if (a.gender !== activeGender && b.gender === activeGender) return 1;
+        return 0;
+      });
+    }
 
     if (filteredProducts.length === 0) {
       productGrid.innerHTML = `
@@ -323,6 +363,7 @@ function selectCategory(categoryKey) {
     }).join('');
   }
 }
+
 
 function initShopPage() {
   updateCartUI();

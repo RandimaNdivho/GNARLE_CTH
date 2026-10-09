@@ -96,7 +96,7 @@ const PRODUCTS_DATABASE = [
   },
   {
   id: "tee-10",
-    title: "GN 77 Tee.png",
+    title: "GN 77 Tee",
     price: 300,
     category: "tees",
     gender: "women", // 'men', 'women', or 'unisex'
@@ -106,12 +106,72 @@ const PRODUCTS_DATABASE = [
   },
 {
   id: "tee-11",
-    title: "GN StarRed Tee.png",
+    title: "GN FrogBag Tee",
     price: 300,
     category: "tees",
     gender: "women", // 'men', 'women', or 'unisex'
     status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
     image: "Assets/GN FrogBag Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-12",
+    title: "GN Ate8 Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/White Ate8 Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-13",
+    title: "GN KeepIt Gnarlie Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/White KeepIt Gnarlie Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-14",
+    title: "GN MyMan Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/White MyMan Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-15",
+    title: "GN CherryChain Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN CherryChain Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-16",
+    title: "GN NSG Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/NG Black Tee.png",
+    sizes: ["S", "M", "L", "XL"]
+  },
+  {
+  id: "tee-17",
+    title: "GN Corset Tee",
+    price: 300,
+    category: "tees",
+    gender: "women", // 'men', 'women', or 'unisex'
+    status: "in-stock", // 'in-stock', 'sold-out', or 'pre-order'
+    image: "Assets/GN Corset Tee.png",
     sizes: ["S", "M", "L", "XL"]
   },
 

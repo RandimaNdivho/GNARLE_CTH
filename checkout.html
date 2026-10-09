@@ -2,163 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1100, initial-scale=0.35, maximum-scale=1.0">
-  <title>GNARLIE.CTH - CHECKOUT TERMINAL</title>
-  <link rel="stylesheet" href="Css/style.css">
-  <link rel="stylesheet" href="Css/checkout.css">
-  <link rel="stylesheet" href="Css/responsive.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G★N STUDIO // CHECKOUT</title>
+  <link rel="stylesheet" href="responsive.css">
 </head>
-<body class="light-mode">
+<body>
 
-  <!-- DESKTOP-ON-MOBILE CANVAS LOCK WRAPPER -->
-  <div class="desktop-lock-wrapper">
+  <header class="main-header">
+    <h1 class="brand-title">GNARLIE.CTH</h1>
+    <nav class="nav-links">
+      <a href="shop.html" class="nav-item">← RETURN TO SHOP</a>
+    </nav>
+  </header>
 
-    <!-- 1. DYNAMIC HEADER BAR -->
-    <header class="hub-header">
-      <div class="brand-title">GNARLIE.CTH</div>
-      <span class="header-status-tag">// FINAL DISPATCH PROTOCOL</span>
-      
-      <nav class="tactical-nav">
-        <!-- ACTIVE SLOTS INTO FIRST POSITION -->
-        <a href="cart.html" class="nav-item active" aria-label="Cart">
-          <span class="nav-label">Checkout</span>
-        </a>
+  <main class="shop-container" style="max-width: 600px; margin: 2rem auto; padding: 0 1rem;">
+    <section class="checkout-wrapper" style="width: 100%; border: 1px solid #111; padding: 1.5rem; background: #fff;">
+      <h2 style="font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+        DISPATCH DETAILS
+      </h2>
 
-        <!-- CENTERED SECONDARY LOGO MARK -->
-        <a href="index.html" class="nav-logo-mark" aria-label="GNARLIE Star Logo">
-          <img src="Assets/GNARLIE CAMO LOGO.png" alt="G★N Logo" class="gn-star-icon">
-        </a>
+      <form id="checkoutForm">
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">FULL NAME *</label>
+    <input type="text" id="custName" required placeholder="e.g. John Doe" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
+  </div>
 
-        <a href="index.html" class="nav-item" aria-label="Home">
-          <span class="nav-label">Home</span>
-        </a>
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">PHONE / WHATSAPP NUMBER *</label>
+    <input type="tel" id="custPhone" required placeholder="e.g. 066 046 0301" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
+  </div>
 
-        <a href="shop.html" class="nav-item" aria-label="Shop">
-          <span class="nav-label">Shop</span>
-        </a>
-      </nav>
-    </header>
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">DELIVERY CITY & ADDRESS *</label>
+    <textarea id="custAddress" required rows="3" placeholder="Street, Suburb, City, Code" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;"></textarea>
+  </div>
 
-    <!-- 2. CHECKOUT DISPATCH TERMINAL -->
-    <main class="checkout-container">
-      <div class="checkout-header-bar">
-        <h2>DISPATCH MANIFEST</h2>
-        <span class="system-id">[TERMINAL-04]</span>
-      </div>
+  <div id="checkoutSummary" style="background: #f8f8f8; padding: 1rem; border: 1px solid #eee; margin: 1.5rem 0;"></div>
 
-      <div class="checkout-layout-grid">
-        
-        <!-- LEFT: SHIPPING & LOGISTICS FORM -->
-        <div class="checkout-form-wrapper">
-          <form id="checkout-form" class="tactical-form">
-            <h3 class="form-section-title">// RECIPIENT & COURIER DESTINATION</h3>
+  <button type="submit" class="camo-accent-btn" style="width: 100%; padding: 0.9rem; font-size: 0.85rem; font-weight: 900; cursor: pointer;">
+    CONFIRM ORDER VIA WHATSAPP →
+  </button>
+</form>
+    </section>
+  </main>
 
-            <div class="form-row dual-field">
-              <div class="field-group">
-                <label for="name">FULL NAME *</label>
-                <input type="text" id="name" placeholder="e.g. Alex Vance" required>
-              </div>
-              <div class="field-group">
-                <label for="phone">PHONE NUMBER (WHATSAPP) *</label>
-                <input type="tel" id="phone" placeholder="+27 00 000 0000" required>
-              </div>
-            </div>
-
-            <div class="field-group">
-              <label for="email">EMAIL ADDRESS *</label>
-              <input type="email" id="email" placeholder="client@domain.com" required>
-            </div>
-
-            <div class="field-group">
-              <label for="address">STREET ADDRESS *</label>
-              <input type="text" id="address" placeholder="Unit, Building & Street Name" required>
-            </div>
-
-            <div class="form-row tri-field">
-              <div class="field-group">
-                <label for="city">CITY *</label>
-                <input type="text" id="city" placeholder="Johannesburg" required>
-              </div>
-              <div class="field-group">
-                <label for="province">PROVINCE *</label>
-                <input type="text" id="province" placeholder="Gauteng" required>
-              </div>
-              <div class="field-group">
-                <label for="postal">POSTAL CODE *</label>
-                <input type="text" id="postal" placeholder="2000" required>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-dispatch camo-accent-btn">
-              COMPLETE DISPATCH VIA WHATSAPP &rarr;
-            </button>
-          </form>
-
-          <!-- CONFIRMATION OVERLAY STATE (HIDDEN BY DEFAULT) -->
-          <div id="confirmation" class="hidden confirmation-box">
-            <span class="badge">[DISPATCH SENT]</span>
-            <h2>ORDER TRANSMITTED!</h2>
-            <p>Your dispatch manifest has been routed to our WhatsApp sales desk. Stand by for payment confirmation and courier tracking details.</p>
-            <a href="index.html" class="btn-return-home">[RETURN TO MAIN ENGINE]</a>
-          </div>
-        </div>
-
-        <!-- RIGHT: DISPATCH LEDGER SUMMARY -->
-        <aside class="checkout-summary-panel">
-          <div class="summary-header">
-            <h3>ORDER MANIFEST</h3>
-          </div>
-
-          <div id="checkout-summary" class="summary-items-list">
-            <!-- Dynamically Injected by JS or showing static fallback representation -->
-            <div class="summary-item-row">
-              <div class="item-meta">
-                <span class="item-title">Long Sleeve Tee</span>
-                <span class="item-sub">SIZE: M | QTY: 1</span>
-              </div>
-              <span class="item-cost">R550</span>
-            </div>
-          </div>
-
-          <div class="ledger-breakdown">
-            <div class="ledger-row">
-              <span>Subtotal</span>
-              <span id="summary-subtotal">R550</span>
-            </div>
-            <div class="ledger-row">
-              <span>Courier Delivery (SA)</span>
-              <span id="summary-shipping">Standard Courier</span>
-            </div>
-            <div class="ledger-row grand-total">
-              <span>Total Payable</span>
-              <span id="summary-total">R550</span>
-            </div>
-          </div>
-
-          <div class="security-tag">
-            <span>[DIRECT WHATSAPP ROUTE]</span>
-          </div>
-        </aside>
-
-      </div>
-    </main>
-
-    <!-- 3. INDUSTRIAL FOOTER -->
-    <footer class="industrial-footer">
-      <div class="footer-left">
-        <p>&copy; 2026 GNARLIE.CTH SUPPLY ENGINE. ALL RIGHTS RESERVED.</p>
-      </div>
-      <div class="footer-right">
-        <a href="moments.html" class="explore-more-btn">[Explore More]</a>
-      </div>
-    </footer>
-
-  </div> <!-- END .desktop-lock-wrapper -->
-
-  <script src="js/checkout.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Google Maps Places API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="checkout.js"></script>
 </body>
 </html>

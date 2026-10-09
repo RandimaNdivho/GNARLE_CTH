@@ -1,67 +1,115 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const WHATSAPP_BUSINESS_NUMBER = "27660460301";
 
-// Render cart summary
-function renderSummary() {
-  const summary = document.getElementById('checkout-summary');
-  if (!summary) return;
+// Render Order Summary on Page Load
+function initCheckoutPage() {
+  const summaryBox = document.getElementById('checkoutSummary');
+  const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
 
-  if (cart.length === 0) {
-    summary.innerHTML = "<p>Your cart is empty. <a href='shop.html'>Go back to shop</a></p>";
+  if (!summaryBox) return;
+
+  if (currentCart.length === 0) {
+    summaryBox.innerHTML = `
+      <p style="font-size: 0.8rem; font-weight: 700; text-align: center; margin: 0;">YOUR MANIFEST IS EMPTY.</p>
+    `;
     return;
   }
 
-  let total = 0;
-  let html = "<h2>Order Summary</h2><ul>";
+  let subtotal = 0;
+  let summaryHTML = `<h4 style="font-size: 0.85rem; font-weight: 900; margin: 0 0 0.75rem 0; letter-spacing: 1px;">ORDER MANIFEST</h4>`;
 
-  cart.forEach(item => {
-    const lineTotal = item.price * item.quantity;
-    total += lineTotal;
-    html += `<li>${item.product} (Size: ${item.size}) x ${item.quantity} — R${lineTotal}</li>`;
+  currentCart.forEach(item => {
+    const itemTotal = item.price * item.qty;
+    subtotal += itemTotal;
+    
+    const sizeMatch = item.name.match(/\(([^)]+)\)/);
+    const size = sizeMatch ? sizeMatch[1] : 'M';
+    const cleanName = item.name.replace(/\s*\([^)]*\)/, '');
+
+    summaryHTML += `
+      <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.4rem;">
+        <span>${cleanName} (${size}) x${item.qty}</span>
+        <strong>R${itemTotal}</strong>
+      </div>
+    `;
   });
 
-  html += `</ul><p><strong>Total: R${total}</strong></p>`;
-  summary.innerHTML = html;
+  summaryHTML += `
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 0.75rem 0;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 900;">
+      <span>GRAND TOTAL</span>
+      <span>R${subtotal}</span>
+    </div>
+  `;
+
+  summaryBox.innerHTML = summaryHTML;
 }
 
-renderSummary();
+// Process Form & Redirect to WhatsApp
+function processWhatsAppOrder(e) {
+  if (e) e.preventDefault();
 
-// Checkout form → WhatsApp + confirmation
-document.getElementById('checkout-form').addEventListener('submit', e => {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const address = document.getElementById('address').value.trim();
-  const city = document.getElementById('city').value.trim();
-  const province = document.getElementById('province').value.trim();
-  const postal = document.getElementById('postal').value.trim();
-
-  if (!name || !email || !phone || !address || !city || !province || !postal) {
-    alert("Please fill in all shipping details.");
+  const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
+  if (currentCart.length === 0) {
+    alert("YOUR CART IS EMPTY.");
     return;
   }
 
-  let message = `GNARLIE Order:\n\nCustomer: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}, ${city}, ${province}, ${postal}\n\nItems:\n`;
-  let total = 0;
+  const nameEl = document.getElementById('custName');
+  const phoneEl = document.getElementById('custPhone');
+  const addressEl = document.getElementById('custAddress');
 
-  cart.forEach(item => {
-    const lineTotal = item.price * item.quantity;
-    total += lineTotal;
-    message += `${item.product} (Size: ${item.size}) x ${item.quantity} — R${lineTotal}\n`;
+  const name = nameEl ? nameEl.value.trim() : '';
+  const phone = phoneEl ? phoneEl.value.trim() : '';
+  const address = addressEl ? addressEl.value.trim() : '';
+
+  if (!name || !phone || !address) {
+    alert("Please complete all shipping fields.");
+    return;
+  }
+
+  let subtotal = 0;
+  let message = `*G★N DISPATCH MANIFEST // NEW ORDER*\n`;
+  message += `===============================\n\n`;
+
+  message += `*CUSTOMER DETAILS:*\n`;
+  message += `• *Name:* ${name}\n`;
+  message += `• *Contact:* ${phone}\n`;
+  message += `• *Address:* ${address}\n\n`;
+
+  message += `===============================\n`;
+  message += `*ORDER ITEMS:*\n\n`;
+
+  currentCart.forEach((item, index) => {
+    const itemTotal = item.price * item.qty;
+    subtotal += itemTotal;
+
+    const sizeMatch = item.name.match(/\(([^)]+)\)/);
+    const size = sizeMatch ? sizeMatch[1] : 'M';
+    const cleanName = item.name.replace(/\s*\([^)]*\)/, '');
+
+    message += `*${index + 1}. ${cleanName}*\n`;
+    message += `   • Size: ${size}\n`;
+    message += `   • Qty: ${item.qty}\n`;
+    message += `   • Price: R${itemTotal}\n\n`;
   });
 
-  message += `\nTotal: R${total}`;
+  message += `===============================\n`;
+  message += `*GRAND TOTAL: R${subtotal}*\n`;
+  message += `===============================\n\n`;
+  message += `Awaiting payment instructions and dispatch confirmation.`;
 
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/27660460301?text=${encodedMessage}`;
+  const whatsappURL = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodedMessage}`;
 
-  // Hide form, show confirmation
-  document.getElementById('checkout-form').classList.add('hidden');
-  document.getElementById('confirmation').classList.remove('hidden');
+  // Direct location update ensures mobile browsers won't block popups
+  window.location.href = whatsappURL;
+}
 
-  // Redirect to WhatsApp after short delay
-  setTimeout(() => {
-    window.location.href = whatsappUrl;
-  }, 2000);
+document.addEventListener('DOMContentLoaded', () => {
+  initCheckoutPage();
+
+  const checkoutForm = document.getElementById('checkoutForm');
+  if (checkoutForm) {
+    checkoutForm.addEventListener('submit', processWhatsAppOrder);
+  }
 });
