@@ -72,7 +72,7 @@ function processWhatsAppOrder(event) {
   }
 
   let subtotal = 0;
-  let message = `*G★N NEW ORDER*\n`;
+  let message = `*G★N SUMMARY ORDER*\n`;
   message += `===============================\n\n`;
 
   message += `*CUSTOMER DETAILS:*\n`;
