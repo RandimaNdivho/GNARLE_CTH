@@ -1,6 +1,6 @@
 const WHATSAPP_BUSINESS_NUMBER = "27660460301";
 
-// Render Order Summary on Page Load
+// 1. Render Summary Box
 function initCheckoutPage() {
   const summaryBox = document.getElementById('checkoutSummary');
   const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
@@ -44,14 +44,18 @@ function initCheckoutPage() {
   summaryBox.innerHTML = summaryHTML;
 }
 
-// Process Form & Redirect to WhatsApp
-function processWhatsAppOrder(e) {
-  if (e) e.preventDefault();
+// 2. Process WhatsApp Order
+function processWhatsAppOrder(event) {
+  // CRITICAL: Stop browser from refreshing the page & clearing input boxes
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
 
   const currentCart = JSON.parse(localStorage.getItem('gnarlie_cart')) || [];
   if (currentCart.length === 0) {
     alert("YOUR CART IS EMPTY.");
-    return;
+    return false;
   }
 
   const nameEl = document.getElementById('custName');
@@ -63,8 +67,8 @@ function processWhatsAppOrder(e) {
   const address = addressEl ? addressEl.value.trim() : '';
 
   if (!name || !phone || !address) {
-    alert("Please complete all shipping fields.");
-    return;
+    alert("Please fill in all details before checking out.");
+    return false;
   }
 
   let subtotal = 0;
@@ -101,15 +105,17 @@ function processWhatsAppOrder(e) {
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodedMessage}`;
 
-  // Direct location update ensures mobile browsers won't block popups
+  // Redirect instantly to WhatsApp
   window.location.href = whatsappURL;
+  return false;
 }
 
+// Bind event listeners safely on load
 document.addEventListener('DOMContentLoaded', () => {
   initCheckoutPage();
 
-  const checkoutForm = document.getElementById('checkoutForm');
-  if (checkoutForm) {
-    checkoutForm.addEventListener('submit', processWhatsAppOrder);
+  const confirmWhatsAppBtn = document.getElementById('confirmWhatsAppBtn');
+  if (confirmWhatsAppBtn) {
+    confirmWhatsAppBtn.addEventListener('click', processWhatsAppOrder);
   }
 });

@@ -15,37 +15,39 @@
     </nav>
   </header>
 
-  <main class="shop-container" style="max-width: 600px; margin: 2rem auto; padding: 0 1rem;">
-    <section class="checkout-wrapper" style="width: 100%; border: 1px solid #111; padding: 1.5rem; background: #fff;">
-      <h2 style="font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
-        DISPATCH DETAILS
-      </h2>
+ <main class="shop-container" style="max-width: 600px; margin: 2rem auto; padding: 0 1rem;">
+  <section class="checkout-wrapper" style="width: 100%; border: 1px solid #111; padding: 1.5rem; background: #fff;">
+    <h2 style="font-size: 1.1rem; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+      DISPATCH DETAILS
+    </h2>
 
-      <form id="checkoutForm">
-  <div style="margin-bottom: 1rem;">
-    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">FULL NAME *</label>
-    <input type="text" id="custName" required placeholder="e.g. John Doe" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
-  </div>
+    <div>
+      <div style="margin-bottom: 1rem;">
+        <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">FULL NAME *</label>
+        <input type="text" id="custName" placeholder="e.g. John Doe" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
+      </div>
 
-  <div style="margin-bottom: 1rem;">
-    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">PHONE / WHATSAPP NUMBER *</label>
-    <input type="tel" id="custPhone" required placeholder="e.g. 066 046 0301" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
-  </div>
+      <div style="margin-bottom: 1rem;">
+        <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">PHONE / WHATSAPP NUMBER *</label>
+        <input type="tel" id="custPhone" placeholder="e.g. 066 046 0301" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;">
+      </div>
 
-  <div style="margin-bottom: 1rem;">
-    <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">DELIVERY CITY & ADDRESS *</label>
-    <textarea id="custAddress" required rows="3" placeholder="Street, Suburb, City, Code" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;"></textarea>
-  </div>
+      <div style="margin-bottom: 1rem;">
+        <label style="display:block; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.3rem;">DELIVERY CITY & ADDRESS *</label>
+        <textarea id="custAddress" rows="3" placeholder="Street, Suburb, City, Code" style="width: 100%; padding: 0.6rem; border: 1px solid #ccc; font-size: 0.85rem;"></textarea>
+      </div>
 
-  <div id="checkoutSummary" style="background: #f8f8f8; padding: 1rem; border: 1px solid #eee; margin: 1.5rem 0;"></div>
+      <div id="checkoutSummary" style="background: #f8f8f8; padding: 1rem; border: 1px solid #eee; margin: 1.5rem 0;"></div>
 
-  <button type="submit" class="camo-accent-btn" style="width: 100%; padding: 0.9rem; font-size: 0.85rem; font-weight: 900; cursor: pointer;">
-    CONFIRM ORDER VIA WHATSAPP →
-  </button>
-</form>
-    </section>
-  </main>
+      <button type="button" id="confirmWhatsAppBtn" class="camo-accent-btn" style="width: 100%; padding: 0.9rem; font-size: 0.85rem; font-weight: 900; cursor: pointer;">
+        CONFIRM ORDER VIA WHATSAPP →
+      </button>
+    </div>
+  </section>
+</main>
 
-  <script src="checkout.js"></script>
+<script src="Js/checkout.js"></script>
+
+ 
 </body>
 </html>
